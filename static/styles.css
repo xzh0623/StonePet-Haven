@@ -1,0 +1,127 @@
+/* 基本页面样式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+/* 头部样式 */
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: right;
+}
+
+.header a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 10px;
+}
+
+/* 按钮样式 */
+.login-button, .logout-button {
+    background-color: #428bca;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-button:hover, .logout-button:hover {
+    background-color: #3177b9;
+}
+
+/* 内容区域样式 */
+.content {
+    padding: 20px;
+}
+
+/* 链接样式 */
+a {
+    text-decoration: underline;
+    color: #428bca;
+}
+
+a:hover {
+    color: #3177b9;
+}
+
+
+.login-form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    width: 400px;
+}
+
+.login-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form button {
+    width: 50%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.options a {
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.other-login-methods h3 {
+    margin-top: 20px;
+}
+
+.registration-form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    width: 400px;
+}
+
+.registration-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.registration-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.registration-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.options a {
+    text-decoration: none;
+    margin: 0 10px;
+}
