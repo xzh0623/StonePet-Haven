@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>我的網站</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="header">
+        {% if user.is_authenticated %}
+            <p>使用者：{{ user.username }}</p>
+            <a class="logout-button" href="{% url 'logout' %}">登出</a>
+        {% else %}
+            <a class="login-button" href="{% url 'login' %}">登錄</a>
+        {% endif %}
+    </div>
+    <div class="content">
+        <!-- 網站内容 -->
+    </div>
+</body>
+</html>
