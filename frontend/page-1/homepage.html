@@ -11,6 +11,33 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Telex%3A400"/>
   <link rel="stylesheet" href="./styles/-FJd.css"/>
   <script src="./script/script.js"></script>
+  <!-- 在<head>中加入以下script標籤 -->
+<script>
+  function toggleMenu() {
+      const menuContainer = document.getElementById('menuContainer');
+      const homeMenuItem = document.querySelector('.item--L1j');
+
+      if (menuContainer.style.maxHeight === '0px') {
+        // 顯示選單
+        menuContainer.style.maxHeight = '500px';
+        menuContainer.style.opacity = '1';
+        menuContainer.style.pointerEvents = 'auto';
+
+        // 顯示最上面的首頁
+        homeMenuItem.style.display = 'block';
+      } else {
+        // 隱藏選單
+        menuContainer.style.maxHeight = '0';
+        menuContainer.style.opacity = '0';
+        menuContainer.style.pointerEvents = 'none';
+
+        // 隱藏最上面的首頁
+        homeMenuItem.style.display = 'none';
+      }
+    }
+
+</script>
+
 </head>
 <body>
 
@@ -184,7 +211,33 @@
     <a href="shoppingcart.html">
         <img class="shopping-cart-hND" src="./assets/shopping-cart-4LD.png" alt="Shoppingcart">
     </a>
-    <img class="menu-Rp1" src="./assets/menu-6XP.png"/>
+    <img class="menu-Rp1" src="./assets/menu-6XP.png" onclick="toggleMenu()"/>
+	<div id="menuContainer" class="menu-container">
+		 <div class="item--vyb">
+		  <div class="item--Dho">
+			<p class="item--L1j">首頁</p>
+			<p class="item--E77">最新優惠</p>
+			<div class="frame-20-9E5">
+			  <p class="item--3aM">新品上架</p>
+			  <img class="chevron-down-8rh" src="./assets/chevron-down-xqT.png"/>
+			</div>
+			<div class="auto-group-mlwd-TPB">
+			  <p class="top-10-MzM">熱賣商品 TOP 10</p>
+			  <p class="all-tUV">所有商品 / ALL</p>
+			</div>
+			<div class="line-5-2Ko">
+			</div>
+			<p class="item--wxZ">帳戶</p>
+			<p class="item--5J5">會員登入</p>
+			<p class="item--zR3">新用戶註冊</p>
+			<div class="line-6-6ys">
+			</div>
+			<p class="item--RWM">其他</p>
+			<p class="item--Yqs">聯絡我們</p>
+		  </div>
+		</div>
+	</div>
+
   </div>
 </div>
 </body>
