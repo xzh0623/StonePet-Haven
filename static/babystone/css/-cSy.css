@@ -1,0 +1,416 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 39.3rem;
+}.item--qGZ {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f2ec;
+  border-radius: 2rem;
+}
+.item--qGZ .auto-group-dh6s-ZiM {
+  box-sizing: border-box;
+  padding: 2.5rem 2rem 1.9rem 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.item--qGZ .auto-group-dh6s-ZiM .arrow-left-Vru {
+  margin-bottom: 3.6rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+  position: relative;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.item--qGZ .auto-group-dh6s-ZiM .item--SGM {
+  width: 100%;
+  text-align: center;
+  font-size: 2.9635rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000000;
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item--qGZ .auto-group-djuy-ZLy {
+  box-sizing: border-box;
+  padding: 3.1rem 0rem 15.3rem 0rem;
+  width: 46.2rem;
+  height: 71.9rem;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  background-color: #c4bbb2;
+  border-radius: 4.5rem 4.5rem 0 0;
+  flex-shrink: 0;
+}
+.item--qGZ .auto-group-djuy-ZLy .group-27-4Yd {
+  margin: 0rem 2.5rem 3.2rem 0rem;
+  width: 34.3rem;
+  height: 5.8rem;
+  position: relative;
+  flex-shrink: 0;
+}
+.item--qGZ .auto-group-djuy-ZLy .group-27-4Yd .rectangle-9-njX {
+  width: 34.3rem;
+  height: 4.5rem;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 1.3rem;
+  border: solid 0.3rem #000000;
+  box-sizing: border-box;
+  border-radius: 5rem;
+}
+.item--qGZ .auto-group-djuy-ZLy .group-27-4Yd .rectangle-15-W9j {
+  width: 6.8rem;
+  height: 2.7rem;
+  position: absolute;
+  left: 2.3rem;
+  top: 0;
+  background-color: #c4bbb2;
+}
+.item--qGZ .auto-group-djuy-ZLy .group-27-4Yd .item--pw7 {
+  width: 6.3rem;
+  height: 2rem;
+  position: absolute;
+  left: 2.8rem;
+  top: 0.5rem;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.6000000238);
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item--qGZ .auto-group-djuy-ZLy .group-28-7fK {
+  margin: 0rem 2.5rem 3.2rem 0rem;
+  width: 34.3rem;
+  height: 5.8rem;
+  position: relative;
+  flex-shrink: 0;
+}
+.item--qGZ .auto-group-djuy-ZLy .group-28-7fK .rectangle-9-eQM {
+  width: 34.3rem;
+  height: 4.5rem;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 1.3rem;
+  border: solid 0.3rem #000000;
+  box-sizing: border-box;
+  border-radius: 5rem;
+}
+.item--qGZ .auto-group-djuy-ZLy .group-28-7fK .rectangle-15-mUy {
+  width: 4.8rem;
+  height: 2.7rem;
+  position: absolute;
+  left: 2.3rem;
+  top: 0;
+  background-color: #c4bbb2;
+}
+.item--qGZ .auto-group-djuy-ZLy .group-28-7fK .item--7Hw {
+  width: 5.1rem;
+  height: 2rem;
+  position: absolute;
+  left: 2.8rem;
+  top: 0.5rem;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.6000000238);
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item--qGZ .auto-group-djuy-ZLy .group-29-QH3 {
+  margin: 0rem 2.5rem 3.3rem 0rem;
+  width: 34.3rem;
+  height: 5.8rem;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+.item--qGZ .auto-group-djuy-ZLy .group-29-QH3 .rectangle-9-vmB {
+  width: 34.3rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 0;
+  top: 1.3rem;
+  border: solid 0.3rem #000000;
+  box-sizing: border-box;
+  border-radius: 5rem;
+}
+.item--qGZ .auto-group-djuy-ZLy .group-29-QH3 .rectangle-15-4Mb {
+  width: 4.8rem;
+  height: 2.7rem;
+  position: absolute;
+  left: 2.3rem;
+  top: 0;
+  background-color: #c4bbb2;
+}
+.item--qGZ .auto-group-djuy-ZLy .group-29-QH3 .item--QRT {
+  width: 5.1rem;
+  height: 2rem;
+  position: absolute;
+  left: 2.8rem;
+  top: 0.5rem;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.6000000238);
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item--qGZ .auto-group-djuy-ZLy .group-29-QH3 .vector-WzH {
+  width: 1.2rem;
+  height: 0.6rem;
+  cursor: pointer;
+  position: absolute;
+  left: 31rem;
+  top: 3.5rem;
+  object-fit: contain;
+  vertical-align: top;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-ells-TPj {
+  margin: 0rem 2.4rem 1rem 0rem;
+  width: 34.4rem;
+  height: 15.2rem;
+  position: relative;
+  flex-shrink: 0;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-ells-TPj .vector-z8m {
+  width: 1.2rem;
+  height: 0.6rem;
+  cursor: pointer;
+  position: absolute;
+  left: 31rem;
+  top: 3.2rem;
+  object-fit: contain;
+  vertical-align: top;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-ells-TPj .frame-1-j6M {
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  left: 16.5rem;
+  top: 5.2rem;
+  overflow: hidden;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-ells-TPj .group-30-G6H {
+  width: 34.3rem;
+  height: 5.8rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-ells-TPj .group-30-G6H .rectangle-9-QiH {
+  width: 34.3rem;
+  height: 4.5rem;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 1.3rem;
+  border: solid 0.3rem #000000;
+  box-sizing: border-box;
+  border-radius: 5rem;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-ells-TPj .group-30-G6H .rectangle-15-wCR {
+  width: 8.5rem;
+  height: 2.7rem;
+  position: absolute;
+  left: 2.3rem;
+  top: 0;
+  background-color: #c4bbb2;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-ells-TPj .group-30-G6H .item--5pR {
+  width: 8rem;
+  height: 2rem;
+  position: absolute;
+  left: 2.8rem;
+  top: 0.5rem;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.6000000238);
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-ells-TPj .group-31-nD3 {
+  width: 34.3rem;
+  height: 5.8rem;
+  cursor: pointer;
+  position: absolute;
+  left: 0.1rem;
+  top: 8.1rem;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-ells-TPj .group-31-nD3 .rectangle-9-tG5 {
+  width: 34.3rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 0;
+  top: 1.3rem;
+  border: solid 0.3rem #000000;
+  box-sizing: border-box;
+  border-radius: 5rem;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-ells-TPj .group-31-nD3 .rectangle-15-R17 {
+  width: 8.5rem;
+  height: 2.7rem;
+  position: absolute;
+  left: 2.3rem;
+  top: 0;
+  background-color: #c4bbb2;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-ells-TPj .group-31-nD3 .item--kZB {
+  width: 8rem;
+  height: 2rem;
+  position: absolute;
+  left: 2.8rem;
+  top: 0.5rem;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.6000000238);
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-izrr-3HP {
+  margin: 0rem 5.4rem 3.3rem 0rem;
+  width: calc(100% - 5.4rem);
+  height: 2.4rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-izrr-3HP .auto-group-uhqd-mDP {
+  margin-right: 0.2rem;
+  width: 31.9rem;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-izrr-3HP .auto-group-uhqd-mDP .item--JUD {
+  width: 10.8rem;
+  height: 1.8rem;
+  cursor: pointer;
+  position: absolute;
+  left: 12rem;
+  top: 0.3rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.2rem;
+  color: #000000;
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-izrr-3HP .auto-group-uhqd-mDP .item--nPP {
+  width: 30.9rem;
+  height: 1.7rem;
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.2rem;
+  color: #4f4b48;
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-izrr-3HP .auto-group-uhqd-mDP .check-tBX {
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 0;
+  object-fit: contain;
+  vertical-align: top;
+  margin-right: 3cm;
+  
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-izrr-3HP .auto-group-uhqd-mDP .item--d97 {
+  width: 2rem;
+  height: 1.7rem;
+  position: absolute;
+  left: 23rem;
+  top: 0.3rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.2rem;
+  color: #4f4b48;
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-izrr-3HP .item--XEV {
+  cursor: pointer;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.2rem;
+  color: #000000;
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item--qGZ .auto-group-djuy-ZLy .auto-group-v1lx-e4D {
+  margin-right: 2.4rem;
+  width: 34.3rem;
+  height: 4.5rem;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.24rem;
+  color: #ffffff;
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  border-radius: 5rem;
+  flex-shrink: 0;
+}
+#agreeCheckbox {
+  /* 調整核取方框的大小 */
+  width: 20px;
+  height: 20px;
+  /* 可以添加其他樣式，例如邊框、圓角等 */
+  border: 1px solid #000;
+  /* 1px 寬的黑色邊框 */
+  border-radius: 5px;
+  /* 圓角為 5px */
+  vertical-align: text-bottom;
+    /* 將核取方框和文字垂直置中對齊 */
+  margin-left: -15px;
+    /* 負數表示向左移動 */
+  
+}
