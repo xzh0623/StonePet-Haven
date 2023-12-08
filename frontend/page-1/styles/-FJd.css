@@ -909,6 +909,7 @@ body {
   display: flex;
   align-items: flex-end;
 }
+
 .item--yEm .group-1-oPK .stone-baby-8Ah {
   margin-right: 2.3rem;
   text-align: center;
@@ -920,7 +921,8 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--yEm .group-1-oPK .search-44M {
+
+.item--yEm .group-1-oPK img {
   margin: 0rem 2.4rem 0.1rem 0rem;
   width: 2.4rem;
   height: 2.4rem;
@@ -929,38 +931,15 @@ body {
   vertical-align: top;
   flex-shrink: 0;
 }
-.item--yEm .group-1-oPK .user-At5 {
-  margin: 0rem 2.4rem 0.1rem 0rem;
-  width: 2.4rem;
-  height: 2.4rem;
-  cursor: pointer;
-  object-fit: contain;
-  vertical-align: top;
-  flex-shrink: 0;
-}
-.item--yEm .group-1-oPK .shopping-cart-hND {
-  margin: 0rem 2.4rem 0.1rem 0rem;
-  width: 2.4rem;
-  height: 2.4rem;
-  cursor: pointer;
-  object-fit: contain;
-  vertical-align: top;
-  flex-shrink: 0;
-}
-.item--yEm .group-1-oPK .menu-Rp1 {
-  margin-bottom: 0.1rem;
-  width: 2.4rem;
-  height: 2.4rem;
-  cursor: pointer;
-  object-fit: contain;
-  vertical-align: top;
-  flex-shrink: 0;
-}
+
+
 .menu-container {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
-  position: fixed;
+  position: absolute;
+  margin-top: 28px; /* 或者調整為您需要的距離 */
+  margin-right: -47px; /* 或者調整為您需要的距離 */
   top: 20px;
   right: 20px;
   background-color: #f6f2ec;
@@ -1154,3 +1133,73 @@ body {
   flex-shrink: 0;
 }
 
+
+#searchContainer {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1; /* 或其他足夠大的值 */
+  /* 其他樣式... */
+}
+
+
+.item--XfB {
+  box-sizing: border-box;
+  position: relative;
+  margin-right: 50px; /* 設置整體右邊間距 */
+  padding: 2.9rem 2.2rem 0.8rem 2.4rem;
+  width: auto; /* 或者使用具體的寬度值 */
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.item--XfB .auto-group-6qo5-2rq {
+  margin: 0rem auto 0.7rem 0rem; /* 使用 auto 將左側黏著右邊，右側間距自動填滿 */
+  width: calc(100% - 24.8rem);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.item--XfB .auto-group-6qo5-2rq .search-input {
+  width: 500px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border: none; /* 移除邊框 */
+  outline: none;
+}
+
+/* 其他樣式保持不變 */
+
+.item--XfB .auto-group-6qo5-2rq .search-Mu7 {
+  margin-right: 2.1rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  position: relative;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.item--XfB .auto-group-6qo5-2rq .item--u9w {
+  z-index: 2; /* 可以調整為適當的值 */
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.6000000238);
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item--XfB .line-1-cq3 {
+  z-index: ; /* 可以調整為適當的值 */
+  margin-left: 3.9rem;
+  width: 30.8rem;
+  height: 0.1rem;
+  background-color: #000000;
+  flex-shrink: 0;
+}

@@ -35,7 +35,41 @@
         homeMenuItem.style.display = 'none';
       }
     }
+	document.addEventListener('DOMContentLoaded', function () {
+  const searchIcon = document.querySelector('.search-44M');
+  const searchContainer = document.getElementById('searchContainer');
+  const otherElements = document.querySelector('.group-1-oPK');
 
+  searchIcon.addEventListener('click', function (event) {
+    event.stopPropagation();
+
+    // 顯示搜尋列表
+    searchContainer.style.visibility = 'visible';
+
+    // 隱藏其他元素
+    otherElements.style.visibility = 'hidden';
+
+    // 添加點擊事件監聽器，當點擊頁面其他地方時取消覆蓋效果
+    document.addEventListener('click', cancelOverlayOnClickOutside);
+  });
+
+  function cancelOverlayOnClickOutside(event) {
+    const searchContainer = document.getElementById('searchContainer');
+
+    // 如果點擊的區域不在搜尋列表內，則取消覆蓋效果
+    if (!searchContainer.contains(event.target)) {
+      searchContainer.style.visibility = 'hidden';
+
+      // 將其他元素設置為 visible
+      otherElements.style.visibility = 'visible';
+
+      // 移除點擊事件監聽器
+      document.removeEventListener('click', cancelOverlayOnClickOutside);
+    }
+  }
+});
+
+	
 </script>
 
 </head>
@@ -202,6 +236,15 @@
   <img class="rectangle-2-8ny" src="./assets/rectangle-2.png"/>
   <div class="rectangle-1-GPP">
   </div>
+  
+	<div class="item--XfB" id="searchContainer"> <!-- 搜尋列表 -->
+	  <div class="auto-group-6qo5-2rq">
+		<img class="search-Mu7" src="./assets/search-jMw.png"/>
+		<input type="text" class="search-input" placeholder="找商品">
+	  </div>
+	  <div class="line-1-cq3"></div>
+	</div>	
+	
   <div class="group-1-oPK">
     <p class="stone-baby-8Ah">Stone Baby</p>
     <img class="search-44M" src="./assets/search.png" alt="Search">
