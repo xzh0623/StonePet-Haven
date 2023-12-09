@@ -131,4 +131,7 @@ def register(request):
         # 显示注册页面
         return render(request, 'register.html')
     
+<<<<<<< HEAD
 >>>>>>> c50c0cd14f3740a628d2ff262ba1279fe946a785
+=======
+>>>>>>> dc407ab2d1dbedb248738ac7f312b2635f1730f6

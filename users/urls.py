@@ -24,5 +24,8 @@ urlpatterns = [
     path('0_cooperation/', views.cooperation, name='0_cooperation'),
     path('0_information/', views.information, name='0_information'),
     path('0_policy/', views.policy, name='0_policy'),
+<<<<<<< HEAD
 >>>>>>> c50c0cd14f3740a628d2ff262ba1279fe946a785
+=======
+>>>>>>> dc407ab2d1dbedb248738ac7f312b2635f1730f6
 ] 
