@@ -20,3 +20,7 @@ whitenoise 6.6.0
 * add git ignore
 * add ./backend_operation
 * add testpage
+* testpage v1.1
+    * return variable
+    * (?) django connection faied
+        * it may be the reason why i can never connect to the database and recieve the result of raw sql code

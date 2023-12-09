@@ -143,6 +143,24 @@ class TestTable(models.Model):
         managed = False
         db_table = 'test_table'
 
+    def addTestData():
+        TestTable.objects.raw(
+            "insert into TestTable() values (\
+                (1, 'Item 1', 'This is the description for Item 1.', '2023-12-05 15:28:38'),\
+                (2, 'Item 2', 'Another item with a longer description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '2023-12-05 15:28:38'),\
+                (3, 'Item 3', 'Description for Item 3.', '2023-12-05 15:28:38'),\
+                (4, 'Item 4', 'Short description for Item 4.', '2023-12-05 15:28:38')\
+            )"
+        )
+        return("1\n")
+    
+    def viewAllData():
+        TestTable.objects.raw(
+            "select *\
+            from TestTable\
+            where 1=1"
+        )
+
 
 class User(models.Model):
     user_id = models.CharField(primary_key=True, max_length=6)

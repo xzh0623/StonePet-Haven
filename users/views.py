@@ -4,6 +4,10 @@ from django.template import loader
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from . import models
+# from .. backend_operation import TEST_add_data_to_models
+import importlib.util as ip
+import sys
+import django
 
 # Create your views here.
 def homepage(request):
@@ -31,9 +35,12 @@ def register(request):
         return render(request, 'register.html')
     
 def testpage(request):
-    TestTableValues = models.TestTable.objects.all().values()
+    temp = models.TestTable.addTestData()
+    TestTableValues = models.TestTable.viewAllData()
+    # temp = django.db.connection.ensure_connection()     # return None, 不知道是不是這個原因沒辦法讀取server
     template = loader.get_template('testpage.html')
     context = {
         "TestTableValues" : TestTableValues,            # 還不會動
+        "temp": temp,
     }
     return HttpResponse(template.render(context, request))
