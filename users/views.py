@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from . import models
 
 # Create your views here.
 def homepage(request):
@@ -28,3 +29,11 @@ def register(request):
     else:
         # 显示注册页面
         return render(request, 'register.html')
+    
+def testpage(request):
+    TestTableValues = models.TestTable.objects.all().values()
+    template = loader.get_template('testpage.html')
+    context = {
+        "TestTableValues" : TestTableValues,            # 還不會動
+    }
+    return HttpResponse(template.render(context, request))

@@ -1,4 +1,7 @@
 # StonePet-Haven
+# remote test
+# 1130backend update
+# 1207 整合 by hsiao
 
 # DEPENDENCY REQUIREMENT
 ``` powershell
@@ -13,3 +16,7 @@ sqlparse   0.4.4
 tzdata     2023.3
 whitenoise 6.6.0
 ```
+# 1210 by kuan
+* add git ignore
+* add ./backend_operation
+* add testpage

@@ -1,0 +1,102 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 39.3rem;
+}.top1-UDj {
+  box-sizing: border-box;
+  padding: 2.4rem 2.5rem 3.4rem 2.4rem;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f2ec;
+  border-radius: 3.9rem 3.9rem 0 0;
+}
+.top1-UDj .auto-group-76dy-b3T {
+  margin-bottom: 6.1rem;
+  width: 100%;
+  height: 16.9rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.top1-UDj .auto-group-76dy-b3T .rectangle-11-Xho {
+  margin-right: 2rem;
+  width: 16.2rem;
+  height: 16.9rem;
+  object-fit: contain;
+  vertical-align: top;
+  border-radius: 2rem;
+  flex-shrink: 0;
+}
+.top1-UDj .auto-group-76dy-b3T .auto-group-d3zd-Fth {
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.top1-UDj .auto-group-76dy-b3T .auto-group-d3zd-Fth .item--cDT {
+  margin-bottom: 2.1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2050000191;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.top1-UDj .auto-group-76dy-b3T .auto-group-d3zd-Fth .item--7AD {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2050000191;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.top1-UDj .rectangle-17-EEq {
+  margin: 0rem 0rem 4.8rem 0.1rem;
+  width: 34.3rem;
+  height: 4.5rem;
+  background-color: #d9d9d9;
+  flex-shrink: 0;
+}
+.top1-UDj .auto-group-lznt-9sb {
+  margin-left: 0.1rem;
+  width: calc(100% - 0.1rem);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.top1-UDj .auto-group-lznt-9sb .rectangle-18-tKP {
+  margin-right: 2.1rem;
+  width: 16.1rem;
+  height: 5rem;
+  background-color: #d9d9d9;
+  flex-shrink: 0;
+}
+.top1-UDj .auto-group-lznt-9sb .rectangle-19-qEd {
+  width: 16.1rem;
+  height: 5rem;
+  background-color: #d9d9d9;
+  flex-shrink: 0;
+}
