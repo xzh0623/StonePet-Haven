@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-from django.db import models
-
-# Create your models here.
-=======
 # Create your models here.
 # This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:
@@ -163,4 +158,3 @@ class User(models.Model):
     class Meta:
         managed = False
         db_table = 'user'
->>>>>>> c50c0cd14f3740a628d2ff262ba1279fe946a785
