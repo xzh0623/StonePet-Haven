@@ -1,9 +1,6 @@
 # StonePet-Haven
-# remote test
-# 1130backend update
-# 1207 整合 by hsiao
 
-# DEPENDENCY REQUIREMENT
+## DEPENDENCY REQUIREMENT
 ``` powershell
 ❯ pip list
 Package    Version
@@ -16,7 +13,18 @@ sqlparse   0.4.4
 tzdata     2023.3
 whitenoise 6.6.0
 ```
-# 1210 by kuan
+
+## DIARY (PUT THE LASTEST AT FRONT)
+
+### 1211 by kuan
+* testpage is avaliable
+
+> TO DO LIST
+> * consider to seperate all classes so we can write some backend operation function to RWUD the data
+> * how to keep our database uptodate
+>    * real time operation (WUD)
+
+### 1210 by kuan
 * add git ignore
 * add ./backend_operation
 * add testpage
@@ -25,10 +33,6 @@ whitenoise 6.6.0
     * (?) django connection faied
         * it may be the reason why i can never connect to the database and recieve the result of raw sql code
 
-# 1211 by kuan
-* testpage is avaliable
+### 1207 整合 by hsiao
 
-> TO DO LIST
-> * consider to seperate all classes so we can write some backend operation function to RWUD the data
-> * how to keep our database uptodate
->    * real time operation (WUD)
+### 1130backend update
