@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>註冊</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/register.css' %}">
 </head>
 <body>
     <div class="container">
@@ -19,7 +19,7 @@
             </form>
             <div class="options">
                 <a href="{% url 'login' %}">已經有帳號了? 點這裡登錄</a>
-                <a href="forgot-password.html">忘記密碼</a>
+                <a href="{% url 'forgot_password' %}">忘記密碼</a>
             </div>
         </div>
     </div>
