@@ -35,12 +35,11 @@ def register(request):
         return render(request, 'register.html')
     
 def testpage(request):
-    temp = models.TestTable.addTestData()
-    TestTableValues = models.TestTable.viewAllData()
-    # temp = django.db.connection.ensure_connection()     # return None, 不知道是不是這個原因沒辦法讀取server
+    TestTableValues = models.TestTable.objects.all().values()
+    temp = django.db.connection.ensure_connection()     # return None, 不知道是不是這個原因沒辦法讀取server
     template = loader.get_template('testpage.html')
     context = {
-        "TestTableValues" : TestTableValues,            # 還不會動
+        "TestTableValues" : TestTableValues,
         "temp": temp,
     }
     return HttpResponse(template.render(context, request))

@@ -24,3 +24,11 @@ whitenoise 6.6.0
     * return variable
     * (?) django connection faied
         * it may be the reason why i can never connect to the database and recieve the result of raw sql code
+
+# 1211 by kuan
+* testpage is avaliable
+
+> TO DO LIST
+> * consider to seperate all classes so we can write some backend operation function to RWUD the data
+> * how to keep our database uptodate
+>    * real time operation (WUD)
