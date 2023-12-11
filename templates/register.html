@@ -10,11 +10,31 @@
     <div class="container">
         <div class="registration-form">
             <h2>註冊</h2>
+            
             <form method="post" action="{% url 'register' %}">
                 {% csrf_token %}
+
                 <input type="text" name="username" placeholder="使用者名稱" required>
+
                 <input type="password" name="password" placeholder="密碼" required>
+
                 <input type="email" name="email" placeholder="電子郵件" required>
+
+                <input type="tel" name="phone_number" placeholder="電話號碼" required>
+
+                <input type="text" name="account" placeholder="帳號" required>
+
+                <input type="text" name="age" placeholder="年紀" required>
+
+                <textarea name="address" placeholder="地址" required></textarea>
+                
+                </br>
+                <select name="gender" placeholder="性別">
+                    <option value="0">男性</option>
+                    <option value="1">女性</option>
+                    <option value="2">其他</option>
+                </select>
+                </br>
                 <button type="submit">註冊</button>
             </form>
             <div class="options">
