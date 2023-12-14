@@ -16,6 +16,13 @@ whitenoise 6.6.0
 
 ## DIARY (PUT THE LASTEST AT FRONT)
 
+### 1214 by kuan
+* basic operation (WUD)
+
+> TO DO LIST
+> * auto update .sql every time an operation was performed
+> * consider to seperate all classes so we can write some backend operation function to RWUD the data
+
 ### 1211 by kuan
 * testpage is avaliable
 
