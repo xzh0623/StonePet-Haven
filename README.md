@@ -16,6 +16,9 @@ whitenoise 6.6.0
 
 ## DIARY (PUT THE LASTEST AT FRONT)
 
+### 1214 by choco
+* 完成註冊資料寫進資料庫，但沒完成驗證無效資料
+
 ### 1214 by kuan
 * basic operation (WUD)
 
