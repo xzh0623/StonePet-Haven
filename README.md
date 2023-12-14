@@ -1,6 +1,11 @@
 
 # StonePet-Haven
-# remote test
+
+# 1214 by kuan
+* resolve image duplicate problem
+    * only for those visiable/ accessable pages
+    * except from product photo
+
 # 1130backend update
 # yulun
 # StonePet-Haven
