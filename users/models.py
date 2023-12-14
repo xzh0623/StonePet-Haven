@@ -7,7 +7,11 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+
 from django.db.models import Max
+from django.http import HttpResponse
+from datetime import datetime
+
 
 
 
@@ -157,6 +161,61 @@ class TestTable(models.Model):
     class Meta:
         managed = False
         db_table = 'test_table'
+
+    
+    def Update(request):
+        # Assuming the request contains the necessary data for the update
+
+        # Get an instance of TestTable to update (you can use any criteria)
+        to_update = TestTable.objects.get(id=1)  # You should use a valid criterion here
+
+        # Update the fields
+        to_update.name = 'Updated Name'
+        to_update.description = 'Updated Description'
+        to_update.created_at = datetime.now()
+
+        # Save the changes to the database
+        to_update.save()
+
+        # Optionally, you can return an HttpResponse
+        return HttpResponse("Record updated successfully.")
+    
+    def Create(request):
+        # Assuming the request contains the necessary data for creating a new record
+
+        # Create a new instance of TestTable
+        new_test_record = TestTable(
+            name='New Record',
+            description='Description for the new record',
+            created_at=datetime.now()
+        )
+
+        # Save the new instance to the database
+        new_test_record.save()
+
+        # Optionally, you can return an HttpResponse
+        return HttpResponse("New record created and saved successfully.")
+    
+    def Delete(request, record_id):
+        # Assuming the request contains the necessary data for deleting the record
+        # and `record_id` is the primary key of the record to be deleted.
+
+        try:
+            # Get the instance with the specified primary key
+            to_delete = TestTable.objects.get(id=record_id)
+
+            # Delete the instance
+            to_delete.delete()
+
+            # Optionally, you can return an HttpResponse
+            # return HttpResponse("Record deleted successfully.")
+        except TestTable.DoesNotExist:
+            # Handle the case where the record with the specified id does not exist
+            # Optionally, you can return an HttpResponse or raise an exception
+            pass
+
+    # Note: Adjust the code based on your actual use case.
+
 
 class User(models.Model):
     user_id = models.CharField(primary_key=True, max_length=6)
