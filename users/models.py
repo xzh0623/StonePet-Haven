@@ -8,6 +8,12 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
+from django.db.models import Max
+from django.http import HttpResponse
+from datetime import datetime
+
+
+
 
 class Administrator(models.Model):
     user = models.OneToOneField('User', models.DO_NOTHING, primary_key=True)
@@ -25,6 +31,18 @@ class Buyer(models.Model):
     class Meta:
         managed = False
         db_table = 'buyer'
+    @classmethod
+    def Create(cls, request,user_instance):
+        if request.method == 'POST':
+            age = request.POST.get('age')
+
+            # 创建 User 实例
+            buyer_instance = Buyer(
+            user=user_instance,
+            sex = int(request.POST.get('gender')),
+            age=age
+        )
+        buyer_instance.save()
 
 
 class Contain(models.Model):
@@ -83,8 +101,8 @@ class Product(models.Model):
     product_id = models.CharField(primary_key=True, max_length=6)
     product_name = models.CharField(max_length=255)
     description_of_product = models.CharField(max_length=255)
-    picture_in_browsing = models.CharField(max_length=255, blank=True, null=True)
-    picture_in_description = models.CharField(max_length=255, blank=True, null=True)
+    picture_in_browsing = models.ImageField(upload_to='product_images/', blank=True, null=True)
+    picture_in_description = models.ImageField(upload_to='product_images/', blank=True, null=True)
     price = models.IntegerField()
     quantity_in_stock = models.IntegerField()
     seller = models.ForeignKey('Seller', models.DO_NOTHING)
@@ -144,6 +162,60 @@ class TestTable(models.Model):
         managed = False
         db_table = 'test_table'
 
+    
+    def Update(request):
+        # Assuming the request contains the necessary data for the update
+
+        # Get an instance of TestTable to update (you can use any criteria)
+        to_update = TestTable.objects.get(id=1)  # You should use a valid criterion here
+
+        # Update the fields
+        to_update.name = 'Updated Name'
+        to_update.description = 'Updated Description'
+        to_update.created_at = datetime.now()
+
+        # Save the changes to the database
+        to_update.save()
+
+        # Optionally, you can return an HttpResponse
+        return HttpResponse("Record updated successfully.")
+    
+    def Create(request):
+        # Assuming the request contains the necessary data for creating a new record
+
+        # Create a new instance of TestTable
+        new_test_record = TestTable(
+            name='New Record',
+            description='Description for the new record',
+            created_at=datetime.now()
+        )
+
+        # Save the new instance to the database
+        new_test_record.save()
+
+        # Optionally, you can return an HttpResponse
+        return HttpResponse("New record created and saved successfully.")
+    
+    def Delete(request, record_id):
+        # Assuming the request contains the necessary data for deleting the record
+        # and `record_id` is the primary key of the record to be deleted.
+
+        try:
+            # Get the instance with the specified primary key
+            to_delete = TestTable.objects.get(id=record_id)
+
+            # Delete the instance
+            to_delete.delete()
+
+            # Optionally, you can return an HttpResponse
+            # return HttpResponse("Record deleted successfully.")
+        except TestTable.DoesNotExist:
+            # Handle the case where the record with the specified id does not exist
+            # Optionally, you can return an HttpResponse or raise an exception
+            pass
+
+    # Note: Adjust the code based on your actual use case.
+
 
 class User(models.Model):
     user_id = models.CharField(primary_key=True, max_length=6)
@@ -159,3 +231,46 @@ class User(models.Model):
     class Meta:
         managed = False
         db_table = 'user'
+
+    @classmethod
+    def Create(cls, request):
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            email = request.POST.get('email')
+            phone_number = request.POST.get('phone_number')
+            account = request.POST.get('account')
+            address = request.POST.get('address')
+
+            # 创建 User 实例
+            user_uid = cls.generate_unique_user_id()
+            user_instance = cls(
+                user_id=user_uid,
+                name=username,
+                password=password,
+                email=email,
+                phone_number=phone_number,
+                account=account,
+                address=address,
+                permission=1,
+                status=1
+            )
+            Buyer(request,user_instance)
+            user_instance.save()
+
+    @classmethod
+    def generate_unique_user_id(cls):
+        # 获取 User 模型中的最大 user_id
+        max_user_id = cls.objects.all().aggregate(Max('user_id'))['user_id__max']
+
+        # 如果没有任何用户，将最大值设为 'US0000'
+        if max_user_id is None:
+            max_user_id = 'US0000'
+
+        # 提取数字部分，增加1，然后组合成新的 user_id
+        prefix = 'US'
+        current_number = int(max_user_id[len(prefix):])
+        new_number = current_number + 1
+        new_user_id = f'{prefix}{new_number:04d}'
+
+        return new_user_id
