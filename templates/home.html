@@ -1,3 +1,5 @@
+<!-- home.html -->
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -8,28 +10,22 @@
     <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/home.css' %}">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Website</h1>
-        <p>Explore and Enjoy!</p>
-        <!-- Add login button -->
-        <a href="{% url 'login' %}" class="login-button">Login</a>
-    </header>
-
-    <section>
-        <h2>Featured Products</h2>
-        <div class="product">
-            <img src="{% static 'babystone/img/product1.jpg' %}" alt="Product 1">
-            <p>Product 1 Description</p>
-        </div>
-        <div class="product">
-            <img src="{% static 'babystone/img/product2.jpg' %}" alt="Product 2">
-            <p>Product 2 Description</p>
-        </div>
-        <!-- Add more product entries as needed -->
-    </section>
-
-    <footer>
-        <p>&copy; 2023 My Simple Website. All rights reserved.</p>
-    </footer>
+    <div class="main-container">
+        <nav>
+            <ul class="navbar">
+                <li><a href="{% url 'home' %}">BabyStone</a></li>
+                <li><a href="{% url 'login' %}">登入</a></li>
+                <li><a href="{% url 'login' %}">搜尋</a></li>
+                <li><a href="{% url 'login' %}">商品</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+        <main>
+            <img src="{% static 'babystone/img/homepage.png' %}" alt="Homepage">
+        </main>
+        <footer>
+            <p>&copy; 2023 BabyStone All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>

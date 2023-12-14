@@ -13,6 +13,7 @@ import django
 
 # Create your views here.
 def home(request):
+    
     return render(request, 'home.html')
 
 
@@ -62,13 +63,6 @@ def register(request):
 
     return render(request, 'register.html')
 
-        # 处理用户注册逻辑
-        # 注册成功后，添加注册成功消息
-        messages.success(request, '注册成功！请登录。')
-        return redirect('login')
-    else:
-        # 显示注册页面
-        return render(request, 'register.html')
     
 def testpage(request):
 
