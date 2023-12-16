@@ -244,3 +244,9 @@ body {
   margin: 5px;
   cursor: pointer;
 }
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 15px;
+}
