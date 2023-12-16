@@ -1,63 +1,59 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <link rel="icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <title>會員登入</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sulphur+Point%3A400%2C700"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
-  <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/-B41.css' %}"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sulphur+Point%3A400%2C700" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700" />
+  <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/-B41.css' %}" />
 </head>
+
 <body>
-<script src="../static/babystone/js/script.js"></script>
-<div class="item--pkd">
-  <div class="auto-group-vsb1-AZb">
-    <a href="{% url 'homepage' %}">
-      <img class="arrow-left-tkV" src="../static/babystone/img/arrow-left.png" onclick="goBack()"/>
-    </a>
-    <p class="item--q9w">會員登入</p>
-    <p class="item--9Ad">請輸入帳號、密碼登入會員，享受更多會員專屬功能。</p>
-  </div>
-  <div class="auto-group-sejw-oFB">
-
-    <form method="post">
-      {% csrf_token %}
-      <div class="group-27-KjK">
-        <label for="account" class="item--Jr9">輸入帳號</label>
-        <input type="text" name="account" class="rectangle-9-4gu"required id="account">
-        
-      </div>
-
-      <div class="group-27-KjK">
-        <label for="password" class="item--Jr9">輸入密碼</label>
-        <input type="password" name="password" class="rectangle-9-4gu"required id="password">
-      </div>
-
-      <a href="{% url 'forgotpassword' %}" class="no-underline">
-        <p class="item--Nd3">忘記密碼？</p>
+  <script src="../static/babystone/js/script.js"></script>
+  <div class="item--pkd">
+    <div class="auto-group-vsb1-AZb">
+      <a href="{% url 'homepage' %}">
+        <img class="arrow-left-tkV" src="../static/babystone/img/arrow-left.png" onclick="goBack()" />
       </a>
-    
-      <button type="submit" class="auto-group-ytdh-GiR">開始購物吧！</button>
-    </form>
+      <p class="item--q9w">會員登入</p>
+      <p class="item--9Ad">請輸入帳號、密碼登入會員，享受更多會員專屬功能。</p>
+    </div>
+    <div class="auto-group-sejw-oFB">
 
-    <div id="overlay" class="overlay">
-      <!-- 彈出視窗內容 -->
-      <div class="popup">
-        <iframe id="registerIframe" src="{% url 'registeroption' %}"></iframe>
-        <!--<button class="button" onclick="hidePopup()">關閉</button>-->
+      <form method="post">
+        {% csrf_token %}
+        <div class="group-27-KjK">
+          <label for="account" class="item--Jr9">輸入帳號</label>
+          <input type="text" name="account" class="rectangle-9-4gu" required id="account">
+
+        </div>
+
+        <div class="group-27-KjK">
+          <label for="password" class="item--Jr9">輸入密碼</label>
+          <input type="password" name="password" class="rectangle-9-4gu" required id="password">
+        </div>
+
+        <a href="{% url 'forgotpassword' %}" class="no-underline">
+          <p class="item--Nd3">忘記密碼？</p>
+        </a>
+
+        <button type="submit" class="auto-group-ytdh-GiR">開始購物吧！</button>
+      </form>
+
+      <div class="auto-group-eect-ME5">
+        <p class="item--sy7">還沒有會員嗎？</p>
+        <a href="{% url 'registeroption' %}" class="no-underline">
+          <p class="item--z29">會員註冊</p>
+        </a>
       </div>
+      {% if error %}
+      <p class="error-message">{{ error }}</p>
+      {% endif %}
     </div>
-
-    <div class="auto-group-eect-ME5">
-      <p class="item--sy7">還沒有會員嗎？</p>
-      <p class="item--z29"  onclick="showPopup()">會員註冊</p>
-    </div>
-    {% if error %}
-    <p class="error-message">{{ error }}</p>
-    {% endif %}
   </div>
-</div>
 </body>

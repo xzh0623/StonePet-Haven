@@ -1,16 +1,30 @@
+
+# StonePet-Haven
+
+# 1214 by kuan
+* resolve image duplicate problem
+    * only for those visiable/ accessable pages
+    * except from product photo
+
+# 1130backend update
+# yulun
 # StonePet-Haven
 ## frontend
 - 裡面包含figma轉換的所有網頁，需手動更改版面大小、樣式
 - 這應該是目前找到還原度最高的，但版面只有支援手機
 
 ### 進度
-- 正在編輯註冊會員頁面資料內容
+- 正在編輯註冊會員頁面資料內容(xzh)
+- 首頁的選單按鈕跟搜索欄輸入完成，但搜索欄還沒改成POST FORM(yulun)
 - 首頁排版以及首頁底下連結>>完成
+- 首頁的搜尋設定及按鈕選單版面>>完成
+- 登入頁面>>完成
+
 ### 問題
 - 重設密碼前端部分在script.js檔案裡面:  
 在按下 "重設密碼" 按鈕時，goResetPassword 函數會獲取電子郵件輸入框的值並呼叫 sendEmailToBackend 函數，該函數會將電子郵件傳送到後端。你需要在後端實作一個 API，接收電子郵件並發送驗證碼到該郵件。這一部分需要根據你的後端語言（如 PHP）來實作。
-- 會員登入需要按下"開始購物吧"按鈕將資料傳送至後端做比對。
-- 會員註冊按下後需要選擇身分(registeroption.html)伺服器那邊有擋，因此無法顯示
+- 更新 首頁的js togglemenu我丟在js檔案裡面不能觸發我只好丟在html
+
 ### 功能需求-買家
 - 登入頁面(開發中)
 - 商品內容頁面:  

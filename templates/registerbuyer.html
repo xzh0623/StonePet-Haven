@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,7 @@
   <title>註冊會員-買家</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sulphur+Point%3A400%2C700"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
-  <link rel="stylesheet" href="../static/babystone/css/-rrr.css"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/-rrr.css' %}"/>
 </head>
 <body>
 <script src="../static/babystone/js/script.js"></script>
@@ -18,6 +19,77 @@
     <p class="item--GvH">註冊會員</p>
   </div>
   <div class="auto-group-dquw-BXT">
+
+    <form method="post" action="{% url 'registerbuyer' %}">
+      {% csrf_token %}
+      <div class="group-27-gz1">
+        <input type="text" name="username" class="rectangle-9-DU9" required id="username">
+        <div class="rectangle-15-ifo"> </div>
+        <label for="username" class="item--F9w">用戶名</label>
+      </div>
+
+      <div class="group-32-vWy">
+        <input type="text" name="account" class="rectangle-9-3rV" required id="account">
+        <div class="rectangle-15-N85"></div>
+        <label for="account" class="item--JnR">帳號</label>
+      </div>
+
+      <div class="group-28-Pos">
+        <input type="password" name="password" autocomplete="current-password" class="rectangle-9-KhX" required id="password">
+        <div class="rectangle-15-F5P"></div>
+        <label for="password" class="item--nb7">密碼</label>
+      </div>
+
+      <div class="group-33-ggV">
+        <textarea name="address" class="rectangle-9-cKF" required></textarea>
+        <div class="rectangle-15-w6d"></div>
+        <label for="address" class="item--UMT">地址</label>
+      </div>
+
+      <div class="group-34-Ak5">
+        <input type="email" name="email" class="rectangle-9-6dj" required id="email">
+        <div class="rectangle-15-cMB"></div>
+        <label for="email" class="item--wuF">電子郵件</label>
+      </div>
+
+      <div class="group-31-3SV">
+        <input type="tel" name="phone_number" class="rectangle-9-x3f" required id="phone_number">
+        <div class="rectangle-15-sgR"></div>
+        <label for="phone_number" class="item--ce1">電話號碼</label>
+      </div>
+
+      <div class="group-29-7Ks">
+        <select name="gender" class="rectangle-9-SN9">
+          <option value="1">男</option>
+          <option value="0">女</option>
+        </select>
+      
+        <div class="rectangle-15-AZ3">
+        </div>
+        <p class="item--V5X">性別</p>
+      </div>
+
+      <div class="group-30-hxH">
+        <input type="datetime" name="birth" class="rectangle-9-2zZ" required id="birth">
+        <!-- <img class="vector-ADb" src="../static/babystone/img/chevron-down.png" /> -->
+        <div class="rectangle-15-MG9"></div>
+        <label for="birth" class="item--UrZ">出生日期</label>
+      </div>
+
+      <div class="auto-group-a6qs-gSq">
+        <img class="check-zyK" src="../static/babystone/img/check.png" />
+        <p class="item--LGV">
+          <span class="item--LGV-sub-0">我同意</span>
+          <span class="item--LGV-sub-1">退換貨政策</span>
+          <span class="item--LGV-sub-2">及</span>
+          <span class="item--LGV-sub-3">購物須知</span>
+        </p>
+      </div>
+
+      <button type="submit" class="auto-group-s2dj-Hss">立即加入！</button>
+    </form>
+
+<!-- 
     <div class="group-27-gz1">
       <div class="rectangle-9-DU9">
       </div>
@@ -38,14 +110,15 @@
       <div class="rectangle-15-F5P">
       </div>
       <p class="item--nb7">密碼</p>
-    </div>
-    <div class="group-33-ggV">
+    </div> -->
+    <!-- <div class="group-33-ggV">
       <div class="rectangle-9-cKF">
       </div>
       <div class="rectangle-15-w6d">
       </div>
       <p class="item--UMT">地址</p>
     </div>
+
     <div class="group-34-Ak5">
       <div class="rectangle-9-6dj">
       </div>
@@ -53,6 +126,7 @@
       </div>
       <p class="item--wuF">電子郵件</p>
     </div>
+
     <div class="group-31-3SV">
       <div class="rectangle-9-x3f">
       </div>
@@ -60,6 +134,7 @@
       </div>
       <p class="item--ce1">電話號碼</p>
     </div>
+
     <div class="group-29-7Ks">
       <select class="rectangle-9-SN9">
         <option>男</option>
@@ -71,15 +146,17 @@
       <p class="item--V5X">性別</p>
 
     </div>
+
     <div class="group-30-hxH">
       <div class="rectangle-9-2zZ">
       </div>
       <div class="rectangle-15-MG9">
       </div>
       <p class="item--UrZ">出生日期</p>
-      <img class="vector-ADb" src="../static/babystone/img/vector-Fnu.png"/>
-    </div>
-    <div class="auto-group-a6qs-gSq">
+      <img class="vector-ADb" src="../static/babystone/img/chevron-down.png"/>
+    </div> -->
+
+    <!-- <div class="auto-group-a6qs-gSq">
       <img class="check-zyK" src="../static/babystone/img/check.png"/>
       <p class="item--LGV">
         <span class="item--LGV-sub-0">我同意</span>
@@ -87,8 +164,9 @@
         <span class="item--LGV-sub-2">及</span>
         <span class="item--LGV-sub-3">購物須知</span>
       </p>
+
     </div>
-    <div class="auto-group-s2dj-Hss">立即加入！</div>
+    <div class="auto-group-s2dj-Hss">立即加入！</div> -->
   </div>
 </div>
 </body>

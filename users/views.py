@@ -71,11 +71,24 @@ def registeroption(request):
     return HttpResponse(template.render(context, request))
 
 def registerbuyer(request):
-    template = loader.get_template('registerbuyer.html')
-    context = {
+    if request.method == 'POST':
+    
+        # 創建 User 實例
+        User.Create(request)
+        
+        # 創建 Buyer 實例
+        '''
+        buyer_instance = Buyer(
+            user=user_instance,
+            sex = int(request.POST.get('gender')),
+            age=age
+        )
+        buyer_instance.save()
+        '''
+        messages.success(request, '注册成功！请登录。')
+        return redirect('login')
 
-    }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'registerbuyer.html')
 
 def registerseller(request):
     template = loader.get_template('registerseller.html')
@@ -112,15 +125,23 @@ def policy(request):
     }
     return HttpResponse(template.render(context, request))
 
-def register(request):
-    if request.method == 'POST':
-        # 处理用户注册逻辑
-        # 注册成功后，添加注册成功消息
-        messages.success(request, '注册成功！请登录。')
-        return redirect('login')
-    else:
-        # 显示注册页面
-        return render(request, 'register.html')
+# def register(request):
+#     if request.method == 'POST':
     
-# Create your views here.
+#         # 創建 User 實例
+#         User.Create(request)
+        
+#         # 創建 Buyer 實例
+#         '''
+#         buyer_instance = Buyer(
+#             user=user_instance,
+#             sex = int(request.POST.get('gender')),
+#             age=age
+#         )
+#         buyer_instance.save()
+#         '''
+#         messages.success(request, '注册成功！请登录。')
+#         return redirect('login')
+
+#     return render(request, 'register.html')
 
