@@ -59,7 +59,7 @@ body {
   width: 100%;
   align-items: center;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   background-color: #c4bbb2;
   border-radius: 4.5rem 4.5rem 0 0;
   flex-shrink: 0;
@@ -81,6 +81,10 @@ body {
   border: solid 0.3rem #000000;
   box-sizing: border-box;
   border-radius: 5rem;
+  /* font-size: 20px; */
+  padding: 2rem;
+  background-color: #c4bbb2;
+  font-size: 2rem;
 }
 .item--UjX .auto-group-dquw-BXT .group-27-gz1 .rectangle-15-ifo {
   width: 6.8rem;
@@ -102,6 +106,7 @@ body {
   color: rgba(0, 0, 0, 0.6000000238);
   font-family: Sulphur Point, 'Source Sans Pro';
   white-space: nowrap;
+  z-index: 1;
 }
 .item--UjX .auto-group-dquw-BXT .group-32-vWy {
   margin: 0rem 0rem 3rem 0.2rem;
@@ -120,6 +125,9 @@ body {
   border: solid 0.3rem #000000;
   box-sizing: border-box;
   border-radius: 5rem;
+  background-color: #c4bbb2;
+  padding: 2rem;
+  font-size: 2rem;
 }
 .item--UjX .auto-group-dquw-BXT .group-32-vWy .rectangle-15-N85 {
   width: 4.8rem;
@@ -159,6 +167,9 @@ body {
   border: solid 0.3rem #000000;
   box-sizing: border-box;
   border-radius: 5rem;
+  background-color: #c4bbb2;
+  padding: 2rem;
+  font-size: 2rem;
 }
 .item--UjX .auto-group-dquw-BXT .group-28-Pos .rectangle-15-F5P {
   width: 4.8rem;
@@ -198,6 +209,9 @@ body {
   border: solid 0.3rem #000000;
   box-sizing: border-box;
   border-radius: 5rem;
+  background-color: #c4bbb2;
+  padding: 2rem;
+  font-size: 2rem;
 }
 .item--UjX .auto-group-dquw-BXT .group-33-ggV .rectangle-15-w6d {
   width: 4.8rem;
@@ -237,6 +251,9 @@ body {
   border: solid 0.3rem #000000;
   box-sizing: border-box;
   border-radius: 5rem;
+  background-color: #c4bbb2;
+  padding: 2rem;
+  font-size: 2rem;
 }
 .item--UjX .auto-group-dquw-BXT .group-34-Ak5 .rectangle-15-cMB {
   width: 8.6rem;
@@ -276,6 +293,9 @@ body {
   border: solid 0.3rem #000000;
   box-sizing: border-box;
   border-radius: 5rem;
+  background-color: #c4bbb2;
+  padding: 2rem;
+  font-size: 2rem;
 }
 .item--UjX .auto-group-dquw-BXT .group-31-3SV .rectangle-15-sgR {
   width: 8.5rem;
@@ -372,6 +392,9 @@ body {
   border: solid 0.3rem #000000;
   box-sizing: border-box;
   border-radius: 5rem;
+  background-color: #c4bbb2;
+  padding: 2rem;
+  font-size: 2rem;
 }
 .item--UjX .auto-group-dquw-BXT .group-30-hxH .rectangle-15-MG9 {
   width: 8.5rem;

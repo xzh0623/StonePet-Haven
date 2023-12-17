@@ -3,18 +3,18 @@ document.addEventListener('DOMContentLoaded', function () {
   const searchContainer = document.getElementById('searchContainer');
   const otherElements = document.querySelector('.group-1-oPK');
 
-  searchIcon.addEventListener('click', function (event) {
-    event.stopPropagation();
+  // searchIcon.addEventListener('click', function (event) {
+  //   event.stopPropagation();
 
-    // 顯示搜尋列表
-    searchContainer.style.visibility = 'visible';
+  //   // 顯示搜尋列表
+  //   searchContainer.style.visibility = 'visible';
 
-    // 隱藏其他元素
-    otherElements.style.visibility = 'hidden';
+  //   // 隱藏其他元素
+  //   otherElements.style.visibility = 'hidden';
 
-    // 添加點擊事件監聽器，當點擊頁面其他地方時取消覆蓋效果
-    document.addEventListener('click', cancelOverlayOnClickOutside);
-  });
+  //   // 添加點擊事件監聽器，當點擊頁面其他地方時取消覆蓋效果
+  //   document.addEventListener('click', cancelOverlayOnClickOutside);
+  // });
 function toggleMenu() {
     const menuContainer = document.getElementById('menuContainer');
     const homeMenuItem = document.querySelector('.item--L1j');
@@ -68,8 +68,8 @@ function hidePopup() {
 }
 
 // 获取下拉选择框的值
-var selectedGender = document.getElementById("genderSelect").value;
-console.log(selectedGender);
+// var selectedGender = document.getElementById("genderSelect").value;
+// console.log(selectedGender);
 
 
 
