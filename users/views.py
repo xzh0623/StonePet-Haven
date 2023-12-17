@@ -1,10 +1,9 @@
-from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.contrib import messages
-from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Product, User,Buyer
 from .forms import LoginForm
 from django.shortcuts import render, redirect
@@ -13,12 +12,9 @@ from . import models
 import django
 
 # Create your views here.
-def homepage(request):
-    template = loader.get_template('homepage.html')
-    context = {
+def home(request):
+    return render(request, 'home.html')
 
-    }
-    return HttpResponse(template.render(context, request))
 
 def login(request):
     if request.method == 'POST':
@@ -48,6 +44,9 @@ def shoppingcart(request):
 
     }
     return HttpResponse(template.render(context, request))
+
+def forgot_password(request):
+    return render(request, 'forgot_password.html')
 
 def forgotpassword(request):
     template = loader.get_template('forgotpassword.html')
@@ -145,3 +144,46 @@ def policy(request):
 
 #     return render(request, 'register.html')
 
+        
+
+        
+    
+def testpage(request):
+
+    # BASIC OPERATION TO USE
+    # models.TestTable.Create(request)
+    # models.TestTable.Delete(request, 5)
+    # models.TestTable.Update(request)
+
+    TestTableValues = models.TestTable.objects.all().values()
+    temp = django.db.connection.ensure_connection()     # return None, 不知道是不是這個原因沒辦法讀取server
+    template = loader.get_template('testpage.html')
+    context = {
+        "TestTableValues" : TestTableValues,
+        "temp": temp,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+
+def index(request):
+    if request and request.method == 'GET':
+
+        from models import ExtraObject, TestModel
+
+        # Create exmple data if table is empty:
+        if TestModel.objects.count() == 0:
+            for i in range(15):
+                extra = ExtraObject.objects.create(name=str(i))
+                test = TestModel.objects.create(key=extra, name='test_%d' % i)
+                test.many.add(test)
+                print(test)
+
+        to_edit = TestModel.objects.get(id=1)
+        to_edit.name = 'edited_test'
+        to_edit.key = ExtraObject.objects.create(name='new_for')
+        to_edit.save()
+
+        new_key = ExtraObject.objects.create(name='new_for_update')
+        to_update = TestModel.objects.filter(id=2).update(name='updated_name', key=new_key)
+        # return any kind of HttpResponse
