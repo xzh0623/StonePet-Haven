@@ -12,9 +12,12 @@ from . import models
 import django
 
 # Create your views here.
-def home(request):
-    return render(request, 'home.html')
+def homepage(request):
+    template = loader.get_template('homepage.html')
+    context = {
 
+    }
+    return HttpResponse(template.render(context, request))
 
 def login(request):
     if request.method == 'POST':
@@ -37,6 +40,7 @@ def login(request):
         form = LoginForm()
 
     return render(request, 'login.html', {'form': form})
+
 
 def shoppingcart(request):
     template = loader.get_template('shoppingcart.html')
