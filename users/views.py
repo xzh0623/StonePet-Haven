@@ -27,7 +27,8 @@ def login(request):
 
             if user:
                 # 登入成功，重定向到主頁
-                return redirect('home')
+                messages.success(request, '登录成功！欢迎回来。')
+                return redirect('homepage')
             else:
                 # 登入失敗，設定錯誤訊息
                 error = "Invalid username or password. Please try again."
@@ -69,11 +70,24 @@ def registeroption(request):
     return HttpResponse(template.render(context, request))
 
 def registerbuyer(request):
-    template = loader.get_template('registerbuyer.html')
-    context = {
+    if request.method == 'POST':
+    
+        # 創建 User 實例
+        User.Create(request)
+        
+        # 創建 Buyer 實例
+        '''
+        buyer_instance = Buyer(
+            user=user_instance,
+            sex = int(request.POST.get('gender')),
+            age=age
+        )
+        buyer_instance.save()
+        '''
+        messages.success(request, '注册成功！请登录。')
+        return redirect('login')
 
-    }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'registerbuyer.html')
 
 def registerseller(request):
     template = loader.get_template('registerseller.html')

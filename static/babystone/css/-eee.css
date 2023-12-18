@@ -86,3 +86,7 @@ body {
   border-radius: 4.5rem;
   flex-shrink: 0;
 }
+
+.no-underline {
+  text-decoration: none;
+}
