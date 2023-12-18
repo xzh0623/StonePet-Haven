@@ -1,31 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <title>會員登入</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sulphur+Point%3A400%2C700"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
-  <link rel="stylesheet" href="../static/babystone/css/-B41.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/login.css' %}">
 </head>
 <body>
-<script src="../static/babystone/js/script.js"></script>
-<div class="item--pkd">
-  <div class="auto-group-vsb1-AZb">
-    <a href="{% url 'homepage' %}">
-      <img class="arrow-left-tkV" src="../static/babystone/img/arrow-left.png" onclick="goBack()"/>
-    </a>
-    <p class="item--q9w">會員登入</p>
-    <p class="item--9Ad">請輸入帳號、密碼登入會員，享受更多會員專屬功能。</p>
-  </div>
-  <div class="auto-group-sejw-oFB">
-
-    <form action="your_login_process_page.php" method="post">
-    <div class="group-27-KjK">
-      <label for="username" class="item--Jr9">輸入帳號</label>
-      <input type="text" id="username" name="username" class="rectangle-9-4gu"required>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form method="post" class="login-form">
+            {% csrf_token %}
+            <div>
+                {{ form.account.label_tag }}
+                {{ form.account }}
+            </div>
+            <div>
+                {{ form.password.label_tag }}
+                {{ form.password }}
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p class="register-link">Not a member? <a href="{% url 'register' %}">Register here</a></p>
+        <p class="forgot-password-link"><a href="{% url 'forgot_password' %}">Forgot your password?</a></p>
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
     </div>
 
     <div class="group-27-KjK">
