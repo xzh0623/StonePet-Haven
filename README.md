@@ -1,4 +1,3 @@
-
 # StonePet-Haven
 
 ## DEPENDENCY REQUIREMENT
@@ -20,7 +19,40 @@ tzdata              2023.3
 whitenoise          6.6.0
 ```
 
+## WORK DISTRUBUTION (v1220)
+
+### xzh
+1. register開頭+forgotpassword
+2. login_title、unlogin_title
+3. menu1
+4. homepage
+5. 連接頁面
+### B
+1. shoppingcart
+2. homepage_shop
+### kuan
+1. order開頭
+2. comment
+#### D
+1. item_page
+2. item_detail
+3. buyer_setting_item
+#### E
+1. finditem
+2. coupon
+3. person_info
+
 ## DIARY (PUT THE LASTEST AT FRONT)
+
+### 1220 by xzh
+* update `f/README`
+
+> TO DO LIST
+> * auto update .sql every time an operation was performed
+> * consider to seperate all classes so we can write some backend operation function to RWUD the data
+> * 圖片路徑要改
+> * 部分頁面icon邊緣有被切到，到static/babystone/img找替代圖片
+> * css檔名很醜，在切換的時候要改檔名
 
 ### 1220 by kuan
 * restore `f/README`
