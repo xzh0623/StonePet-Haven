@@ -1,4 +1,28 @@
-
+# 注意事項
+- 圖片路徑要改  
+- 如果頁面icon邊緣有被切到，自己到static/babystone/img找替代圖片  
+- 如果覺得css檔名很醜，在切換的時候可以自己手動改檔名
+# 分工
+- xzh
+1、register開頭+forgotpassword  
+2、login_title、unlogin_title  
+3、menu1  
+4、homepage  
+5、連接頁面
+- B
+1、shoppingcart  
+2、homepage_shop
+- C
+1、order開頭  
+2、comment
+- D
+1、item_page  
+2、item_detail  
+3、buyer_setting_item
+- E
+1、finditem  
+2、coupon  
+3、person_info
 # StonePet-Haven
 # Frontend
 ## DEPENDENCY REQUIREMENT
