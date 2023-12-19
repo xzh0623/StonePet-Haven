@@ -9,7 +9,6 @@
 from django.db import models
 
 from django.db.models import Max
-<<<<<<< HEAD
 from django.core.mail import send_mail
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
@@ -20,11 +19,9 @@ from django.core.mail import EmailMessage
 from django.conf import settings
 from asgiref.sync import sync_to_async
 from django.shortcuts import get_object_or_404
-=======
 from django.http import HttpResponse
 from datetime import datetime
 
->>>>>>> 5b2fe27196f2612bf7364e4efe3c4ab0d7a487cc
 
 
 

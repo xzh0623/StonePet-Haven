@@ -6,16 +6,11 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Product, User,Buyer
 from .forms import LoginForm
-<<<<<<< HEAD
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_str
 from django.utils.http import urlsafe_base64_decode
-=======
-from django.shortcuts import render, redirect
 from . import models
-# from .. backend_operation import TEST_add_data_to_models
 import django
->>>>>>> 5b2fe27196f2612bf7364e4efe3c4ab0d7a487cc
 
 # Create your views here.
 def home(request):
@@ -57,26 +52,6 @@ def register(request):
         else:
             return render(request, 'register.html',{'error': result})
     return render(request, 'register.html')
-
-<<<<<<< HEAD
-
-def email_verification(request):
-    if request.method == 'POST':
-        User.verify_account(request)
-        return redirect('home')
-    return render(request, 'email_verification.html')
-
-
-
-
-=======
-        # 处理用户注册逻辑
-        # 注册成功后，添加注册成功消息
-        messages.success(request, '注册成功！请登录。')
-        return redirect('login')
-    else:
-        # 显示注册页面
-        return render(request, 'register.html')
     
 def testpage(request):
 
@@ -117,4 +92,9 @@ def index(request):
         new_key = ExtraObject.objects.create(name='new_for_update')
         to_update = TestModel.objects.filter(id=2).update(name='updated_name', key=new_key)
         # return any kind of HttpResponse
->>>>>>> 5b2fe27196f2612bf7364e4efe3c4ab0d7a487cc
+
+def email_verification(request):
+    if request.method == 'POST':
+        User.verify_account(request)
+        return redirect('home')
+    return render(request, 'email_verification.html')

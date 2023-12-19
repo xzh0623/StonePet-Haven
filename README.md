@@ -1,11 +1,9 @@
 # StonePet-Haven
-<<<<<<< HEAD
 # remote test
 # 1220backend update
 # 驗證重複資料、記送gmail，gmail裡會叫你點確認按鈕，按了後狀態會改sql裡的狀態
 # 阿不要用for去寄mail我怕我帳號被鎖住
 # 1220 整合 改 hsiao的
-=======
 
 ## DEPENDENCY REQUIREMENT
 ``` powershell
@@ -53,4 +51,4 @@ whitenoise 6.6.0
 ### 1207 整合 by hsiao
 
 ### 1130backend update
->>>>>>> 5b2fe27196f2612bf7364e4efe3c4ab0d7a487cc
+
