@@ -8,6 +8,16 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 from django.db.models import Max
+from django.core.mail import send_mail
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode
+from django.template.loader import render_to_string
+from django.utils.translation import gettext as _
+from django.core.mail import EmailMessage
+from django.conf import settings
+from asgiref.sync import sync_to_async
+from django.shortcuts import get_object_or_404
 
 
 
@@ -176,12 +186,21 @@ class User(models.Model):
     @classmethod
     def Create(cls, request):
         if request.method == 'POST':
+                # 获取用户提交的信息
             username = request.POST.get('username')
             password = request.POST.get('password')
             email = request.POST.get('email')
             phone_number = request.POST.get('phone_number')
             account = request.POST.get('account')
             address = request.POST.get('address')
+
+            # 检查是否存在相同的账户、电话号码或电子邮件
+            if cls.objects.filter(account=account).exists():
+                return "帳戶已存在"
+            if cls.objects.filter(phone_number=phone_number).exists():
+                return "電話號碼已存在"
+            if cls.objects.filter(email=email).exists():
+                return "電子郵件已存在"
 
             # 创建 User 实例
             user_uid = cls.generate_unique_user_id()
@@ -196,8 +215,15 @@ class User(models.Model):
                 permission=1,
                 status=1
             )
-            Buyer(request,user_instance)
+            # 发送验证电子邮件
+            cls.send_verification_email(request, user_instance)
+
+            # 保存用户实例
             user_instance.save()
+
+            return "True"
+
+        return None  # 或者返回适当的值，表示未进行创建
 
     @classmethod
     def generate_unique_user_id(cls):
@@ -215,3 +241,31 @@ class User(models.Model):
         new_user_id = f'{prefix}{new_number:04d}'
 
         return new_user_id
+    
+    @classmethod
+    def send_verification_email(cls, request, user_instance):
+        full_verification_url = "http://127.0.0.1:8000/email_verification/?user_id=" + user_instance.user_id
+        email_template = render_to_string(
+                'email_verification_message.html',
+                {'user_instance': user_instance, 'verification_url': full_verification_url}
+        )
+        # 构建邮件内容
+        subject = _('Verify Your Account')
+        message = 'hi'
+        from_email = 't110590036@ntut.org.tw'  # 发送邮件的邮箱
+        to_email = user_instance.email
+
+        # 发送电子邮件
+        #send_mail(subject, email_template, from_email, [to_email])
+        send_mail(subject, message, from_email, [to_email], html_message=email_template)
+    
+    @classmethod
+    def verify_account(cls, request):
+        user_id = request.GET.get('user_id')  # 假设你通过 URL 参数传递了 user_id
+        user = get_object_or_404(cls, user_id=user_id)
+        if user.status != 2:
+            user.status = 2  # 假设状态码 2 表示已验证      
+            user.save()      
+
+
+

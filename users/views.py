@@ -6,6 +6,10 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Product, User,Buyer
 from .forms import LoginForm
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.encoding import force_str
+from django.utils.http import urlsafe_base64_decode
+
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -37,23 +41,23 @@ def forgot_password(request):
 
 def register(request):
     if request.method == 'POST':
+        # 创建 User 实例
+        result = User.Create(request)
 
-        # 創建 User 實例
-        User.Create(request)
-        
-        # 創建 Buyer 實例
-        '''
-        buyer_instance = Buyer(
-            user=user_instance,
-            sex = int(request.POST.get('gender')),
-            age=age
-        )
-        buyer_instance.save()
-        '''
-        
-
-        messages.success(request, '註冊成功！')
-        return redirect('home')  # 假設你有一個名為'home'的URL路由
-
+        if result == "True":
+            # 发送验证电子邮件
+            return redirect('home')  # 重定向到主页或其他适当的页面
+        else:
+            return render(request, 'register.html',{'error': result})
     return render(request, 'register.html')
+
+
+def email_verification(request):
+    if request.method == 'POST':
+        User.verify_account(request)
+        return redirect('home')
+    return render(request, 'email_verification.html')
+
+
+
 
