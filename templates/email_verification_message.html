@@ -1,0 +1,12 @@
+{% autoescape off %}
+Hello {{ user_instance.name }},
+
+Thank you for registering with our website! Please click the link below to verify your account:
+
+<a href="{{ verification_url }}" style="display: block; margin-bottom: 10px;">Verify Your Account</a>
+
+<p>If you did not request this, please ignore this email.</p>
+
+Best regards,
+Your Website Team
+{% endautoescape %}

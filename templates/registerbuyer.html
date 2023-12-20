@@ -13,6 +13,14 @@
 </head>
 <body>
 <script src="../static/babystone/js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  $(function () {
+    // 启用日期选择器
+    $("#birth").datepicker();
+  });
+</script>
+
 <div class="item--UjX">
   <div class="auto-group-p43w-1jT">
     <img class="arrow-left-wd7" src="../static/babystone/img/arrow-left.png"/>
@@ -41,7 +49,7 @@
       </div>
 
       <div class="group-33-ggV">
-        <textarea name="address" class="rectangle-9-cKF" required></textarea>
+        <textarea name="address" class="rectangle-9-cKF" required placeholder="例如：台北市大安區XXX街XX號"></textarea>
         <div class="rectangle-15-w6d"></div>
         <label for="address" class="item--UMT">地址</label>
       </div>
@@ -70,103 +78,22 @@
       </div>
 
       <div class="group-30-hxH">
-        <input type="datetime" name="birth" class="rectangle-9-2zZ" required id="birth">
+        <input type="date" name="birth" class="rectangle-9-2zZ" required id="birth">
         <!-- <img class="vector-ADb" src="../static/babystone/img/chevron-down.png" /> -->
         <div class="rectangle-15-MG9"></div>
         <label for="birth" class="item--UrZ">出生日期</label>
       </div>
 
       <div class="auto-group-a6qs-gSq">
-        <img class="check-zyK" src="../static/babystone/img/check.png" />
-        <p class="item--LGV">
-          <span class="item--LGV-sub-0">我同意</span>
-          <span class="item--LGV-sub-1">退換貨政策</span>
-          <span class="item--LGV-sub-2">及</span>
-          <span class="item--LGV-sub-3">購物須知</span>
-        </p>
+        <input type="checkbox" id="agreeCheckbox" name="agreement" class="check-zyK" />
+        <label for="agreeCheckbox" class="item--LGV">
+          <span class="item--LGV-sub-0">我同意<a href="{% url '0_policy' %}">退換貨政策</a>及<a href="{% url '0_information' %}">購物須知</a>
+          </span>
+        </label>
       </div>
 
       <button type="submit" class="auto-group-s2dj-Hss">立即加入！</button>
     </form>
-
-<!-- 
-    <div class="group-27-gz1">
-      <div class="rectangle-9-DU9">
-      </div>
-      <div class="rectangle-15-ifo">
-      </div>
-      <p class="item--F9w">用戶名</p>
-    </div>
-    <div class="group-32-vWy">
-      <div class="rectangle-9-3rV">
-      </div>
-      <div class="rectangle-15-N85">
-      </div>
-      <p class="item--JnR">帳號</p>
-    </div>
-    <div class="group-28-Pos">
-      <div class="rectangle-9-KhX">
-      </div>
-      <div class="rectangle-15-F5P">
-      </div>
-      <p class="item--nb7">密碼</p>
-    </div> -->
-    <!-- <div class="group-33-ggV">
-      <div class="rectangle-9-cKF">
-      </div>
-      <div class="rectangle-15-w6d">
-      </div>
-      <p class="item--UMT">地址</p>
-    </div>
-
-    <div class="group-34-Ak5">
-      <div class="rectangle-9-6dj">
-      </div>
-      <div class="rectangle-15-cMB">
-      </div>
-      <p class="item--wuF">電子郵件</p>
-    </div>
-
-    <div class="group-31-3SV">
-      <div class="rectangle-9-x3f">
-      </div>
-      <div class="rectangle-15-sgR">
-      </div>
-      <p class="item--ce1">電話號碼</p>
-    </div>
-
-    <div class="group-29-7Ks">
-      <select class="rectangle-9-SN9">
-        <option>男</option>
-        <option>女</option>
-      </select>
-
-      <div class="rectangle-15-AZ3">
-      </div>
-      <p class="item--V5X">性別</p>
-
-    </div>
-
-    <div class="group-30-hxH">
-      <div class="rectangle-9-2zZ">
-      </div>
-      <div class="rectangle-15-MG9">
-      </div>
-      <p class="item--UrZ">出生日期</p>
-      <img class="vector-ADb" src="../static/babystone/img/chevron-down.png"/>
-    </div> -->
-
-    <!-- <div class="auto-group-a6qs-gSq">
-      <img class="check-zyK" src="../static/babystone/img/check.png"/>
-      <p class="item--LGV">
-        <span class="item--LGV-sub-0">我同意</span>
-        <span class="item--LGV-sub-1">退換貨政策</span>
-        <span class="item--LGV-sub-2">及</span>
-        <span class="item--LGV-sub-3">購物須知</span>
-      </p>
-
-    </div>
-    <div class="auto-group-s2dj-Hss">立即加入！</div> -->
   </div>
 </div>
 </body>

@@ -73,20 +73,27 @@ def registeroption(request):
 def registerbuyer(request):
     if request.method == 'POST':
     
-        # 創建 User 實例
-        User.Create(request)
+        # # 創建 User 實例
+        # User.Create(request)
         
-        # 創建 Buyer 實例
-        '''
-        buyer_instance = Buyer(
-            user=user_instance,
-            sex = int(request.POST.get('gender')),
-            age=age
-        )
-        buyer_instance.save()
-        '''
-        messages.success(request, '注册成功！请登录。')
-        return redirect('login')
+        # # 創建 Buyer 實例
+        # '''
+        # buyer_instance = Buyer(
+        #     user=user_instance,
+        #     sex = int(request.POST.get('gender')),
+        #     age=age
+        # )
+        # buyer_instance.save()
+        # '''
+        # messages.success(request, '注册成功！请登录。')
+        # return redirect('login')
+        result = User.Create(request)
+
+        if result == "True":
+            # 发送验证电子邮件
+            return redirect('homepage')  # 重定向到主页或其他适当的页面
+        else:
+            return render(request, 'login.html',{'error': result})
 
     return render(request, 'registerbuyer.html')
 
@@ -144,4 +151,8 @@ def policy(request):
 #         return redirect('login')
 
 #     return render(request, 'register.html')
-
+def email_verification(request):
+    if request.method == 'POST':
+        User.verify_account(request)
+        return redirect('homepage')
+    return render(request, 'email_verification.html')
