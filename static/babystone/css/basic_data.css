@@ -1,0 +1,190 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 39.3rem;
+}.item--EPf {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f2ec;
+}
+.item--EPf .auto-group-bzeh-9Wd {
+  box-sizing: border-box;
+  padding: 3rem 2.5rem 2.4rem 2.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-bzeh-9Wd .arrow-left-HMw {
+  margin-bottom: 4rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  position: relative;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-bzeh-9Wd .item--NuB {
+  width: 100%;
+  text-align: center;
+  font-size: 2.9635rem;
+  font-weight: 700;
+  line-height: 1.37;
+  color: #000000;
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-sxuh-HWM {
+  box-sizing: border-box;
+  padding: 5rem 17.8rem 34.4rem 11.7rem;
+  width: 100%;
+  row-gap: 4.1rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #c4bbb2;
+  border-radius: 4.5rem 4.5rem 0 0;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-sxuh-HWM .auto-group-9ckd-zff {
+  margin-left: 0.4rem;
+  width: calc(100% - 0.4rem);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-sxuh-HWM .auto-group-9ckd-zff .file-text-YBP {
+  margin: 0.1rem 2rem 0rem 0rem;
+  width: 1.6rem;
+  height: 2rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-sxuh-HWM .auto-group-9ckd-zff .item--sUZ {
+  display: flex;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-sxuh-HWM .auto-group-fza5-a85 {
+  margin-left: 0.3rem;
+  width: calc(100% - 0.3rem);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-sxuh-HWM .auto-group-fza5-a85 .edit-3-vBw {
+  margin: 0rem 1.9rem 0.012rem 0rem;
+  width: 1.8rem;
+  height: 1.7121rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-sxuh-HWM .auto-group-fza5-a85 .item--Svy {
+  display: flex;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-sxuh-HWM .auto-group-ehgh-BNm {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-sxuh-HWM .auto-group-ehgh-BNm .truck-wMw {
+  margin: 0.1rem 1.8rem 0rem 0rem;
+  width: 2.2rem;
+  height: 1.8rem;
+  position: relative;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-sxuh-HWM .auto-group-ehgh-BNm .item--QWR {
+  display: flex;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-sxuh-HWM .auto-group-dqnv-wFT {
+  margin-right: 1.4rem;
+  width: calc(100% - 1.4rem);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-sxuh-HWM .auto-group-dqnv-wFT .shopping-cart-HaD {
+  margin-right: 1.8rem;
+  width: 2.2rem;
+  height: 2.1rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-sxuh-HWM .auto-group-dqnv-wFT .item--2Xo {
+  display: flex;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-sxuh-HWM .auto-group-cyzv-AP7 {
+  margin: 0rem 2.9rem 0rem 0.304rem;
+  width: calc(100% - 3.2038rem);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-sxuh-HWM .auto-group-cyzv-AP7 .moon-tpu {
+  margin: 0.096rem 1.9rem 0rem 0rem;
+  width: 1.7962rem;
+  height: 1.7962rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.item--EPf .auto-group-sxuh-HWM .auto-group-cyzv-AP7 .item--cW1 {
+  display: flex;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
