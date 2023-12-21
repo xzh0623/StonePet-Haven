@@ -1,0 +1,38 @@
+<!-- templates/yourapp/product_detail.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.product_name }} Detail</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/product_detail.css' %}">
+</head>
+<body>
+    <div class="main-container">
+        <nav>
+            <ul class="navbar">
+                <li><a href="{% url 'homepage' %}">BabyStone</a></li>
+                <li><a href="{% url 'homepage' %}"><img src="{% static 'babystone/img/menu.png' %}" alt="Menu"></a></li>
+                <li><a href="{% url 'login' %}">登入</a></li>
+                <li><a href="{% url 'login' %}">搜尋</a></li>
+                <li><a href="{% url 'products' %}">商品</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+        <main>
+            <h1>{{ product.product_name }} Detail</h1>
+            <img src="{% static 'babystone/img/' %}{{ product.product_id|lower }}.png" alt="Product_Image">
+            <p>Description: {{ product.description }}</p>
+            <p>Price: ${{ product.price }}</p>
+            <!-- 其他商品詳細信息 -->
+
+            <a href="{% url 'products' %}">Back to Product List</a>
+        </main>
+        <footer>
+            <p>&copy; 2023 BabyStone All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

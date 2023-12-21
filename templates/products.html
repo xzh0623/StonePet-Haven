@@ -1,0 +1,43 @@
+<!-- products.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - BabyStone</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/products.css' %}">
+</head>
+<body>
+    <div class="main-container">
+        <nav>
+            <ul class="navbar">
+                <li><a href="{% url 'homepage' %}">BabyStone</a></li>
+                <li><a href="{% url 'login' %}">登入</a></li>
+                <li><a href="{% url 'login' %}">搜尋</a></li>
+                <li><a href="{% url 'products' %}">商品</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+        <main>
+            <!-- Product listing goes here -->
+            {% for product in products %}
+                <div class="product">
+                    <a href="{% url 'product_detail' product.product_id %}">
+                        <img src="{% static 'babystone/img/' %}{{ product.product_id|lower }}.png" alt="Product_Image">
+                        {{ product.product_id }}
+                        <h3>{{ product.product_name }}</h3>
+                    </a>
+                    <span>${{ product.price }}</span>
+                    <button>Add to Cart</button>
+                </div>
+            {% endfor %}
+            <!-- Add more product items as needed -->
+        </main>
+        <footer>
+            <p>&copy; 2023 BabyStone All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

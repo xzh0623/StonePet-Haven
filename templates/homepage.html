@@ -7,16 +7,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/homepage.css' %}">
 </head>
 <body>
     <div class="main-container">
         <nav>
             <ul class="navbar">
-                <li><a href="{% url 'home' %}">BabyStone</a></li>
-                <li><a href="{% url 'login' %}">登入</a></li>
+                <li><a href="{% url 'homepage' %}">BabyStone</a></li>
+                <li><a href="{% url 'homepage' %}"><img src="{% static 'babystone/img/menu.png' %}" alt="Menu"></a></li>
                 <li><a href="{% url 'login' %}">搜尋</a></li>
-                <li><a href="{% url 'login' %}">商品</a></li>
+                <li><a href="{% url 'products' %}">商品</a></li>
                 <!-- Add more navigation links as needed -->
             </ul>
         </nav>

@@ -3,10 +3,7 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('login/', views.login, name='login'),
-    path('register/', views.register, name='register'),
-
-    path('forgot_password/', views.forgot_password, name='forgot_password'),
-    path('testpage', views.testpage, name='TESTPAGE'),      # backend test page
+    path('', views.homepage, name='homepage'),
+    path('products/', views.products, name='products'),
+    path('products/<str:product_id>/', views.product_detail, name='product_detail'),
 ] 
