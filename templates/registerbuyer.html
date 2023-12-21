@@ -20,16 +20,25 @@
     $("#birth").datepicker();
   });
 </script>
+<style>
+  #user_type {
+    display: none;
+  }
+</style>
 
 <div class="item--UjX">
   <div class="auto-group-p43w-1jT">
-    <img class="arrow-left-wd7" src="../static/babystone/img/arrow-left.png"/>
+    <a href="{% url 'login' %}">
+      <img class="arrow-left-wd7" src="../static/babystone/img/arrow-left.png" />
+    </a>
     <p class="item--GvH">註冊會員</p>
   </div>
   <div class="auto-group-dquw-BXT">
 
     <form method="post" action="{% url 'registerbuyer' %}">
       {% csrf_token %}
+      <input type="text" name="user_type" required id="user_type" value="buyer">
+      
       <div class="group-27-gz1">
         <input type="text" name="username" class="rectangle-9-DU9" required id="username">
         <div class="rectangle-15-ifo"> </div>
@@ -94,6 +103,7 @@
 
       <button type="submit" class="auto-group-s2dj-Hss">立即加入！</button>
     </form>
+    
   </div>
 </div>
 </body>

@@ -21,6 +21,7 @@ from asgiref.sync import sync_to_async
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from datetime import datetime
+from django.utils.dateparse import parse_date
 
 
 
@@ -152,6 +153,16 @@ class Seller(models.Model):
         managed = False
         db_table = 'seller'
 
+    @classmethod
+    def Create(cls, request,user_instance):
+        if request.method == 'POST':
+            
+            # 创建 User 实例
+            seller_instance = Seller(
+            user=user_instance,
+            joint_date=parse_date(request.POST.get('joint_date'))
+        )
+        seller_instance.save()
 
 class ShoppingCart(models.Model):
     cart_id = models.CharField(primary_key=True, max_length=6)
@@ -246,6 +257,7 @@ class User(models.Model):
     def Create(cls, request):
         if request.method == 'POST':
                 # 获取用户提交的信息
+            user_is_buyer = request.POST.get('user_type') == 'buyer'
             username = request.POST.get('username')
             password = request.POST.get('password')
             email = request.POST.get('email')
@@ -271,7 +283,7 @@ class User(models.Model):
                 phone_number=phone_number,
                 account=account,
                 address=address,
-                permission=1,
+                permission=0 if user_is_buyer else 1,
                 status=1
             )
             # 发送验证电子邮件
@@ -280,8 +292,8 @@ class User(models.Model):
             #send_mail('hi', 'hii','t110590036@ntut.org.tw' , ['t110590033@ntut.org.tw'])
             # 保存用户实例
             user_instance.save()
-            Buyer.Create(request,user_instance)
-            return "True"
+            # Buyer.Create(request,user_instance)
+            return "True", user_instance
 
         return None  # 或者返回适当的值，表示未进行创建
 
@@ -327,3 +339,23 @@ class User(models.Model):
         if user.status != 2:
             user.status = 2  # 假设状态码 2 表示已验证      
             user.save() 
+
+
+    @classmethod
+    def send_resetpassword_email(cls, request, user_instance):
+        full_verification_url = "http://127.0.0.1:8000/email_verification/?user_id=" + user_instance.user_id
+        
+        email_template = render_to_string(
+                'email_verification_message.html',
+                {'user_instance': user_instance, 'verification_url': full_verification_url}
+        )
+         # 构建邮件内容
+        subject = _('Verify Your Account')
+        message = 'hi'
+        from_email = 't110590036@ntut.org.tw'  # 发送邮件的邮箱
+        to_email = user_instance.email
+
+        # # 发送电子邮件
+         #send_mail(subject, email_template, from_email, [to_email])
+        send_mail(subject, message, from_email, [to_email], html_message=email_template)
+    

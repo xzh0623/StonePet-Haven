@@ -5,12 +5,13 @@ from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
-from .models import Product, User,Buyer
+from .models import Product, User,Buyer,Seller
 from .forms import LoginForm
 from django.shortcuts import render, redirect
 from . import models
 # from .. backend_operation import TEST_add_data_to_models
 import django
+from django.contrib.auth.hashers import make_password
 
 # Create your views here.
 def homepage(request):
@@ -26,7 +27,7 @@ def login(request):
         if form.is_valid():
             account = form.cleaned_data['account']
             password = form.cleaned_data['password']
-
+    
             user = User.objects.filter(account=account, password=password).first()
 
             if user:
@@ -50,11 +51,32 @@ def shoppingcart(request):
     return HttpResponse(template.render(context, request))
 
 def forgotpassword(request):
-    template = loader.get_template('forgotpassword.html')
-    context = {
+    # template = loader.get_template('forgotpassword.html')
+    # context = {
 
-    }
-    return HttpResponse(template.render(context, request))
+    # }
+    # return HttpResponse(template.render(context, request))
+
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            account = form.cleaned_data['account']
+
+            
+
+            if User.objects.filter(account=account).exists():
+                # 登入成功，重定向到主頁
+                messages.success(request, '輸入成功！欢迎回来。')
+                return redirect('login')
+            else:
+                # 登入失敗，設定錯誤訊息
+                error = "Invalid email. Please try again."
+                return render(request, 'forgotpassword.html', {'form': form, 'error': error})
+    else:
+        form = LoginForm()
+
+    return render(request, 'forgotpassword.html', {'form': form})
+    
 
 def registermember(request):
     template = loader.get_template('registermember.html')
@@ -73,37 +95,36 @@ def registeroption(request):
 def registerbuyer(request):
     if request.method == 'POST':
     
-        # # 創建 User 實例
-        # User.Create(request)
-        
-        # # 創建 Buyer 實例
-        # '''
-        # buyer_instance = Buyer(
-        #     user=user_instance,
-        #     sex = int(request.POST.get('gender')),
-        #     age=age
-        # )
-        # buyer_instance.save()
-        # '''
-        # messages.success(request, '注册成功！请登录。')
-        # return redirect('login')
-        result = User.Create(request)
-
+        result, user_instance = User.Create(request)
+        Buyer.Create(request, user_instance)
         if result == "True":
             # 发送验证电子邮件
-            return redirect('homepage')  # 重定向到主页或其他适当的页面
+            
+            return redirect('login')  # 重定向到主页或其他适当的页面
         else:
             return render(request, 'login.html',{'error': result})
 
     return render(request, 'registerbuyer.html')
 
 def registerseller(request):
-    template = loader.get_template('registerseller.html')
-    context = {
+    # template = loader.get_template('registerseller.html')
+    # context = {
 
-    }
-    return HttpResponse(template.render(context, request))
+    # }
+    # return HttpResponse(template.render(context, request))
 
+    if request.method == 'POST':
+    
+        result, user_instance = User.Create(request)
+        Seller.Create(request, user_instance)
+        if result == "True":
+        #     # 发送验证电子邮件
+             return redirect('login')  # 重定向到主页或其他适当的页面
+        else:
+             return render(request, 'login.html',{'error': result})
+
+    return render(request, 'registerseller.html')
+    
 def introduction(request):
     template = loader.get_template('0_introduction.html')
     context = {
@@ -132,25 +153,6 @@ def policy(request):
     }
     return HttpResponse(template.render(context, request))
 
-# def register(request):
-#     if request.method == 'POST':
-    
-#         # 創建 User 實例
-#         User.Create(request)
-        
-#         # 創建 Buyer 實例
-#         '''
-#         buyer_instance = Buyer(
-#             user=user_instance,
-#             sex = int(request.POST.get('gender')),
-#             age=age
-#         )
-#         buyer_instance.save()
-#         '''
-#         messages.success(request, '注册成功！请登录。')
-#         return redirect('login')
-
-#     return render(request, 'register.html')
 def email_verification(request):
     if request.method == 'POST':
         User.verify_account(request)
