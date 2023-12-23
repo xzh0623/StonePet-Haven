@@ -76,7 +76,7 @@
       </div>
       
       <div class="group-33-A6y">
-        <textarea name="address" class="rectangle-9-h6u" required placeholder="例如：台北市大安區XXX街XX號"></textarea>
+        <textarea name="address" class="rectangle-9-h6u" style="resize:none;overflow:hidden" required placeholder="例如：台北市大安區XXX街XX號"></textarea>
         <div class="rectangle-15-bi5"></div>
         <label for="address" class="item--LQm">地址</label>
       </div>
@@ -110,71 +110,21 @@
       </div>
       
       <button type="submit" class="auto-group-8wry-aSq">立即加入！</button>
-
+      
+      {% if messages %}
+      <ul class="error-message">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+      
+      
+      {% if error %}
+      <p class="error-message">{{error}}</p>
+      {% endif %}
     </form>
-
-    <!-- <div class="group-27-UGm">
-      <div class="rectangle-9-zF7">
-      </div>
-      <div class="rectangle-15-u7B">
-      </div>
-      <p class="item--XuF">用戶名</p>
-    </div>
-
-
-    <div class="group-32-DXB">
-      <div class="rectangle-9-99w">
-      </div>
-      <div class="rectangle-15-GEZ">
-      </div>
-      <p class="item--zwF">帳號</p>
-    </div>
-    <div class="group-28-sk9">
-      <div class="rectangle-9-15f">
-      </div>
-      <div class="rectangle-15-7uP">
-      </div>
-      <p class="item--G1b">密碼</p>
-    </div>
-    <div class="group-33-A6y">
-      <div class="rectangle-9-h6u">
-      </div>
-      <div class="rectangle-15-bi5">
-      </div>
-      <p class="item--LQm">地址</p>
-    </div>
-    <div class="group-34-Rx1">
-      <div class="rectangle-9-xS9">
-      </div>
-      <div class="rectangle-15-UQV">
-      </div>
-      <p class="item--pDT">電子郵件</p>
-    </div>
-    <div class="group-31-tz1">
-      <div class="rectangle-9-QhT">
-      </div>
-      <div class="rectangle-15-L5K">
-      </div>
-      <p class="item--GDs">電話號碼</p>
-    </div>
-
-    <div class="group-30-wqo">
-      <div class="rectangle-9-5BK">
-      </div>
-      <div class="rectangle-15-n5j">
-      </div>
-      <p class="item--7do">加入日期</p>
-    </div>
-    <div class="auto-group-hmup-oFj">
-      <img class="check-idb" src="../static/babystone/img/check.png"/>
-      <p class="item--TLH">
-        <span class="item--TLH-sub-0">我同意</span>
-        <span class="item--TLH-sub-1">退換貨政策</span>
-        <span class="item--TLH-sub-2">及</span>
-        <span class="item--TLH-sub-3">購物須知</span>
-      </p>
-    </div>
-    <div class="auto-group-8wry-aSq">立即加入！</div> -->
+    
   </div>
 </div>
 </body>

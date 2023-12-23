@@ -292,8 +292,11 @@ class User(models.Model):
             #send_mail('hi', 'hii','t110590036@ntut.org.tw' , ['t110590033@ntut.org.tw'])
             # 保存用户实例
             user_instance.save()
-            # Buyer.Create(request,user_instance)
-            return "True", user_instance
+            if (user_is_buyer): 
+                Buyer.Create(request,user_instance)
+            else:
+                Seller.Create(request, user_instance)
+            return "True"
 
         return None  # 或者返回适当的值，表示未进行创建
 
@@ -323,7 +326,7 @@ class User(models.Model):
                 {'user_instance': user_instance, 'verification_url': full_verification_url}
         )
          # 构建邮件内容
-        subject = _('Verify Your Account')
+        subject = _('驗證帳號')
         message = 'hi'
         from_email = 't110590036@ntut.org.tw'  # 发送邮件的邮箱
         to_email = user_instance.email
@@ -340,22 +343,15 @@ class User(models.Model):
             user.status = 2  # 假设状态码 2 表示已验证      
             user.save() 
 
-
     @classmethod
-    def send_resetpassword_email(cls, request, user_instance):
-        full_verification_url = "http://127.0.0.1:8000/email_verification/?user_id=" + user_instance.user_id
-        
-        email_template = render_to_string(
-                'email_verification_message.html',
-                {'user_instance': user_instance, 'verification_url': full_verification_url}
-        )
-         # 构建邮件内容
-        subject = _('Verify Your Account')
-        message = 'hi'
-        from_email = 't110590036@ntut.org.tw'  # 发送邮件的邮箱
-        to_email = user_instance.email
-
-        # # 发送电子邮件
-         #send_mail(subject, email_template, from_email, [to_email])
-        send_mail(subject, message, from_email, [to_email], html_message=email_template)
+    def reset_password(cls, request):
+        user_id = request.GET.get('user_id')  # 假设你通过 URL 参数传递了 user_id
+        user = get_object_or_404(cls, user_id=user_id)
+        new_password = request.POST.get('new_password')
+        confirm_password = request.POST.get('confirm_password')
+        if new_password != confirm_password:
+            return "新密碼與確認新密碼不一致"
+        user.password = new_password
+        user.save()
+        return "True"
     

@@ -15,5 +15,6 @@ urlpatterns = [
     path('0_cooperation/', views.cooperation, name='0_cooperation'),        #
     path('0_information/', views.information, name='0_information'),        #
     path('0_policy/', views.policy, name='0_policy'),    
-    path('email_verification/', views.email_verification, name='email_verification'),  #
+    path('email_verification/', views.email_verification, name='email_verification'), 
+    path('reset_password/', views.reset_password, name='reset_password'),  #
 ] 

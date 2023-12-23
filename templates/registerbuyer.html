@@ -58,7 +58,7 @@
       </div>
 
       <div class="group-33-ggV">
-        <textarea name="address" class="rectangle-9-cKF" required placeholder="例如：台北市大安區XXX街XX號"></textarea>
+        <textarea name="address" class="rectangle-9-cKF" style="resize:none;overflow:hidden" required placeholder="例如：台北市大安區XXX街XX號"></textarea>
         <div class="rectangle-15-w6d"></div>
         <label for="address" class="item--UMT">地址</label>
       </div>
@@ -102,8 +102,21 @@
       </div>
 
       <button type="submit" class="auto-group-s2dj-Hss">立即加入！</button>
+      {% if messages %}
+      <ul class="error-message">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+
+
+      {% if error %}
+      <p class="error-message">{{error}}</p>
+      {% endif %}
+
     </form>
-    
+     
   </div>
 </div>
 </body>

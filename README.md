@@ -22,8 +22,8 @@ whitenoise          6.6.0
 ## WORK DISTRUBUTION (v1220)
 
 ### xzh
-1. register開頭+forgotpassword
-2. login_title、unlogin_title
+1. register開頭+forgotpassword V
+2. login_title、unlogin_title 
 3. menu1
 4. homepage
 5. 連接頁面
