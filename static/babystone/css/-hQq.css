@@ -152,3 +152,11 @@ body {
 .no-underline{
   text-decoration: none;
 }
+.error-message {
+  color: red;
+  width: 34.3rem;
+  height: 4.5rem;
+  margin-top: 10px;
+  font-size: 15px;
+  text-align: center;
+}

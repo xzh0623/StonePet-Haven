@@ -85,6 +85,7 @@ body {
   padding: 2rem;
   background-color: #c4bbb2;
   font-size: 2rem;
+  line-height: 5rem;
 }
 .item--UjX .auto-group-dquw-BXT .group-27-gz1 .rectangle-15-ifo {
   width: 6.8rem;
@@ -128,6 +129,7 @@ body {
   background-color: #c4bbb2;
   padding: 2rem;
   font-size: 2rem;
+  line-height: 5rem;
 }
 .item--UjX .auto-group-dquw-BXT .group-32-vWy .rectangle-15-N85 {
   width: 4.8rem;
@@ -170,6 +172,7 @@ body {
   background-color: #c4bbb2;
   padding: 2rem;
   font-size: 2rem;
+  line-height: 5rem;
 }
 .item--UjX .auto-group-dquw-BXT .group-28-Pos .rectangle-15-F5P {
   width: 4.8rem;
@@ -254,6 +257,7 @@ body {
   background-color: #c4bbb2;
   padding: 2rem;
   font-size: 2rem;
+  line-height: 5rem;
 }
 .item--UjX .auto-group-dquw-BXT .group-34-Ak5 .rectangle-15-cMB {
   width: 8.6rem;
@@ -296,6 +300,7 @@ body {
   background-color: #c4bbb2;
   padding: 2rem;
   font-size: 2rem;
+  line-height: 5rem;
 }
 .item--UjX .auto-group-dquw-BXT .group-31-3SV .rectangle-15-sgR {
   width: 8.5rem;
@@ -337,6 +342,7 @@ body {
   border-radius: 5rem;
   background-color: #c4bbb2;
   font-size: 2rem;
+  line-height: 5rem;
   padding-right: 2rem;
   text-indent: 20px;
   appearance: none;
@@ -395,6 +401,7 @@ body {
   background-color: #c4bbb2;
   padding: 2rem;
   font-size: 2rem;
+  line-height: 5rem;
 }
 .item--UjX .auto-group-dquw-BXT .group-30-hxH .rectangle-15-MG9 {
   width: 8.5rem;
@@ -436,15 +443,15 @@ body {
 }
 .item--UjX .auto-group-dquw-BXT .auto-group-a6qs-gSq .check-zyK {
   margin-right: 0.5981rem;
-  width: 2.4922rem;
-  height: 2.4rem;
+  width: 2rem;
+  height: 2rem;
   cursor: pointer;
   object-fit: contain;
-  vertical-align: top;
+  vertical-align: middle;
   flex-shrink: 0;
 }
 .item--UjX .auto-group-dquw-BXT .auto-group-a6qs-gSq .item--LGV {
-  margin-top: 0.4rem;
+  /* margin-top: 0.4rem; */
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.37;
@@ -496,3 +503,11 @@ body {
   flex-shrink: 0;
 }
 
+.error-message {
+  color: red;
+  width: 34.3rem;;
+  height: 4.5rem;
+  margin-top: 10px;
+  font-size: 15px;
+  text-align: center;
+}
