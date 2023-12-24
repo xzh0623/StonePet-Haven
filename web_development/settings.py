@@ -39,9 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'corsheaders',
-
-    # kuan tempting
-    'backend_operation',
 ]
 
 MIDDLEWARE = [
@@ -111,7 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -130,10 +126,6 @@ USE_TZ = True
 STATIC_ROOT = BASE_DIR / 'static'
 
 STATIC_URL = 'static/'
-
-MEDIA_ROOT = BASE_DIR / 'media'
-MEDIA_URL = '/media/'
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -157,4 +149,3 @@ EMAIL_HOST_PASSWORD = 'dgvv iitu awen opvy'
 
 # 默认发件人的地址
 DEFAULT_FROM_EMAIL = 't110590036@ntut.org.tw'
-
