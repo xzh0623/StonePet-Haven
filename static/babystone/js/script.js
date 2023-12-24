@@ -68,8 +68,8 @@ function hidePopup() {
 }
 
 // 获取下拉选择框的值
-var selectedGender = document.getElementById("genderSelect").value;
-console.log(selectedGender);
+// var selectedGender = document.getElementById("genderSelect").value;
+// console.log(selectedGender);
 
 
 

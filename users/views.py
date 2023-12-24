@@ -1,9 +1,16 @@
-<<<<<<< HEAD
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.contrib import messages
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import AuthenticationForm
+from .models import Product, User,Buyer,Coupon
+from .forms import LoginForm,CouponForm
 from django.shortcuts import render, redirect
+from . import models
+# from .. backend_operation import TEST_add_data_to_models
+import django
 
 # Create your views here.
 def homepage(request):
@@ -14,42 +21,25 @@ def homepage(request):
     return HttpResponse(template.render(context, request))
 
 def login(request):
-    template = loader.get_template('login.html')
-    context = {
-
-    }
-    return HttpResponse(template.render(context, request))
-
-def register(request):
     if request.method == 'POST':
-        # 处理用户注册逻辑
-        # 注册成功后，添加注册成功消息
-        messages.success(request, '注册成功！请登录。')
-        return redirect('login')
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            account = form.cleaned_data['account']
+            password = form.cleaned_data['password']
+
+            user = User.objects.filter(account=account, password=password).first()
+            
+            if user:
+                # 登入成功，重定向到主頁
+                return render(request, 'homepage.html', {'user': user})
+            else:
+                # 登入失敗，設定錯誤訊息
+                error = "Invalid username or password. Please try again."
+                return render(request, 'login.html', {'form': form, 'error': error})
     else:
-        # 显示注册页面
-        return render(request, 'register.html')
-=======
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
-from django.contrib import messages
-from django.shortcuts import render, redirect
+        form = LoginForm()
 
-# Create your views here.
-def homepage(request):
-    template = loader.get_template('homepage.html')
-    context = {
-
-    }
-    return HttpResponse(template.render(context, request))
-
-def login(request):
-    template = loader.get_template('login.html')
-    context = {
-
-    }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'login.html', {'form': form})
 
 def shoppingcart(request):
     template = loader.get_template('shoppingcart.html')
@@ -80,11 +70,31 @@ def registeroption(request):
     return HttpResponse(template.render(context, request))
 
 def registerbuyer(request):
-    template = loader.get_template('registerbuyer.html')
-    context = {
+    if request.method == 'POST':
+    
+        # # 創建 User 實例
+        # User.Create(request)
+        
+        # # 創建 Buyer 實例
+        # '''
+        # buyer_instance = Buyer(
+        #     user=user_instance,
+        #     sex = int(request.POST.get('gender')),
+        #     age=age
+        # )
+        # buyer_instance.save()
+        # '''
+        # messages.success(request, '注册成功！请登录。')
+        # return redirect('login')
+        result = User.Create(request)
 
-    }
-    return HttpResponse(template.render(context, request))
+        if result == "True":
+            # 发送验证电子邮件
+            return redirect('homepage')  # 重定向到主页或其他适当的页面
+        else:
+            return render(request, 'login.html',{'error': result})
+
+    return render(request, 'registerbuyer.html')
 
 def registerseller(request):
     template = loader.get_template('registerseller.html')
@@ -121,14 +131,57 @@ def policy(request):
     }
     return HttpResponse(template.render(context, request))
 
-def register(request):
-    if request.method == 'POST':
-        # 处理用户注册逻辑
-        # 注册成功后，添加注册成功消息
-        messages.success(request, '注册成功！请登录。')
-        return redirect('login')
-    else:
-        # 显示注册页面
-        return render(request, 'register.html')
+# def register(request):
+#     if request.method == 'POST':
     
->>>>>>> c50c0cd14f3740a628d2ff262ba1279fe946a785
+#         # 創建 User 實例
+#         User.Create(request)
+        
+#         # 創建 Buyer 實例
+#         '''
+#         buyer_instance = Buyer(
+#             user=user_instance,
+#             sex = int(request.POST.get('gender')),
+#             age=age
+#         )
+#         buyer_instance.save()
+#         '''
+#         messages.success(request, '注册成功！请登录。')
+#         return redirect('login')
+
+#     return render(request, 'register.html')
+def email_verification(request):
+    if request.method == 'POST':
+        User.verify_account(request)
+        return redirect('homepage')
+    return render(request, 'email_verification.html')
+
+def coupon(request):
+    coupons = Coupon.objects.all()
+    if request.method == 'POST':
+        form = CouponForm(request.POST)
+        if form.is_valid():
+            coupon_id = form.cleaned_data['coupon_id']
+            coupon = Coupon.objects.filter(coupon_id=coupon_id).first()
+
+            if coupon:
+                # 如果存在對應的優惠券，將其傳到前端
+                return render(request, 'coupon.html', {'form': form, 'coupon': coupon})
+            else:
+                # 如果找不到對應的優惠券，回傳全部折價券
+                return render(request, 'coupon.html', {'form': form,'coupons':coupons})
+    else:
+        form = CouponForm()
+    return render(request, 'coupon.html', {'form': form,'coupons':coupons})
+
+def person_info(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id')
+        check_is_update = request.POST.get('account')
+        user = User.objects.filter(user_id=user_id).first()
+        if check_is_update is not None:
+            result = User.Update(request)
+            if result == True:
+                user = User.objects.filter(user_id=user_id).first()
+            return render(request, 'homepage.html',{'user': user})
+    return render(request, 'person_info.html',{'user': user})

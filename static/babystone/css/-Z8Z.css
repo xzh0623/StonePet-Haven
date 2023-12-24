@@ -1,0 +1,199 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 39.3rem;
+}.item-1-TAm {
+  box-sizing: border-box;
+  padding-bottom: 46.9rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f2ec;
+}
+.item-1-TAm .auto-group-u6h3-NoX {
+  box-sizing: border-box;
+  padding: 3rem 2.5rem 2.3rem 2.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.item-1-TAm .auto-group-u6h3-NoX .arrow-left-Weq {
+  margin-bottom: 4rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  position: relative;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.item-1-TAm .auto-group-u6h3-NoX .item--f1w {
+  width: 100%;
+  text-align: center;
+  font-size: 2.9635rem;
+  font-weight: 700;
+  line-height: 1.37;
+  color: #000000;
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item-1-TAm .group-73-jXb {
+  margin-bottom: 1.9rem;
+  box-sizing: border-box;
+  padding: 1rem 5.3rem 0.9rem 2.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #d9d9d9;
+  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+.item-1-TAm .group-73-jXb .rectangle-14-dcy {
+  margin-right: 2.8rem;
+  width: 8.4rem;
+  height: 8.9rem;
+  cursor: pointer;
+  object-fit: contain;
+  vertical-align: top;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+.item-1-TAm .group-73-jXb .auto-group-hyrd-8pd {
+  margin: 0.5rem 6.159rem 0rem 0rem;
+  width: 8.1407rem;
+  flex-shrink: 0;
+}
+.item-1-TAm .group-73-jXb .auto-group-hyrd-8pd .item--s1X {
+  margin-bottom: 0.5rem;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item-1-TAm .group-73-jXb .auto-group-hyrd-8pd .x3-YdT {
+  margin-bottom: 0.4rem;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item-1-TAm .group-73-jXb .auto-group-hyrd-8pd .item--gUm {
+  display: flex;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item-1-TAm .group-73-jXb .nt50-7yP {
+  margin-bottom: 5.4rem;
+  display: flex;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item-1-TAm .group-74-ykh {
+  box-sizing: border-box;
+  padding: 1rem 4.2rem 0.9rem 2.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #d9d9d9;
+  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+.item-1-TAm .group-74-ykh .rectangle-11-gv1 {
+  margin-right: 2.8933rem;
+  width: 8.3067rem;
+  height: 8.9rem;
+  position: relative;
+  background-size: 104.321% 100%;
+  background-position: -0.1795rem 0;
+  background-image: url('../assets/rectangle-11-c3o.png');
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+.item-1-TAm .group-74-ykh .auto-group-cwws-vZT {
+  margin: 0.5rem 5.559rem 0rem 0rem;
+  width: 8.7407rem;
+  flex-shrink: 0;
+}
+.item-1-TAm .group-74-ykh .auto-group-cwws-vZT .item--Fbj {
+  margin-bottom: 0.5rem;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item-1-TAm .group-74-ykh .auto-group-cwws-vZT .x5-NAZ {
+  margin-bottom: 0.4rem;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item-1-TAm .group-74-ykh .auto-group-cwws-vZT .item--6cM {
+  display: flex;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item-1-TAm .group-74-ykh .nt199-2W1 {
+  margin-bottom: 5.4rem;
+  display: flex;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
