@@ -14,6 +14,11 @@
 </head>
 
 <body>
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
 <script>
   function toggleMenu() {
       const menuContainer = document.getElementById('menuContainer');
@@ -56,42 +61,65 @@
     <div class="group-1-oPK">
       <p class="stone-baby-8Ah">Stone Baby</p>
       <img class="search-44M" src="../static/babystone/img/search.png" alt="Search">
-      <a href="{% url 'login' %}">
-        <img class="user-At5" src="../static/babystone/img/user.png" alt="Login">
-      </a>
 
+      <!-- <a href="{% url 'login' %}">
+        <img class="user-At5" src="../static/babystone/img/user.png" alt="Login">
+      </a> -->
+
+
+      {% if messages %}
+      <ul class="item--eER">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
       <a href="{% url 'shoppingcart' %}">
         <img class="shopping-cart-hND" src="../static/babystone/img/shopping-cart-black.png" alt="Shoppingcart">
       </a>
+      {% else %}
+      <a href="{% url 'login' %}">
+        <img class="user-At5" src="../static/babystone/img/user.png" alt="Login">
+      </a>
+      <a href="{% url 'shoppingcart_unlogin' %}">
+        <img class="shopping-cart-hND" src="../static/babystone/img/shopping-cart-black.png" alt="Shoppingcart">
+      </a>
+      {% endif %}
+
+
+
       <img class="menu-Rp1" src="../static/babystone/img/menu.png" onclick="toggleMenu()"/>
-	  	<div id="menuContainer" class="menu-container">
+	  	<div id="menuContainer" class="menu-container" >
 		 <div class="item--vyb">
 		  <div class="item--Dho">
-			<p class="item--L1j">首頁</p>
+        <a href="{% url 'homepage' %}">
+          <p class="item--L1j" >首頁</p>
+        </a>
 			<p class="item--E77">最新優惠</p>
-			<div class="frame-20-9E5">
-			  <p class="item--3aM">新品上架</p>
-			  <img class="chevron-down-8rh" src="./assets/chevron-down.png"/>
-			</div>
-			<div class="auto-group-mlwd-TPB">
-			  <p class="top-10-MzM">熱賣商品 TOP 10</p>
-			  <p class="all-tUV">所有商品 / ALL</p>
-			</div>
+			<p class="item--E77">新品上架</p>
+			<p class="item--E77" >本月熱賣商品 TOP 10</p>
+			<p class="item--E77">所有商品 / ALL</p>
+			
 			<div class="line-5-2Ko">
 			</div>
 			<p class="item--wxZ">帳戶</p>
-			<p class="item--5J5">會員登入</p>
-			<p class="item--zR3">新用戶註冊</p>
+      <a href="{% url 'login' %}">
+        <p class="item--5J5">會員登入</p>
+      </a>
+      <a href="{% url 'registerbuyer' %}">
+        <p class="item--zR3">新用戶註冊</p>
+      </a>
 			<div class="line-6-6ys">
 			</div>
 			<p class="item--RWM">其他</p>
-			<p class="item--Yqs">聯絡我們</p>
+      <a href="#contact">
+        <p class="item--Yqs">聯絡我們</p>
+      </a>
 		  </div>
 		</div>
 	</div>
     </div>
     <div class="auto-group-66ao-uu7">
-      <p class="follow-us-1x9">尋找我們 | Follow Us</p>
+      <p id="contact" class="follow-us-1x9">尋找我們 | Follow Us</p>
       <p class="stonebabygmailcom-vZK">
         客服專線 02-85461000
         <br />

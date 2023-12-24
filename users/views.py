@@ -31,6 +31,7 @@ def login(request):
             password = form.cleaned_data['password']
             user = User.objects.filter(account=account, password=password).first()
             if user:
+                messages.success(request, '您好！')
                 
                 return redirect('homepage')
             else:
@@ -43,11 +44,12 @@ def login(request):
     return render(request, 'login.html', {'form': form})
 
 def shoppingcart(request):
-    template = loader.get_template('shoppingcart.html')
-    context = {
 
-    }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'shoppingcart.html')
+
+def shoppingcart_unlogin(request):
+
+    return render(request, 'shoppingcart_unlogin.html')
 
 def forgotpassword(request):
     if request.method == 'POST':

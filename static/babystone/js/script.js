@@ -15,28 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 添加點擊事件監聽器，當點擊頁面其他地方時取消覆蓋效果
     document.addEventListener('click', cancelOverlayOnClickOutside);
   });
-// function toggleMenu() {
-//     const menuContainer = document.getElementById('menuContainer');
-//     const homeMenuItem = document.querySelector('.item--L1j');
-  
-//     if (menuContainer.style.maxHeight === '0px') {
-//       // 顯示選單
-//       menuContainer.style.maxHeight = '500px';
-//       menuContainer.style.opacity = '1';
-//       menuContainer.style.pointerEvents = 'auto';
-  
-//       // 顯示最上面的首頁
-//       homeMenuItem.style.display = 'block';
-//     } else {
-//       // 隱藏選單
-//       menuContainer.style.maxHeight = '0';
-//       menuContainer.style.opacity = '0';
-//       menuContainer.style.pointerEvents = 'none';
-  
-//       // 隱藏最上面的首頁
-//       homeMenuItem.style.display = 'none';
-//     }
-// }
+
 function cancelOverlayOnClickOutside(event) {
     const searchContainer = document.getElementById('searchContainer');
 
@@ -52,6 +31,8 @@ function cancelOverlayOnClickOutside(event) {
     }
   }
 });
+
+
 function goBack() {//返回上一頁
       window.history.back();
 }

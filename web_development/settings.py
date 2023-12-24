@@ -150,3 +150,4 @@ EMAIL_HOST_PASSWORD = 'dgvv iitu awen opvy'
 
 # 默认发件人的地址
 DEFAULT_FROM_EMAIL = 't110590036@ntut.org.tw'
+
