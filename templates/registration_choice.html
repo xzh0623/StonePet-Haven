@@ -1,4 +1,4 @@
-<!-- templates/yourapp/product_detail.html -->
+<!-- registration_choice.html -->
 
 {% load static %}
 <!DOCTYPE html>
@@ -6,8 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ product.product_name }} Detail</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/product_detail.css' %}">
+    <title>Choose Registration Type</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/registration_choice.css' %}">
 </head>
 <body>
     <div class="main-container">
@@ -15,20 +15,16 @@
             <ul class="navbar">
                 <li><a href="{% url 'homepage' %}">BabyStone</a></li>
                 <li><a href="{% url 'homepage' %}"><img src="{% static 'babystone/img/menu.png' %}" alt="Menu"></a></li>
-                <li><a href="{% url 'homepage' %}">登入</a></li>
-                <li><a href="{% url 'homepage' %}">搜尋</a></li>
+                <li><a href="{% url 'login' %}">登入</a></li>
                 <li><a href="{% url 'products' %}">商品</a></li>
-                <!-- Add more navigation links as needed -->
             </ul>
         </nav>
         <main>
-            <h1>{{ product.product_name }} Detail</h1>
-            <img src="{% static 'babystone/img/' %}{{ product.product_id|lower }}.png" alt="Product_Image">
-            <p>Description: {{ product.description }}</p>
-            <p>Price: ${{ product.price }}</p>
-            <!-- 其他商品詳細信息 -->
-
-            <a href="{% url 'products' %}">Back to Product List</a>
+            <div class="registration-choice-container">
+                <h2>Choose Registration Type</h2>
+                <a href="{% url 'seller_registration' %}" class="registration-link">Register as Seller</a>
+                <a href="{% url 'buyer_registration' %}" class="registration-link">Register as Buyer</a>
+            </div>
         </main>
         <footer>
             <div class="footer-info">

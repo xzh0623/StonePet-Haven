@@ -1,47 +1,79 @@
+<!-- register.html -->
+
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>註冊</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
     <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/register.css' %}">
 </head>
 <body>
-    <div class="container">
-        <div class="registration-form">
-            <h2>註冊</h2>
-            
-            <form method="post" action="{% url 'register' %}">
-                {% csrf_token %}
-
-                <input type="text" name="username" placeholder="使用者名稱" required>
-
-                <input type="password" name="password" placeholder="密碼" required>
-
-                <input type="email" name="email" placeholder="電子郵件" required>
-
-                <input type="tel" name="phone_number" placeholder="電話號碼" required>
-
-                <input type="text" name="account" placeholder="帳號" required>
-
-                <input type="text" name="age" placeholder="年紀" required>
-
-                <textarea name="address" placeholder="地址" required></textarea>
-                
-                </br>
-                <select name="gender" placeholder="性別">
-                    <option value="0">男性</option>
-                    <option value="1">女性</option>
-                    <option value="2">其他</option>
-                </select>
-                </br>
-                <button type="submit">註冊</button>
-            </form>
-            <div class="options">
-                <a href="{% url 'login' %}">已經有帳號了? 點這裡登錄</a>
-                <a href="{% url 'forgot_password' %}">忘記密碼</a>
+    <div class="main-container">
+        <nav>
+            <ul class="navbar">
+                <li><a href="{% url 'homepage' %}">BabyStone</a></li>
+                <li><a href="{% url 'homepage' %}"><img src="{% static 'babystone/img/menu.png' %}" alt="Menu"></a></li>
+                <li><a href="{% url 'login' %}">登入</a></li>
+                <li><a href="{% url 'products' %}">商品</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+        <main>
+            <div class="register-container">
+                <h2>register</h2>
+                <form method="post" action="{% url 'register' %}" class="register-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Register</button>
+                </form>
+                {% if error %}
+                    <p class="error-message">{{ error }}</p>
+                {% endif %}
             </div>
-        </div>
+        </main>
+        <footer>
+            <div class="footer-info">
+                <div class="footer-section">
+                    <div class="footer-section-left">
+                        <h3>關於我們</h3>
+                    </div>
+                    <div class="footer-section-right">
+                        <ul>
+                            <li><a href="#">優惠資訊 / Coupon</a></li>
+                            <li><a href="#">商店介紹 / Introduction</a></li>
+                            <li><a href="#">與我們合作 / Cooperation</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <div class="footer-section-left">
+                        <h3>顧客服務</h3>
+                    </div>
+                    <div class="footer-section-right">
+                        <ul>
+                            <li><a href="#">購物須知 / How To Buy</a></li>
+                            <li><a href="#">退換貨政策 / After-sales Service</a></li>
+                            <li><a href="#">隱私權政策 / Privacy</a></li>
+                            <li><a href="#">使用者條款 / Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <div class="footer-section-left">
+                        <h3>尋找我們</h3>
+                    </div>
+                    <div class="footer-section-right">
+                        <ul>
+                            <li>客服專線 02-85461000</li>
+                            <li>服務時間 上班日 8:00-21:00</li>
+                            <li>信箱 stonebaby@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 </html>

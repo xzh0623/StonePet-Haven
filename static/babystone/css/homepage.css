@@ -4,7 +4,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #c4bbb2;
+    color: #333; /* 修改文字颜色 */
 }
 
 .main-container {
@@ -24,7 +24,7 @@ nav {
 .navbar {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 20px 0px;
     text-align: center;
     height: 100%; /* 調整高度 */
     align-items: center; /* 垂直置中 */
@@ -38,7 +38,7 @@ nav {
     text-decoration: none;
     font-size: 36px;
     font-weight: bold;
-    line-height: 120px; /* 調整行高 */
+    line-height: 75px; /* 調整行高 */
 }
 
 .navbar a:hover {
@@ -74,7 +74,62 @@ footer {
     padding: 10px;
     position: fixed;
     bottom: 0;
-    height: 80px;
+    height: 120px;
     width: 100%;
     z-index: 2;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0px;
+}
+
+.footer-section {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.footer-section-left {
+    text-align: right;
+}
+
+.footer-section-right {
+    text-align: left;
+}
+
+.footer-section h4 {
+    color: #333;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 12px;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.footer-section ul li:before {
+    color: #333;
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: #000;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
 }
