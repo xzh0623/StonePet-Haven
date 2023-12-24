@@ -15,7 +15,13 @@
             <ul class="navbar">
                 <li><a href="{% url 'homepage' %}">BabyStone</a></li>
                 <li><a href="{% url 'homepage' %}"><img src="{% static 'babystone/img/menu.png' %}" alt="Menu"></a></li>
-                <li><a href="{% url 'login' %}" class="active">登入</a></li>
+                {% if user_is_authenticated %}
+                    <li><a href="{% url 'logout' %}">登出</a></li>
+                    <li><a href="{% url 'view_profile' %}">{{ username }}</li>
+                    <!-- Add authenticated user content here -->
+                {% else %}
+                    <li><a href="{% url 'login' %}">登入</a></li>
+                {% endif %}
                 <li><a href="{% url 'products' %}">商品</a></li>
                 <!-- Add more navigation links as needed -->
             </ul>
@@ -23,16 +29,9 @@
         <main>
             <div class="login-container">
                 <h2>Login</h2>
-                <form method="post" class="login-form">
+                <form method="post" class="login-form" action="{% url 'login' %}">
                     {% csrf_token %}
-                    <div>
-                        {{ form.account.label_tag }}
-                        {{ form.account }}
-                    </div>
-                    <div>
-                        {{ form.password.label_tag }}
-                        {{ form.password }}
-                    </div>
+                    {{ form.as_p }}
                     <button type="submit">Login</button>
                 </form>
                 <p class="register-link">Not a member? <a href="{% url 'registration_choice' %}">Register here</a></p>

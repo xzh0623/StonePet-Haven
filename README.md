@@ -19,9 +19,19 @@ tzdata              2023.3
 whitenoise          6.6.0
 ```
 ### 1224 by hsiao
-* user register
+* register
     * including seller and buyer
-    * about administrator i prefer user django built-in system "localhost:8000/admin/"
+    * about administrator i prefer to use django built-in system "localhost:8000/admin/"
+    * the password is hashed and not displayed directly in the database. **資安大加分**
+
+* login_view and logout_view
+    * will change login or name & logout
+
+* to bo done:
+    1. User Profile
+    2. Product Management
+    
+
 
 ## WORK DISTRUBUTION (v1220)
 

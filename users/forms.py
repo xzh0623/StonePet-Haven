@@ -1,6 +1,7 @@
 # forms.py
 from django import forms
 from .models import CustomUser, Buyer
+from django.contrib.auth.forms import UserCreationForm
 
 class LoginForm(forms.Form):
     account = forms.CharField(label='Account', max_length=50)
@@ -38,3 +39,8 @@ class BuyerRegistrationForm(forms.ModelForm):
         widgets = {
             'password': forms.PasswordInput(),
         }
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['name', 'email', 'phone_number', 'address']
