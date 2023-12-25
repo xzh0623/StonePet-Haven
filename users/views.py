@@ -139,6 +139,20 @@ def policy(request):
     }
     return HttpResponse(template.render(context, request))
 
+def userpolicy(request):
+    template = loader.get_template('0_userpolicy.html')
+    context = {
+
+    }
+    return HttpResponse(template.render(context, request))
+
+def privacy(request):
+    template = loader.get_template('0_privacy.html')
+    context = {
+
+    }
+    return HttpResponse(template.render(context, request))
+
 def email_verification(request):
     if request.method == 'POST':
         User.verify_account(request)

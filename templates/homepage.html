@@ -144,14 +144,16 @@
       <p class="coupon-vr9">
         優惠資訊 / Coupon
       </p>
-      <div class="privacy-dEm">
-
-        隱私權政策 / Privacy
-      </div>
-      <div class="terms-LQ5">
-
-        使用者條款 / Terms
-      </div>
+      <a href="{% url '0_privacy' %}">
+        <div class="privacy-dEm">
+          隱私權政策 / Privacy
+        </div>
+      </a>
+      <a href="{% url '0_userpolicy' %}">
+        <div class="terms-LQ5">
+          使用者條款 / Terms
+        </div>
+      </a>
       <a href="{% url '0_policy' %}">
       <div class="after-sales-service-3ZP">
         退換貨政策 / After-sales Service
