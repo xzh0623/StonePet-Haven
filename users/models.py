@@ -299,6 +299,28 @@ class User(models.Model):
             return "True"
 
         return None  # 或者返回适当的值，表示未进行创建
+    @classmethod
+    def Update(cls,request):
+        if request.method == 'POST':
+            # 获取要更新的用户对象
+            user_id = request.POST.get('user_id')
+            user = get_object_or_404(cls, user_id=user_id)
+            print(user)
+            # 保存更新前的对象
+            # 更新数据
+            user.name = request.POST.get('name')
+            user.password = request.POST.get('password')
+            user.email = request.POST.get('email')
+            user.phone_number = request.POST.get('phone_number')
+            user.account = request.POST.get('account')
+            user.address = request.POST.get('address')
+
+            # 保存更新后的对象
+            user.save()
+
+            return True  # 返回成功的标志
+        else:
+            return False
 
     @classmethod
     def generate_unique_user_id(cls):
@@ -339,6 +361,7 @@ class User(models.Model):
     def verify_account(cls, request):
         user_id = request.GET.get('user_id')  # 假设你通过 URL 参数传递了 user_id
         user = get_object_or_404(cls, user_id=user_id)
+
         if user.status != 2:
             user.status = 2  # 假设状态码 2 表示已验证      
             user.save() 

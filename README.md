@@ -44,6 +44,9 @@ whitenoise          6.6.0
 
 ## DIARY (PUT THE LASTEST AT FRONT)
 
+### 1220 by yulun
+* finish coupon serch
+
 ### 1220 by xzh
 * update `f/README`
 
@@ -91,6 +94,10 @@ whitenoise          6.6.0
         * it may be the reason why i can never connect to the database and recieve the result of raw sql code
 
 ### 1207 整合 by hsiao
+
+
+### 1225 更新 by yulun
+- 從巧粉分支修改沒有合併其他人的 買家的person_info完成可以記錄登入狀態及修改資料，但有個BUG是我用redir會掛掉
 
 ### web_architecture
 ```
@@ -167,7 +174,7 @@ whitenoise          6.6.0
 在按下 "重設密碼" 按鈕時，goResetPassword 函數會獲取電子郵件輸入框的值並呼叫 sendEmailToBackend 函數，該函數會將電子郵件傳送到後端。你需要在後端實作一個 API，接收電子郵件並發送驗證碼到該郵件。這一部分需要根據你的後端語言（如 PHP）來實作。
 - 更新 首頁的js togglemenu我丟在js檔案裡面不能觸發我只好丟在html
 
-<<<<<<< HEAD
+
 #### 功能需求-買家
 ##### 登入頁面(開發中)
 ##### 商品內容頁面:  
@@ -213,7 +220,7 @@ whitenoise          6.6.0
 ##### 折價卷設定頁面內容包含上述(與管理員一起)
 #### 功能需求-管理員
 ##### 使用者管理頁面
-=======
+
 ### 功能需求-買家
 - 登入頁面(開發中)
 - 商品內容頁面:  
@@ -259,4 +266,3 @@ whitenoise          6.6.0
 - 折價卷設定頁面內容包含上述(與管理員一起)
 ### 功能需求-管理員
 - 使用者管理頁面
->>>>>>> xzh
