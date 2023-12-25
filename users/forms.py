@@ -48,7 +48,4 @@ class UserProfileForm(forms.ModelForm):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['product_name', 'description_of_product', 'picture_in_browsing', 'picture_in_description', 'price', 'quantity_in_stock']
-        widgets = {
-            'description_of_product': forms.Textarea(attrs={'rows': 5}),
-        }
+        fields = ['product_name', 'description_of_product', 'picture_in_browsing', 'picture_in_description', 'price', 'quantity_in_stock', 'is_active']

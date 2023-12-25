@@ -211,9 +211,24 @@ def add_product(request):
         if form.is_valid():
             product = form.save(commit=False)
             product.seller = request.user.seller
+            product.product_id = Product.objects.generate_product_id()
             product.save()
             return redirect('product_management')
     else:
         form = ProductForm()
 
     return render(request, 'add_product.html', {'form': form})
+
+@login_required
+def edit_product(request, product_id):
+    product = Product.objects.get(product_id=product_id)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('product_management')
+    else:
+        form = ProductForm(instance=product)
+
+    return render(request, 'edit_product.html', {'form': form, 'product': product})

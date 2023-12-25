@@ -1,4 +1,4 @@
-<!-- product_management.html -->
+<!-- edit_product.html -->
 
 {% load static %}
 <!DOCTYPE html>
@@ -6,8 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Management</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/product_management.css' %}">
+    <title>Edit Product</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/edit_product.css' %}">
 </head>
 <body>
     <div class="main-container">
@@ -28,23 +28,17 @@
             </ul>
         </nav>
         <main>
-            <!-- Add content specific to the product management view -->
-            <div class="product-management-container">
-                <div class="product-edit-container">
-                    <ul>
-                        {% for product in products %}
-                            <li>
-                                {{ product.product_name }}
-                                <a href="{% url 'edit_product' product.product_id %}">Edit</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                <a href="{% url 'add_product' %}">Add Product</a>
+            <div class="product-form-container">
+                <a href="{% url 'product_management' %}">Back to Product Management</a>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Save Changes</button>
+                </form>
             </div>
         </main>
         <footer>
-            <!-- Footer content (similar to view_profile.html) -->
+            <!-- 页脚内容，根据需要添加 -->
         </footer>
     </div>
 </body>

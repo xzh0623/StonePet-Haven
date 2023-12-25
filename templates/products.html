@@ -32,8 +32,7 @@
             {% for product in products %}
                 <div class="product">
                     <a href="{% url 'product_detail' product.product_id %}">
-                        <img src="{% static 'babystone/img/' %}{{ product.product_id|lower }}.png" alt="Product_Image">
-                        {{ product.product_id }}
+                        <img src="{% if product.picture_in_browsing %}{{ product.picture_in_browsing.url }}{% else %}{% static 'path/to/placeholder_image.jpg' %}{% endif %}" alt="{{ product.product_id }} Image">
                         <h3>{{ product.product_name }}</h3>
                     </a>
                     <span>${{ product.price }}</span>

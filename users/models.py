@@ -73,6 +73,12 @@ class Buyer(models.Model):
     birth_date = models.DateField()
 
 
+class ProductManager(models.Manager):
+    def generate_product_id(self):
+        product_count = self.count() + 1
+        product_id = f"PR{product_count:04d}"
+        return product_id
+    
 class Product(models.Model):
     product_id = models.CharField(primary_key=True, max_length=6)
     seller = models.ForeignKey(Seller, on_delete=models.CASCADE, null=True, blank=True)
@@ -84,7 +90,7 @@ class Product(models.Model):
     quantity_in_stock = models.PositiveIntegerField()
     is_active = models.BooleanField(default=True)
 
-    # 其他商品相關的欄位...
+    objects = ProductManager()  # Add this line to associate the manager with the model
 
     def __str__(self):
         return self.product_name

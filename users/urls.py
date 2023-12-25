@@ -22,4 +22,5 @@ urlpatterns = [
 
     path('product_management/', views.product_management, name='product_management'),
     path('add_product/', views.add_product, name='add_product'),
-] 
+    path('edit_product/<str:product_id>/', views.edit_product, name='edit_product'),
+]
