@@ -90,3 +90,28 @@ body {
 .no-underline {
   text-decoration: none;
 }
+
+.option-container {
+  /* width: 20px; */
+  height: 230px;;
+  max-height: 0;
+  overflow: hidden;
+  z-index: 1;
+  transition: max-height 0.3s ease-in-out;
+  position: absolute;
+  margin-top: 0px;
+  /* 或者調整為您需要的距離 */
+  /* margin-block:; */
+  /* display: flex; */
+  /* 或者調整為您需要的距離 */
+  top: 20px;
+  right: 48px;
+  /* justify-content: center; */
+  background-color: #f6f2ec;
+  /* padding: 20px; */
+  opacity: 0;
+  /* 初始隱藏 */
+  pointer-events: none;
+  /* 不可互動 */
+  height: min-content;
+}

@@ -11,10 +11,36 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sulphur+Point%3A400%2C700" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700" />
   <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/-B41.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/-eee.css' %}" />
 </head>
 
 <body>
+  <script>
+    function toggleOption() {
+      const menuContainer = document.getElementById('optionContainer');
+      const homeMenuItem = document.querySelector('.item--8yj');
+
+      if (menuContainer.style.maxHeight === '0px') {
+        // 顯示選單
+        menuContainer.style.maxHeight = '500px';
+        menuContainer.style.opacity = '1';
+        menuContainer.style.pointerEvents = 'auto';
+
+        // 顯示最上面的首頁
+        homeMenuItem.style.display = 'block';
+      } else {
+        // 隱藏選單
+        menuContainer.style.maxHeight = '0';
+        menuContainer.style.opacity = '0';
+        menuContainer.style.pointerEvents = 'none';
+
+        // 隱藏最上面的首頁
+        homeMenuItem.style.display = 'none';
+      }
+    }	
+  </script>
   <script src="../static/babystone/js/script.js"></script>
+  
   <div class="item--pkd">
     <div class="auto-group-vsb1-AZb">
       <a href="{% url 'homepage' %}">
@@ -42,22 +68,38 @@
           <p class="item--Nd3">忘記密碼？</p>
         </a>
 
-        <a href="{% url 'person_info' %}" class="no-underline">
-          <p class="item--Nd3">測試person_info？</p>
-        </a>
-
         <button type="submit" class="auto-group-ytdh-GiR">開始購物吧！</button>
       </form>
 
       <div class="auto-group-eect-ME5">
         <p class="item--sy7">還沒有會員嗎？</p>
-        <a href="{% url 'registeroption' %}" class="no-underline">
-          <p class="item--z29">會員註冊</p>
-        </a>
+        <!-- <a href="{% url 'registeroption' %}" class="no-underline"> -->
+          <p class="item--z29" onclick="toggleOption()">會員註冊</p>
+          <div id="optionContainer" class="option-container">
+            
+            <div class="item--8yj">
+              <div class="auto-group-a8az-ex5">想要註冊的會員類型？</div>
+              <div class="auto-group-cstq-VC1">
+                <a href="{% url 'registerbuyer' %}" class="no-underline">
+                  <div class="auto-group-fdd7-cnR">買家</div>
+                </a>
+                <a href="{% url 'registerseller' %}" class="no-underline">
+                  <div class="auto-group-uogh-zY5">賣家</div>
+                </a>
+              </div>
+            </div>
+
+
+
+          </div>
+        <!-- </a> -->
       </div>
       {% if error %}
       <p class="error-message">{{ error }}</p>
       {% endif %}
+
+      
+
     </div>
   </div>
 </body>

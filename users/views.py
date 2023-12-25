@@ -5,12 +5,15 @@ from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
-from .models import Product, User,Buyer,Coupon
+from .models import Product, User,Buyer,Coupon,Seller
 from .forms import LoginForm,CouponForm
 from django.shortcuts import render, redirect
 from . import models
 # from .. backend_operation import TEST_add_data_to_models
 import django
+from django.contrib.auth.hashers import make_password
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 # Create your views here.
 def homepage(request):
@@ -26,7 +29,6 @@ def login(request):
         if form.is_valid():
             account = form.cleaned_data['account']
             password = form.cleaned_data['password']
-
             user = User.objects.filter(account=account, password=password).first()
             
             if user:
@@ -49,11 +51,24 @@ def shoppingcart(request):
     return HttpResponse(template.render(context, request))
 
 def forgotpassword(request):
-    template = loader.get_template('forgotpassword.html')
-    context = {
+    if request.method == 'POST':
+        email = request.POST.get('email')
 
-    }
-    return HttpResponse(template.render(context, request))
+        # 检查邮箱是否存在
+        if User.objects.filter(email=email).exists():
+            # 获取用户实例
+            user_instance = User.objects.get(email=email)
+            #生成重置密码链接
+            reset_password_url = f"http://127.0.0.1:8000/reset_password/?user_id=" + user_instance.user_id
+            # # 发送重置密码邮件
+            send_resetpassword_email(user_instance, reset_password_url)
+            messages.success(request, '重置密碼郵件已發送。')
+            return redirect('forgotpassword')
+        else:
+            messages.error(request, '電子郵件未註冊。')
+
+    return render(request, 'forgotpassword.html')
+    
 
 def registermember(request):
     template = loader.get_template('registermember.html')
@@ -72,37 +87,29 @@ def registeroption(request):
 def registerbuyer(request):
     if request.method == 'POST':
     
-        # # 創建 User 實例
-        # User.Create(request)
-        
-        # # 創建 Buyer 實例
-        # '''
-        # buyer_instance = Buyer(
-        #     user=user_instance,
-        #     sex = int(request.POST.get('gender')),
-        #     age=age
-        # )
-        # buyer_instance.save()
-        # '''
-        # messages.success(request, '注册成功！请登录。')
-        # return redirect('login')
         result = User.Create(request)
-
         if result == "True":
             # 发送验证电子邮件
-            return redirect('homepage')  # 重定向到主页或其他适当的页面
+            messages.success(request, '請查看電子郵件完成註冊！')
+            
+            return redirect('registerbuyer')  # 重定向到主页或其他适当的页面
         else:
-            return render(request, 'login.html',{'error': result})
+            return render(request, 'registerbuyer.html',{'error': result})
 
     return render(request, 'registerbuyer.html')
 
 def registerseller(request):
-    template = loader.get_template('registerseller.html')
-    context = {
+    if request.method == 'POST':
+        result= User.Create(request)
+        if result == "True":
+        # 发送验证电子邮件
+             messages.success(request, '請查看電子郵件完成註冊！')
+             return redirect('registerseller')  # 重定向到主页或其他适当的页面
+        else:
+             return render(request, 'registerseller.html',{'error': result})
 
-    }
-    return HttpResponse(template.render(context, request))
-
+    return render(request, 'registerseller.html')
+    
 def introduction(request):
     template = loader.get_template('0_introduction.html')
     context = {
@@ -130,7 +137,6 @@ def policy(request):
 
     }
     return HttpResponse(template.render(context, request))
-
 # def register(request):
 #     if request.method == 'POST':
     
@@ -150,12 +156,6 @@ def policy(request):
 #         return redirect('login')
 
 #     return render(request, 'register.html')
-def email_verification(request):
-    if request.method == 'POST':
-        User.verify_account(request)
-        return redirect('homepage')
-    return render(request, 'email_verification.html')
-
 def coupon(request):
     coupons = Coupon.objects.all()
     if request.method == 'POST':
@@ -185,3 +185,29 @@ def person_info(request):
                 user = User.objects.filter(user_id=user_id).first()
             return render(request, 'homepage.html',{'user': user})
     return render(request, 'person_info.html',{'user': user})
+def email_verification(request):
+    if request.method == 'POST':
+        User.verify_account(request)
+        return redirect('homepage')
+    return render(request, 'email_verification.html')
+
+def reset_password(request):
+    if request.method == 'POST':
+        result=User.reset_password(request)
+        if result=="True":
+            return redirect('login')
+        else:
+           return render(request, 'reset_password.html', {'error': result}) 
+    return render(request, 'reset_password.html')
+
+def send_resetpassword_email(user_instance, reset_password_url):
+    email_template = render_to_string(
+        'resetpassword_email_template.html',
+        {'user_instance': user_instance, 'reset_password_url': reset_password_url}
+    )
+    #郵件內容
+    subject = '重置密碼'
+    message = '請點擊以下連結重置密碼：\n\n' + reset_password_url
+    from_email = 't110590036@ntut.org.tw'
+    to_email = user_instance.email
+    send_mail(subject, message, from_email, [to_email], html_message=email_template)

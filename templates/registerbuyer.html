@@ -9,7 +9,7 @@
   <title>註冊會員-買家</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sulphur+Point%3A400%2C700"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
-  <link rel="stylesheet" type="text/css" href="../static/babystone/css/-rrr.css"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/-rrr.css' %}"/>
 </head>
 <body>
 <script src="../static/babystone/js/script.js"></script>
@@ -20,16 +20,25 @@
     $("#birth").datepicker();
   });
 </script>
+<style>
+  #user_type {
+    display: none;
+  }
+</style>
 
 <div class="item--UjX">
   <div class="auto-group-p43w-1jT">
-    <img class="arrow-left-wd7" src="../static/babystone/img/arrow-left.png"/>
+    <a href="{% url 'login' %}">
+      <img class="arrow-left-wd7" src="../static/babystone/img/arrow-left.png" />
+    </a>
     <p class="item--GvH">註冊會員</p>
   </div>
   <div class="auto-group-dquw-BXT">
 
     <form method="post" action="{% url 'registerbuyer' %}">
       {% csrf_token %}
+      <input type="text" name="user_type" required id="user_type" value="buyer">
+      
       <div class="group-27-gz1">
         <input type="text" name="username" class="rectangle-9-DU9" required id="username">
         <div class="rectangle-15-ifo"> </div>
@@ -49,7 +58,7 @@
       </div>
 
       <div class="group-33-ggV">
-        <textarea name="address" class="rectangle-9-cKF" required placeholder="例如：台北市大安區XXX街XX號"></textarea>
+        <textarea name="address" class="rectangle-9-cKF" style="resize:none;overflow:hidden" required placeholder="例如：台北市大安區XXX街XX號"></textarea>
         <div class="rectangle-15-w6d"></div>
         <label for="address" class="item--UMT">地址</label>
       </div>
@@ -94,6 +103,21 @@
 
       <button type="submit" class="auto-group-s2dj-Hss">立即加入！</button>
     </form>
+      {% if messages %}
+      <ul class="error-message">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+
+
+      {% if error %}
+      <p class="error-message">{{error}}</p>
+      {% endif %}
+
+    </form>
+     
   </div>
 </div>
 </body>

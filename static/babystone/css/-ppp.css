@@ -59,7 +59,7 @@ body {
   width: 100%;
   align-items: center;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   background-color: #c4bbb2;
   border-radius: 4.5rem 4.5rem 0 0;
   flex-shrink: 0;
@@ -77,10 +77,13 @@ body {
   cursor: pointer;
   position: absolute;
   left: 0;
-  top: 1.3rem;
+  top: 1.6rem;
   border: solid 0.3rem #000000;
   box-sizing: border-box;
   border-radius: 5rem;
+  background-color:#c4bbb2;
+  font-size: 2rem;
+  padding: 2rem;
 }
 .item--gCV .auto-group-rhzd-AG5 .group-27-UGm .rectangle-15-u7B {
   width: 6.8rem;
@@ -116,10 +119,13 @@ body {
   cursor: pointer;
   position: absolute;
   left: 0;
-  top: 1.3rem;
+  top: 1.6rem;
   border: solid 0.3rem #000000;
   box-sizing: border-box;
   border-radius: 5rem;
+  background-color: #c4bbb2;
+  font-size: 2rem;
+  padding: 2rem;
 }
 .item--gCV .auto-group-rhzd-AG5 .group-32-DXB .rectangle-15-GEZ {
   width: 4.8rem;
@@ -155,10 +161,13 @@ body {
   cursor: pointer;
   position: absolute;
   left: 0;
-  top: 1.3rem;
+  top: 1.6rem;
   border: solid 0.3rem #000000;
   box-sizing: border-box;
   border-radius: 5rem;
+  background-color: #c4bbb2;
+  font-size: 2rem;
+  padding: 2rem;
 }
 .item--gCV .auto-group-rhzd-AG5 .group-28-sk9 .rectangle-15-7uP {
   width: 4.8rem;
@@ -194,10 +203,13 @@ body {
   cursor: pointer;
   position: absolute;
   left: 0;
-  top: 1.3rem;
+  top: 1.6rem;
   border: solid 0.3rem #000000;
   box-sizing: border-box;
   border-radius: 5rem;
+  background-color: #c4bbb2;
+  font-size: 2rem;
+  padding: 2rem;
 }
 .item--gCV .auto-group-rhzd-AG5 .group-33-A6y .rectangle-15-bi5 {
   width: 4.8rem;
@@ -233,10 +245,13 @@ body {
   cursor: pointer;
   position: absolute;
   left: 0;
-  top: 1.3rem;
+  top: 1.6rem;
   border: solid 0.3rem #000000;
   box-sizing: border-box;
   border-radius: 5rem;
+  background-color: #c4bbb2;
+  font-size: 2rem;
+  padding: 2rem;
 }
 .item--gCV .auto-group-rhzd-AG5 .group-34-Rx1 .rectangle-15-UQV {
   width: 8.6rem;
@@ -272,10 +287,13 @@ body {
   height: 4.5rem;
   position: absolute;
   left: 0;
-  top: 1.3rem;
+  top: 1.6rem;
   border: solid 0.3rem #000000;
   box-sizing: border-box;
   border-radius: 5rem;
+  background-color: #c4bbb2;
+  font-size: 2rem;
+  padding: 2rem;
 }
 .item--gCV .auto-group-rhzd-AG5 .group-31-tz1 .rectangle-15-L5K {
   width: 8.5rem;
@@ -311,10 +329,13 @@ body {
   cursor: pointer;
   position: absolute;
   left: 0;
-  top: 1.3rem;
+  top: 1.6rem;
   border: solid 0.3rem #000000;
   box-sizing: border-box;
   border-radius: 5rem;
+  background-color: #c4bbb2;
+  font-size: 2rem;
+  padding: 2rem;
 }
 .item--gCV .auto-group-rhzd-AG5 .group-30-wqo .rectangle-15-n5j {
   width: 8.5rem;
@@ -350,7 +371,7 @@ body {
   height: 2.4rem;
   cursor: pointer;
   object-fit: contain;
-  vertical-align: top;
+  vertical-align: middle;
   flex-shrink: 0;
 }
 .item--gCV .auto-group-rhzd-AG5 .auto-group-hmup-oFj .item--TLH {
@@ -404,4 +425,12 @@ body {
   background-color: #000000;
   border-radius: 5rem;
   flex-shrink: 0;
+}
+.error-message {
+  color: red;
+  width: 34.3rem;
+  height: 4.5rem;
+  margin-top: 10px;
+  font-size: 15px;
+  text-align: center;
 }

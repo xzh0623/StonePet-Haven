@@ -22,8 +22,8 @@ whitenoise          6.6.0
 ## WORK DISTRUBUTION (v1220)
 
 ### xzh
-1. register開頭+forgotpassword
-2. login_title、unlogin_title
+1. register開頭+forgotpassword V
+2. login_title、unlogin_title 
 3. menu1
 4. homepage
 5. 連接頁面
@@ -46,7 +46,6 @@ whitenoise          6.6.0
 
 ### 1220 by yulun
 * finish coupon serch
-
 
 ### 1220 by xzh
 * update `f/README`
@@ -96,8 +95,10 @@ whitenoise          6.6.0
 
 ### 1207 整合 by hsiao
 
+
 ### 1225 更新 by yulun
 - 從巧粉分支修改沒有合併其他人的 買家的person_info完成可以記錄登入狀態及修改資料，但有個BUG是我用redir會掛掉
+
 ### web_architecture
 ```
 |--- 首頁

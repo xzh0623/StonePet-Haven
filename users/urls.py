@@ -18,4 +18,5 @@ urlpatterns = [
     path('email_verification/', views.email_verification, name='email_verification'),                   
     path('coupon/', views.coupon, name='coupon'),        #
     path('person_info/', views.person_info, name='person_info'),
+    path('reset_password/', views.reset_password, name='reset_password'),  #
 ] 

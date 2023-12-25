@@ -7,3 +7,4 @@ class LoginForm(forms.Form):
 
 class CouponForm(forms.Form):
     coupon_id = forms.CharField(label='Coupon ID', max_length=50, required=True, widget=forms.TextInput(attrs={'class': 'coupon_id'}))
+

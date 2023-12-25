@@ -274,3 +274,23 @@ body {
   margin-top: 10px;
   font-size: 15px;
 }
+
+.option-container {
+  max-height: 0;
+  overflow: hidden;
+  z-index: 1;
+  transition: max-height 0.3s ease-in-out;
+  position: absolute;
+  margin-top: 10px;
+  /* 或者調整為您需要的距離 */
+  margin-right: -47px;
+  /* 或者調整為您需要的距離 */
+  top: 20px;
+  right: 20px;
+  background-color: #f6f2ec;
+  /* padding: 20px; */
+  opacity: 0;
+  /* 初始隱藏 */
+  pointer-events: none;
+  /* 不可互動 */
+}
