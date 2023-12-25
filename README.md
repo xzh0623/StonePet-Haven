@@ -18,6 +18,13 @@ sqlparse            0.4.4
 tzdata              2023.3
 whitenoise          6.6.0
 ```
+### 1225 by hsiao
+* User Profile
+    * updata information
+
+* Product_management
+    * add_product (not done yet)
+    
 ### 1224 by hsiao
 * register
     * including seller and buyer

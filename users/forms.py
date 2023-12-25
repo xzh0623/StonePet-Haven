@@ -1,6 +1,6 @@
 # forms.py
 from django import forms
-from .models import CustomUser, Buyer
+from .models import CustomUser, Product
 from django.contrib.auth.forms import UserCreationForm
 
 class LoginForm(forms.Form):
@@ -44,3 +44,11 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         fields = ['name', 'email', 'phone_number', 'address']
+
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ['product_name', 'description_of_product', 'picture_in_browsing', 'picture_in_description', 'price', 'quantity_in_stock']
+        widgets = {
+            'description_of_product': forms.Textarea(attrs={'rows': 5}),
+        }

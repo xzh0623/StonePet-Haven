@@ -1,4 +1,4 @@
-<!-- seller_registration.html -->
+<!-- add_product.html -->
 
 {% load static %}
 <!DOCTYPE html>
@@ -6,8 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seller Registration</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/register.css' %}">
+    <title>Add Product</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/add_product.css' %}">
 </head>
 <body>
     <div class="main-container">
@@ -24,25 +24,21 @@
                 {% endif %}
                 <li><a href="{% url 'products' %}">購物車</a></li>
                 <li><a href="{% url 'products' %}">商品</a></li>
+                <!-- Add more navigation links as needed -->
             </ul>
         </nav>
         <main>
-            <div class="register-container">
-                <h2>Seller Registration</h2>
-                <form method="post" action="{% url 'seller_registration' %}" class="register-form">
+            <div class="product-form-container">
+                <a href="{% url 'product_management' %}">Back to Product Management</a>
+                <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit">Register</button>
+                    <button type="submit">Submit</button>
                 </form>
-                {% if error %}
-                    <p class="error-message">{{ error }}</p>
-                {% endif %}
             </div>
         </main>
         <footer>
-            <div class="footer-info">
-                <!-- Footer content goes here -->
-            </div>
+            <!-- 页脚内容，根据需要添加 -->
         </footer>
     </div>
 </body>

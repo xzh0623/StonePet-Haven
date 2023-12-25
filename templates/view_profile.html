@@ -15,26 +15,58 @@
             <ul class="navbar">
                 <li><a href="{% url 'homepage' %}">BabyStone</a></li>
                 <li><a href="{% url 'homepage' %}"><img src="{% static 'babystone/img/menu.png' %}" alt="Menu"></a></li>
-                {% if user_is_authenticated %}
+                {% if user.is_authenticated %}
                     <li><a href="{% url 'logout' %}">登出</a></li>
-                    <li><a href="{% url 'view_profile' %}">{{ username }}</a></li>
+                    <li><a href="{% url 'view_profile' %}">{{ user.name }}</li>
                     <!-- Add authenticated user content here -->
                 {% else %}
                     <li><a href="{% url 'login' %}">登入</a></li>
                 {% endif %}
+                <li><a href="{% url 'products' %}">購物車</a></li>
                 <li><a href="{% url 'products' %}">商品</a></li>
                 <!-- Add more navigation links as needed -->
             </ul>
         </nav>
         <main>
             <!-- Add content specific to the profile view -->
-            <div>
-                <h2>Your Profile</h2>
-                <form method="post" action="">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit">Save Changes</button>
-                </form>
+            <div class="profile-container">
+                <div>
+                    <div class="user-info">
+                        <p>名稱: {{ user.name }}</p>
+                        <p>Email: {{ user.email }}</p>
+                        <p>地址: {{ user.address }}</p>
+                        <p>Phone: {{ user.phone_number }}</p>
+                        {% if user.permission == 0 %}
+                            <p>Identity: 買家</p>
+                        {% elif user.permission == 1 %}
+                            <p>Identity: 賣家</p>
+                        {% elif user.permission == 2 %}
+                            <p>Identity: 管理員</p>
+                        {% else %}
+                            <p>Unknown Identity</p>
+                        {% endif %}
+                        <!-- Add more user information as needed -->
+                    </div>
+                    <div class="profile-actions">
+                        <a href="{% url 'edit_profile' %}">編輯</a>
+                        <a href="{% url 'edit_profile' %}">忘記密碼</a>
+                    </div>
+                </div>
+                <div class=user-permission-view>
+                    {% if user.permission == 0 %}
+                        <a href="{% url 'order_history' %}">訂單</a>
+                    {% elif user.permission == 1 %}
+                        <a href="{% url 'product_management' %}">商品管理</a>
+                        <a href="{% url 'order_history' %}">折價券管理</a>
+                    {% elif user.permission == 2 %}
+                        <a href="{% url 'order_history' %}">訂單</a>
+                        <a href="{% url 'order_history' %}">商品管理</a>
+                        <a href="{% url 'order_history' %}">會員管理</a>
+                        <a href="{% url 'order_history' %}">折價券管理</a>
+                    {% else %}
+                        <p>Unknown Identity</p>
+                    {% endif %}
+                </div>
             </div>
         </main>
         <footer>

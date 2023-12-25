@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Product, CustomUser, Seller, Buyer
-from .forms import LoginForm, CustomUserRegistrationForm, SellerRegistrationForm, BuyerRegistrationForm, UserProfileForm
+from .forms import LoginForm, CustomUserRegistrationForm, SellerRegistrationForm, BuyerRegistrationForm, UserProfileForm, ProductForm
 from django.shortcuts import render, redirect
 from .utils import custom_authentication
 from django.utils import timezone
@@ -168,13 +168,52 @@ def buyer_registration(request):
 @login_required
 def view_profile(request):
     user = request.user
+    context = {
+        'user': user
+    }
+
+    return render(request, 'view_profile.html', context)
+
+@login_required
+def edit_profile(request):
+    user = request.user
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            return redirect('view_profile')
+            return redirect('view_profile')  # 修改为你的用户个人资料页面的 URL
     else:
         form = UserProfileForm(instance=user)
 
-    return render(request, 'view_profile.html', {'form': form})
+    context = {
+        'form': form
+    }
+    
+    return render(request, 'edit_profile.html', context)
+
+@login_required
+def order_history(request):
+    # Add logic to handle displaying user order history
+    return render(request, 'order_history.html')
+
+@login_required
+def product_management(request):
+    user_products = Product.objects.filter(seller=request.user.seller)
+
+    context = {'products': user_products}
+    return render(request, 'product_management.html', context)
+
+@login_required
+def add_product(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            product = form.save(commit=False)
+            product.seller = request.user.seller
+            product.save()
+            return redirect('product_management')
+    else:
+        form = ProductForm()
+
+    return render(request, 'add_product.html', {'form': form})

@@ -1,10 +1,10 @@
-/* view_profile.css */
+/* home.css */
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: #333; /* 修改文字颜色 */
 }
 
 .main-container {
@@ -26,25 +26,26 @@ nav {
     margin: 0;
     padding: 20px 0px;
     text-align: center;
-    height: 100%;
-    align-items: center;
+    height: 100%; /* 調整高度 */
+    align-items: center; /* 垂直置中 */
 }
 
 .navbar a {
     display: block;
     color: #000000;
     text-align: center;
-    padding: 0 16px;
+    padding: 0 16px; /* 調整 padding */
     text-decoration: none;
     font-size: 36px;
     font-weight: bold;
-    line-height: 75px;
+    line-height: 75px; /* 調整行高 */
 }
 
 .navbar a:hover {
     color: black;
 }
 
+/* 將主頁靠左，其他項目靠右 */
 .navbar li:first-child {
     float: left;
 }
@@ -61,67 +62,9 @@ main {
     height: 100vh;
 }
 
-.profile-container {
-    background-color: #c4bbb2; /* 设置背景颜色 */
-    display: flex;
-    padding: 20px;
-    border: 1px solid #333;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    align-items: center;
-}
-
-.user-permission-view a{
-    display: flex;
-    background-color: hsl(0, 0%, 68%);
-    color: #333;
-    padding: 20px;
-    font-size: 36px;
-    border: 1px solid #333;
-    border-radius: 10px;
-    cursor: pointer;
-    margin: 10px 10px;
-    text-decoration: none;
-    justify-content: center;
-}
-
-.user-permission-view a:hover {
-    background-color: #adada0;
-}
-
-.user-info {
-    width: 300px;
-    height: 200px;
-    padding: 20px;
-    text-align: left;
-    margin-top: 20px;
-}
-
-.user-info p {
-    font-weight: bold;
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-.profile-actions {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.profile-actions a {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-.profile-actions a:hover {
-    background-color: #45a049;
+main img {
+    width: 100%;
+    max-height: 80%;
 }
 
 footer {

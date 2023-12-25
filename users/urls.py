@@ -17,4 +17,9 @@ urlpatterns = [
     path('success/', views.success_page, name='success_page'),
 
     path('profile/', views.view_profile, name='view_profile'),
+    path('edit_profile/', views.edit_profile, name='edit_profile'),
+    path('order_history/', views.order_history, name='order_history'),
+
+    path('product_management/', views.product_management, name='product_management'),
+    path('add_product/', views.add_product, name='add_product'),
 ] 

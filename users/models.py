@@ -26,6 +26,7 @@ class CustomUserManager(BaseUserManager):
         # 创建超级用户
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
+        extra_fields.setdefault('permission', 2)  # 设置 permission 为 2
 
         if extra_fields.get('is_staff') is not True:
             raise ValueError('Superuser must have is_staff=True.')
@@ -71,16 +72,19 @@ class Buyer(models.Model):
     gender = models.CharField(max_length=10)
     birth_date = models.DateField()
 
+
 class Product(models.Model):
     product_id = models.CharField(primary_key=True, max_length=6)
+    seller = models.ForeignKey(Seller, on_delete=models.CASCADE, null=True, blank=True)
     product_name = models.CharField(max_length=255)
-    description_of_product = models.CharField(max_length=255)
-    picture_in_browsing = models.ImageField(upload_to='product_images/', blank=True, null=True)
-    picture_in_description = models.ImageField(upload_to='product_images/', blank=True, null=True)
-    price = models.IntegerField()
-    quantity_in_stock = models.IntegerField()
-    
+    description_of_product = models.TextField()
+    picture_in_browsing = models.ImageField(upload_to='browsing_pictures/', null=True, blank=True)
+    picture_in_description = models.ImageField(upload_to='description_pictures/', null=True, blank=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity_in_stock = models.PositiveIntegerField()
+    is_active = models.BooleanField(default=True)
 
-    class Meta:
-        managed = False
-        db_table = 'product'
+    # 其他商品相關的欄位...
+
+    def __str__(self):
+        return self.product_name
