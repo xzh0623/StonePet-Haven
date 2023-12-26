@@ -153,6 +153,20 @@ def privacy(request):
     }
     return HttpResponse(template.render(context, request))
 
+def itempage(request):
+    template = loader.get_template('item_page.html')
+    context = {
+
+    }
+    return HttpResponse(template.render(context, request))
+
+def coupon(request):
+    template = loader.get_template('coupon.html')
+    context = {
+
+    }
+    return HttpResponse(template.render(context, request))
+
 def email_verification(request):
     if request.method == 'POST':
         User.verify_account(request)

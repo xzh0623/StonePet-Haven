@@ -94,10 +94,19 @@
         <a href="{% url 'homepage' %}">
           <p class="item--L1j" >首頁</p>
         </a>
-			<p class="item--E77">最新優惠</p>
-			<p class="item--E77">新品上架</p>
-			<p class="item--E77" >本月熱賣商品 TOP 10</p>
-			<p class="item--E77">所有商品 / ALL</p>
+      <a href="{% url 'coupon' %}">
+        <p class="item--E77">最新優惠</p>
+      </a>
+      <a href="{% url 'item_page' %}">
+        <p class="item--E77">新品上架</p>
+      </a>
+      <a href="{% url 'item_page' %}#TOP10">
+        <p class="item--E77">本月熱賣商品 TOP 10</p>
+      </a>
+      <a href="{% url 'item_page' %}#All">
+        <p class="item--E77">所有商品 / ALL</p>
+      </a>
+			
 			
 			<div class="line-5-2Ko">
 			</div>
@@ -141,9 +150,11 @@
           商店介紹 / Introduction
         </div>
       </a>
-      <p class="coupon-vr9">
-        優惠資訊 / Coupon
-      </p>
+      <a href="{% url 'coupon' %}">
+        <p class="coupon-vr9">
+          優惠資訊 / Coupon
+        </p>
+      </a>
       <a href="{% url '0_privacy' %}">
         <div class="privacy-dEm">
           隱私權政策 / Privacy

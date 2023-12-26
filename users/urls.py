@@ -18,6 +18,8 @@ urlpatterns = [
     path('0_policy/', views.policy, name='0_policy'),   
     path('0_userpolicy/', views.userpolicy, name='0_userpolicy'),    
     path('0_privacy/', views.privacy, name='0_privacy'),
+    path('item_page/', views.itempage, name='item_page'),
     path('email_verification/', views.email_verification, name='email_verification'), 
+    path('coupon/', views.coupon, name='coupon'),
     path('reset_password/', views.reset_password, name='reset_password'),  #
 ] 

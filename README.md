@@ -23,9 +23,9 @@ whitenoise          6.6.0
 
 ### xzh
 1. register開頭+forgotpassword V
-2. login_title、unlogin_title 
-3. menu1
-4. homepage
+2. login_title、unlogin_title (結合yulun)
+3. menu1 V
+4. homepage (基本link完成)
 5. 連接頁面
 ### B
 1. shoppingcart
