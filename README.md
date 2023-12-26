@@ -34,8 +34,8 @@ whitenoise          6.6.0
 1. order開頭
 2. comment
 #### D
-1. item_page
-2. item_detail
+1. item_page (排版完成)
+2. item_detail (排版完成)
 3. buyer_setting_item
 #### E
 1. finditem
