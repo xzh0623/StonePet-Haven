@@ -60,7 +60,25 @@ main {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
+
+.product {
+    height: 160px;
+    width: 15%;
+    font-size: 24px;
+    background-color: #ffffff;
+    border: 1px solid #333;
+    border-radius: 10px;
+    margin: 10px 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
 
 
 footer {

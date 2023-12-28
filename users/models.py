@@ -39,6 +39,8 @@ class CustomUserManager(BaseUserManager):
         user_count = self.count() + 1
         user_id = f"US{user_count:04d}"
         return user_id
+    
+    
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
@@ -94,3 +96,27 @@ class Product(models.Model):
 
     def __str__(self):
         return self.product_name
+
+class CartManager(models.Manager):
+    def generate_cart_id(self):
+        cart_count = self.count() + 1
+        cart_id = f"CR{cart_count:04d}"
+        return cart_id
+    
+    def create_cart(self, user):
+        cart = self.create(user=user)
+        cart.cart_id = self.generate_cart_id()
+        cart.save()
+
+        return cart
+    
+class Cart(models.Model):
+    cart_id = models.CharField(primary_key=True, max_length=6)
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    
+    objects = CartManager()
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)

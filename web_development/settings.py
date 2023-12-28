@@ -38,10 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
-    'corsheaders',
 
-    # kuan tempting
-    'backend_operation',
 ]
 
 MIDDLEWARE = [

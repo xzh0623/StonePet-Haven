@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1:3306
--- 產生時間： 2023-12-11 12:22:33
+-- 產生時間： 2023-12-28 16:17:04
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.2.12
 
@@ -20,23 +20,6 @@ SET time_zone = "+00:00";
 --
 -- 資料庫： `web_development`
 --
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `administrator`
---
-
-CREATE TABLE `administrator` (
-  `user_id` char(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- 傾印資料表的資料 `administrator`
---
-
-INSERT INTO `administrator` (`user_id`) VALUES
-('US0006');
 
 -- --------------------------------------------------------
 
@@ -91,190 +74,38 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (10, 'Can change group', 3, 'change_group'),
 (11, 'Can delete group', 3, 'delete_group'),
 (12, 'Can view group', 3, 'view_group'),
-(13, 'Can add user', 4, 'add_user'),
-(14, 'Can change user', 4, 'change_user'),
-(15, 'Can delete user', 4, 'delete_user'),
-(16, 'Can view user', 4, 'view_user'),
-(17, 'Can add content type', 5, 'add_contenttype'),
-(18, 'Can change content type', 5, 'change_contenttype'),
-(19, 'Can delete content type', 5, 'delete_contenttype'),
-(20, 'Can view content type', 5, 'view_contenttype'),
-(21, 'Can add session', 6, 'add_session'),
-(22, 'Can change session', 6, 'change_session'),
-(23, 'Can delete session', 6, 'delete_session'),
-(24, 'Can view session', 6, 'view_session'),
-(25, 'Can add coupon', 7, 'add_coupon'),
-(26, 'Can change coupon', 7, 'change_coupon'),
-(27, 'Can delete coupon', 7, 'delete_coupon'),
-(28, 'Can view coupon', 7, 'view_coupon'),
-(29, 'Can add order', 8, 'add_order'),
-(30, 'Can change order', 8, 'change_order'),
-(31, 'Can delete order', 8, 'delete_order'),
-(32, 'Can view order', 8, 'view_order'),
-(33, 'Can add product', 9, 'add_product'),
-(34, 'Can change product', 9, 'change_product'),
-(35, 'Can delete product', 9, 'delete_product'),
-(36, 'Can view product', 9, 'view_product'),
-(37, 'Can add shopping cart', 10, 'add_shoppingcart'),
-(38, 'Can change shopping cart', 10, 'change_shoppingcart'),
-(39, 'Can delete shopping cart', 10, 'delete_shoppingcart'),
-(40, 'Can view shopping cart', 10, 'view_shoppingcart'),
-(41, 'Can add test table', 11, 'add_testtable'),
-(42, 'Can change test table', 11, 'change_testtable'),
-(43, 'Can delete test table', 11, 'delete_testtable'),
-(44, 'Can view test table', 11, 'view_testtable'),
-(45, 'Can add user', 12, 'add_user'),
-(46, 'Can change user', 12, 'change_user'),
-(47, 'Can delete user', 12, 'delete_user'),
-(48, 'Can view user', 12, 'view_user'),
-(49, 'Can add administrator', 13, 'add_administrator'),
-(50, 'Can change administrator', 13, 'change_administrator'),
-(51, 'Can delete administrator', 13, 'delete_administrator'),
-(52, 'Can view administrator', 13, 'view_administrator'),
-(53, 'Can add buyer', 14, 'add_buyer'),
-(54, 'Can change buyer', 14, 'change_buyer'),
-(55, 'Can delete buyer', 14, 'delete_buyer'),
-(56, 'Can view buyer', 14, 'view_buyer'),
-(57, 'Can add contain', 15, 'add_contain'),
-(58, 'Can change contain', 15, 'change_contain'),
-(59, 'Can delete contain', 15, 'delete_contain'),
-(60, 'Can view contain', 15, 'view_contain'),
-(61, 'Can add product sales', 16, 'add_productsales'),
-(62, 'Can change product sales', 16, 'change_productsales'),
-(63, 'Can delete product sales', 16, 'delete_productsales'),
-(64, 'Can view product sales', 16, 'view_productsales'),
-(65, 'Can add seller', 17, 'add_seller'),
-(66, 'Can change seller', 17, 'change_seller'),
-(67, 'Can delete seller', 17, 'delete_seller'),
-(68, 'Can view seller', 17, 'view_seller'),
-(69, 'Can add manage', 18, 'add_manage'),
-(70, 'Can change manage', 18, 'change_manage'),
-(71, 'Can delete manage', 18, 'delete_manage'),
-(72, 'Can view manage', 18, 'view_manage'),
-(73, 'Can add purchase', 19, 'add_purchase'),
-(74, 'Can change purchase', 19, 'change_purchase'),
-(75, 'Can delete purchase', 19, 'delete_purchase'),
-(76, 'Can view purchase', 19, 'view_purchase');
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `auth_user`
---
-
-CREATE TABLE `auth_user` (
-  `id` int(11) NOT NULL,
-  `password` varchar(128) NOT NULL,
-  `last_login` datetime(6) DEFAULT NULL,
-  `is_superuser` tinyint(1) NOT NULL,
-  `username` varchar(150) NOT NULL,
-  `first_name` varchar(150) NOT NULL,
-  `last_name` varchar(150) NOT NULL,
-  `email` varchar(254) NOT NULL,
-  `is_staff` tinyint(1) NOT NULL,
-  `is_active` tinyint(1) NOT NULL,
-  `date_joined` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- 傾印資料表的資料 `auth_user`
---
-
-INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$600000$CmlWqogfZdarkJ60yYh6LO$YDCLKpSjOuGl6hUVChFotHO2exg8oDWLbH/brvWpvgI=', '2023-12-11 08:31:08.689920', 1, 'user', '', '', 't110590063@ntut.org.tw', 1, 1, '2023-12-11 08:30:44.069654');
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `auth_user_groups`
---
-
-CREATE TABLE `auth_user_groups` (
-  `id` bigint(20) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `group_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `auth_user_user_permissions`
---
-
-CREATE TABLE `auth_user_user_permissions` (
-  `id` bigint(20) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `permission_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `buyer`
---
-
-CREATE TABLE `buyer` (
-  `user_id` char(6) NOT NULL,
-  `sex` tinyint(1) DEFAULT NULL,
-  `age` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- 傾印資料表的資料 `buyer`
---
-
-INSERT INTO `buyer` (`user_id`, `sex`, `age`) VALUES
-('US0001', 1, 20),
-('US0002', 1, 35);
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `contain`
---
-
-CREATE TABLE `contain` (
-  `product_id` char(6) NOT NULL,
-  `order_id` char(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- 傾印資料表的資料 `contain`
---
-
-INSERT INTO `contain` (`product_id`, `order_id`) VALUES
-('PR0001', 'OR0001'),
-('PR0002', 'OR0002'),
-('PR0003', 'OR0003'),
-('PR0004', 'OR0004'),
-('PR0005', 'OR0005');
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `coupon`
---
-
-CREATE TABLE `coupon` (
-  `coupon_id` char(6) NOT NULL,
-  `discount_amount` int(11) NOT NULL,
-  `minimum_limit` int(11) NOT NULL,
-  `start_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `expired_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `seller_id` char(6) NOT NULL,
-  `type_of_discount_policies` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- 傾印資料表的資料 `coupon`
---
-
-INSERT INTO `coupon` (`coupon_id`, `discount_amount`, `minimum_limit`, `start_date`, `expired_date`, `seller_id`, `type_of_discount_policies`) VALUES
-('CO0001', 10, 100, '2023-03-31 16:00:00', '2023-12-31 15:59:59', 'US0003', 0),
-('CO0002', 60, 199, '2023-11-10 16:00:00', '2023-11-11 15:59:59', 'US0004', 1),
-('CO0003', 30, 399, '2023-04-01 16:00:00', '2023-04-18 15:59:59', 'US0005', 2),
-('CO0004', 50, 299, '2023-05-29 16:00:00', '2023-06-12 15:59:59', 'US0003', 1),
-('CO0005', 10, 100, '2023-07-17 16:00:00', '2023-08-20 15:59:59', 'US0004', 2);
+(13, 'Can add content type', 4, 'add_contenttype'),
+(14, 'Can change content type', 4, 'change_contenttype'),
+(15, 'Can delete content type', 4, 'delete_contenttype'),
+(16, 'Can view content type', 4, 'view_contenttype'),
+(17, 'Can add session', 5, 'add_session'),
+(18, 'Can change session', 5, 'change_session'),
+(19, 'Can delete session', 5, 'delete_session'),
+(20, 'Can view session', 5, 'view_session'),
+(21, 'Can add custom user', 6, 'add_customuser'),
+(22, 'Can change custom user', 6, 'change_customuser'),
+(23, 'Can delete custom user', 6, 'delete_customuser'),
+(24, 'Can view custom user', 6, 'view_customuser'),
+(25, 'Can add cart', 7, 'add_cart'),
+(26, 'Can change cart', 7, 'change_cart'),
+(27, 'Can delete cart', 7, 'delete_cart'),
+(28, 'Can view cart', 7, 'view_cart'),
+(29, 'Can add product', 8, 'add_product'),
+(30, 'Can change product', 8, 'change_product'),
+(31, 'Can delete product', 8, 'delete_product'),
+(32, 'Can view product', 8, 'view_product'),
+(33, 'Can add buyer', 9, 'add_buyer'),
+(34, 'Can change buyer', 9, 'change_buyer'),
+(35, 'Can delete buyer', 9, 'delete_buyer'),
+(36, 'Can view buyer', 9, 'view_buyer'),
+(37, 'Can add seller', 10, 'add_seller'),
+(38, 'Can change seller', 10, 'change_seller'),
+(39, 'Can delete seller', 10, 'delete_seller'),
+(40, 'Can view seller', 10, 'view_seller'),
+(41, 'Can add cart item', 11, 'add_cartitem'),
+(42, 'Can change cart item', 11, 'change_cartitem'),
+(43, 'Can delete cart item', 11, 'delete_cartitem'),
+(44, 'Can view cart item', 11, 'view_cartitem');
 
 -- --------------------------------------------------------
 
@@ -290,7 +121,7 @@ CREATE TABLE `django_admin_log` (
   `action_flag` smallint(5) UNSIGNED NOT NULL CHECK (`action_flag` >= 0),
   `change_message` longtext NOT NULL,
   `content_type_id` int(11) DEFAULT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -313,22 +144,14 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (1, 'admin', 'logentry'),
 (3, 'auth', 'group'),
 (2, 'auth', 'permission'),
-(4, 'auth', 'user'),
-(5, 'contenttypes', 'contenttype'),
-(6, 'sessions', 'session'),
-(13, 'users', 'administrator'),
-(14, 'users', 'buyer'),
-(15, 'users', 'contain'),
-(7, 'users', 'coupon'),
-(18, 'users', 'manage'),
-(8, 'users', 'order'),
-(9, 'users', 'product'),
-(16, 'users', 'productsales'),
-(19, 'users', 'purchase'),
-(17, 'users', 'seller'),
-(10, 'users', 'shoppingcart'),
-(11, 'users', 'testtable'),
-(12, 'users', 'user');
+(4, 'contenttypes', 'contenttype'),
+(5, 'sessions', 'session'),
+(9, 'users', 'buyer'),
+(7, 'users', 'cart'),
+(11, 'users', 'cartitem'),
+(6, 'users', 'customuser'),
+(8, 'users', 'product'),
+(10, 'users', 'seller');
 
 -- --------------------------------------------------------
 
@@ -348,25 +171,26 @@ CREATE TABLE `django_migrations` (
 --
 
 INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
-(1, 'contenttypes', '0001_initial', '2023-12-07 02:51:59.494858'),
-(2, 'auth', '0001_initial', '2023-12-07 02:52:00.111852'),
-(3, 'admin', '0001_initial', '2023-12-07 02:52:00.239950'),
-(4, 'admin', '0002_logentry_remove_auto_add', '2023-12-07 02:52:00.247979'),
-(5, 'admin', '0003_logentry_add_action_flag_choices', '2023-12-07 02:52:00.255956'),
-(6, 'contenttypes', '0002_remove_content_type_name', '2023-12-07 02:52:00.320611'),
-(7, 'auth', '0002_alter_permission_name_max_length', '2023-12-07 02:52:00.384638'),
-(8, 'auth', '0003_alter_user_email_max_length', '2023-12-07 02:52:00.400158'),
-(9, 'auth', '0004_alter_user_username_opts', '2023-12-07 02:52:00.416172'),
-(10, 'auth', '0005_alter_user_last_login_null', '2023-12-07 02:52:00.464202'),
-(11, 'auth', '0006_require_contenttypes_0002', '2023-12-07 02:52:00.472207'),
-(12, 'auth', '0007_alter_validators_add_error_messages', '2023-12-07 02:52:00.480212'),
-(13, 'auth', '0008_alter_user_username_max_length', '2023-12-07 02:52:00.496247'),
-(14, 'auth', '0009_alter_user_last_name_max_length', '2023-12-07 02:52:00.512260'),
-(15, 'auth', '0010_alter_group_name_max_length', '2023-12-07 02:52:00.528269'),
-(16, 'auth', '0011_update_proxy_permissions', '2023-12-07 02:52:00.544297'),
-(17, 'auth', '0012_alter_user_first_name_max_length', '2023-12-07 02:52:00.560290'),
-(18, 'sessions', '0001_initial', '2023-12-07 02:52:00.592309'),
-(19, 'users', '0001_initial', '2023-12-07 02:52:00.616326');
+(1, 'contenttypes', '0001_initial', '2023-12-27 20:26:08.963391'),
+(2, 'contenttypes', '0002_remove_content_type_name', '2023-12-27 20:26:09.009924'),
+(3, 'auth', '0001_initial', '2023-12-27 20:26:09.198055'),
+(4, 'auth', '0002_alter_permission_name_max_length', '2023-12-27 20:26:09.263623'),
+(5, 'auth', '0003_alter_user_email_max_length', '2023-12-27 20:26:09.268874'),
+(6, 'auth', '0004_alter_user_username_opts', '2023-12-27 20:26:09.272452'),
+(7, 'auth', '0005_alter_user_last_login_null', '2023-12-27 20:26:09.277218'),
+(8, 'auth', '0006_require_contenttypes_0002', '2023-12-27 20:26:09.279252'),
+(9, 'auth', '0007_alter_validators_add_error_messages', '2023-12-27 20:26:09.284452'),
+(10, 'auth', '0008_alter_user_username_max_length', '2023-12-27 20:26:09.288584'),
+(11, 'auth', '0009_alter_user_last_name_max_length', '2023-12-27 20:26:09.292532'),
+(12, 'auth', '0010_alter_group_name_max_length', '2023-12-27 20:26:09.300824'),
+(13, 'auth', '0011_update_proxy_permissions', '2023-12-27 20:26:09.306083'),
+(14, 'auth', '0012_alter_user_first_name_max_length', '2023-12-27 20:26:09.310395'),
+(15, 'users', '0001_initial', '2023-12-27 20:26:09.827516'),
+(16, 'admin', '0001_initial', '2023-12-27 20:26:09.932072'),
+(17, 'admin', '0002_logentry_remove_auto_add', '2023-12-27 20:26:09.937907'),
+(18, 'admin', '0003_logentry_add_action_flag_choices', '2023-12-27 20:26:09.946593'),
+(19, 'sessions', '0001_initial', '2023-12-27 20:26:09.996453'),
+(23, 'users', '0002_remove_cartitem_user', '2023-12-27 21:28:38.368146');
 
 -- --------------------------------------------------------
 
@@ -385,219 +209,78 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('qlypsfc0qwryi5an71hmrbjhjvc8tavr', '.eJxVjEEOwiAQRe_C2pAyhUFcuvcMZAZGqRpISrsy3l2bdKHb_977LxVpXUpcu8xxyuqkjDr8bkzpIXUD-U711nRqdZkn1puid9r1pWV5nnf376BQL9_aBne8imEMMKAZyBnrA4ALBELWMnsE4GTYsogdyWRK4wg-sUP0GNT7A7_vNzQ:1rCbgy:nGQQSxE6r-UBkmbulQHuelbQTj3ziHM1BXBqyhdJ8hE', '2023-12-25 08:31:08.689920');
+('0kb8bz6wdo2aypndpfu4xmqx1wu6yi6a', '.eJxVzLkOwjAQRdF_cY2s8ToOJT0Vora8jEkA2VKcVIh_h0gpoD73vRfzYV1Gv3aa_ZTZkV0vAKDY4RdiSA-qm-Z7qLfGU6vLPEW-JXzXzs8t0_O0t38HY-jjd210SMlmJ4LDwUXSwkUQyqAyRDqXQiCBCkhEUMkgKqsliiGCskLayN4fta44GA:1rIrym:uei1Gut8_rtiNsUpORERsFU-_0q0Kq17Ublp9aKvGj4', '2024-01-11 15:07:24.295510'),
+('narq4m5kjhpb2dsp274bw1hptms4fzwj', '.eJxVjLEOwiAURf-F2RBKoUVHdyfj3FweD1s1kJR2Mv67NOmg6z3n3LcYsC7jsBaehymIk7hdlVKtOPwCD3py2mh4IN2zpJyWefJyU-ROi7zkwK_z7v4djChjrXtrFLzWzDZYg6anPsauDebIsC6iTmgsiBvPjkzbsQbpWhiGcYD4fAHcIDo9:1rHdR4:k3oTATHyPuZt7IdENF3_sLnLrKvYqO0M976teGygY-U', '2024-01-08 05:23:30.665810');
 
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `manage`
+-- 資料表結構 `users_buyer`
 --
 
-CREATE TABLE `manage` (
-  `administrator_id` char(6) NOT NULL,
-  `coupon_id` char(6) NOT NULL
+CREATE TABLE `users_buyer` (
+  `user_id` varchar(6) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `birth_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- 傾印資料表的資料 `manage`
+-- 傾印資料表的資料 `users_buyer`
 --
 
-INSERT INTO `manage` (`administrator_id`, `coupon_id`) VALUES
-('US0006', 'CO0001'),
-('US0006', 'CO0002'),
-('US0006', 'CO0003'),
-('US0006', 'CO0004'),
-('US0006', 'CO0005');
+INSERT INTO `users_buyer` (`user_id`, `gender`, `birth_date`) VALUES
+('US0004', 'male', '2000-01-01'),
+('US0005', 'male', '2003-06-06'),
+('US0006', 'female', '2006-03-03'),
+('US0008', 'female', '2010-10-10');
 
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `order`
+-- 資料表結構 `users_cart`
 --
 
-CREATE TABLE `order` (
-  `order_id` char(6) NOT NULL,
-  `order_end` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `delivary_method` tinyint(1) NOT NULL,
-  `delivary_address` varchar(255) NOT NULL,
-  `delivary_fee` int(11) DEFAULT 60,
-  `status` int(11) NOT NULL,
-  `order_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `quantity_of_product` int(11) NOT NULL,
-  `comment` varchar(255) DEFAULT NULL,
-  `seller_id` char(6) NOT NULL,
-  `coupon_id` char(6) DEFAULT NULL
+CREATE TABLE `users_cart` (
+  `cart_id` varchar(6) NOT NULL,
+  `user_id` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- 傾印資料表的資料 `order`
+-- 傾印資料表的資料 `users_cart`
 --
 
-INSERT INTO `order` (`order_id`, `order_end`, `delivary_method`, `delivary_address`, `delivary_fee`, `status`, `order_date`, `quantity_of_product`, `comment`, `seller_id`, `coupon_id`) VALUES
-('OR0001', '2023-03-31 16:00:00', 0, '台北市信義區松山路119巷3號', 60, 0, '2023-03-29 16:00:00', 3, NULL, 'US0003', NULL),
-('OR0002', '2023-04-30 16:00:00', 0, '台北市信義區松山路119巷3號', 60, 0, '2023-04-29 16:00:00', 5, NULL, 'US0003', NULL),
-('OR0003', '2023-06-06 16:00:00', 0, '台北市信義區松山路119巷3號', 60, 0, '2023-05-31 16:00:00', 3, NULL, 'US0004', NULL),
-('OR0004', '2023-06-08 16:00:00', 0, '台北市信義區松山路119巷3號', 60, 0, '2023-06-07 16:00:00', 10, NULL, 'US0004', NULL),
-('OR0005', '2023-01-31 16:00:00', 0, '台北市信義區松山路119巷3號', 60, 0, '2023-01-24 16:00:00', 1, NULL, 'US0005', NULL);
+INSERT INTO `users_cart` (`cart_id`, `user_id`) VALUES
+('CR0001', 'US0003');
 
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `product`
+-- 資料表結構 `users_cartitem`
 --
 
-CREATE TABLE `product` (
-  `product_id` char(6) NOT NULL,
-  `product_name` varchar(255) NOT NULL,
-  `description_of_product` varchar(255) NOT NULL,
-  `picture_in_browsing` varchar(255) NOT NULL,
-  `picture_in_description` varchar(255) NOT NULL,
-  `price` int(11) NOT NULL,
-  `quantity_in_stock` int(11) NOT NULL,
-  `seller_id` char(6) NOT NULL
+CREATE TABLE `users_cartitem` (
+  `id` bigint(20) NOT NULL,
+  `quantity` int(10) UNSIGNED NOT NULL CHECK (`quantity` >= 0),
+  `cart_id` varchar(6) NOT NULL,
+  `product_id` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- 傾印資料表的資料 `product`
+-- 傾印資料表的資料 `users_cartitem`
 --
 
-INSERT INTO `product` (`product_id`, `product_name`, `description_of_product`, `picture_in_browsing`, `picture_in_description`, `price`, `quantity_in_stock`, `seller_id`) VALUES
-('PR0001', '呆萌小石頭', '天然獨一無二，為您的生活增添自然的愉悅。', 'item1.jpg', 'item1.jpg', 50, 100, 'US0003'),
-('PR0002', '石頭明信片組', '發掘獨特的石頭風景，每張都是大自然的微縮奇蹟。', 'item2.jpg', 'item2.jpg', 199, 100, 'US0003'),
-('PR0003', '溫馨石頭小家', '簡約中帶著溫馨，這是一個由石頭構成的小天地，將自然之美融入家的每一角。', 'item3.jpg', 'item3.jpg', 399, 100, 'US0003'),
-('PR0004', '可愛石頭甜點屋', '甜蜜的石頭造型點心，讓您品嚐到獨一無二的甜蜜滋味。', 'item4.jpg', 'item4.jpg', 100, 100, 'US0004'),
-('PR0005', '派大星冠軍石頭', '勇奪冠軍的石頭，展現出無可比擬的堅強與勝利。', 'item5.jpg', 'item5.jpg', 100, 100, 'US0004'),
-('PR0006', '比奇堡現採石頭', '現場採集的石頭，是比奇堡獨特風格的象徵。', 'item6.jpg', 'item6.jpg', 100, 100, 'US0004'),
-('PR0007', '海精靈石頭組', '擁有海洋風情的石頭組合，彷彿能聽見浪花的聲音。', 'item7.jpg', 'item7.jpg', 199, 100, 'US0005'),
-('PR0008', '石頭珍珠貝殼', '珍珠般閃耀的石頭，宛如收藏的寶貝一般。', 'item8.jpg', 'item8.jpg', 399, 100, 'US0005'),
-('PR0009', '爆炒鵝卵石', '火熱炒製的鵝卵石，散發著獨特的風味誘惑。', 'item9.jpg', 'item9.jpg', 100, 100, 'US0005'),
-('PR0010', '派大星石頭屋', '由派大星親自打造的石頭屋，充滿童趣與奇幻。', 'item10.jpg', 'item10.jpg', 100, 100, 'US0005');
+INSERT INTO `users_cartitem` (`id`, `quantity`, `cart_id`, `product_id`) VALUES
+(13, 1, 'CR0001', 'PR0008');
 
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `product_sales`
+-- 資料表結構 `users_customuser`
 --
 
-CREATE TABLE `product_sales` (
-  `daily` int(11) DEFAULT NULL,
-  `monthly` int(11) DEFAULT NULL,
-  `weekly` int(11) DEFAULT NULL,
-  `product_id` char(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- 傾印資料表的資料 `product_sales`
---
-
-INSERT INTO `product_sales` (`daily`, `monthly`, `weekly`, `product_id`) VALUES
-(NULL, NULL, NULL, 'PR0001'),
-(NULL, NULL, NULL, 'PR0002'),
-(NULL, NULL, NULL, 'PR0003'),
-(NULL, NULL, NULL, 'PR0004'),
-(NULL, NULL, NULL, 'PR0005'),
-(NULL, NULL, NULL, 'PR0006'),
-(NULL, NULL, NULL, 'PR0007'),
-(NULL, NULL, NULL, 'PR0008'),
-(NULL, NULL, NULL, 'PR0009'),
-(NULL, NULL, NULL, 'PR0010');
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `purchase`
---
-
-CREATE TABLE `purchase` (
-  `buyer_id` char(6) NOT NULL,
-  `product_id` char(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- 傾印資料表的資料 `purchase`
---
-
-INSERT INTO `purchase` (`buyer_id`, `product_id`) VALUES
-('US0001', 'PR0001'),
-('US0001', 'PR0002'),
-('US0001', 'PR0003'),
-('US0001', 'PR0004'),
-('US0001', 'PR0005');
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `seller`
---
-
-CREATE TABLE `seller` (
-  `user_id` char(6) NOT NULL,
-  `joint_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- 傾印資料表的資料 `seller`
---
-
-INSERT INTO `seller` (`user_id`, `joint_date`) VALUES
-('US0003', '2022-05-31 10:25:30'),
-('US0004', '2022-09-11 12:50:22'),
-('US0005', '2022-10-28 14:00:02');
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `shopping_cart`
---
-
-CREATE TABLE `shopping_cart` (
-  `cart_id` char(6) NOT NULL,
-  `buyer_id` char(6) NOT NULL,
-  `order_id` char(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- 傾印資料表的資料 `shopping_cart`
---
-
-INSERT INTO `shopping_cart` (`cart_id`, `buyer_id`, `order_id`) VALUES
-('SH0001', 'US0001', 'OR0001'),
-('SH0002', 'US0001', 'OR0002'),
-('SH0003', 'US0001', 'OR0003'),
-('SH0004', 'US0001', 'OR0004'),
-('SH0005', 'US0001', 'OR0005');
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `test_table`
---
-
-CREATE TABLE `test_table` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` text DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- 傾印資料表的資料 `test_table`
---
-
-INSERT INTO `test_table` (`id`, `name`, `description`, `created_at`) VALUES
-(1, 'Item 1', 'This is the description for Item 1.', '2023-12-05 15:28:38'),
-(2, 'Item 2', 'Another item with a longer description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '2023-12-05 15:28:38'),
-(3, 'Item 3', 'Description for Item 3.', '2023-12-05 15:28:38'),
-(4, 'Item 4', 'Short description for Item 4.', '2023-12-05 15:28:38');
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `user`
---
-
-CREATE TABLE `user` (
-  `user_id` char(6) NOT NULL,
+CREATE TABLE `users_customuser` (
+  `last_login` datetime(6) DEFAULT NULL,
+  `user_id` varchar(6) NOT NULL,
   `name` varchar(255) NOT NULL,
   `account` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -605,30 +288,107 @@ CREATE TABLE `user` (
   `email` varchar(255) NOT NULL,
   `phone_number` varchar(255) NOT NULL,
   `permission` int(11) NOT NULL,
-  `status` tinyint(1) NOT NULL
+  `status` int(11) NOT NULL,
+  `is_staff` tinyint(1) NOT NULL,
+  `is_superuser` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- 傾印資料表的資料 `user`
+-- 傾印資料表的資料 `users_customuser`
 --
 
-INSERT INTO `user` (`user_id`, `name`, `account`, `password`, `address`, `email`, `phone_number`, `permission`, `status`) VALUES
-('US0001', 'yulun', 'yulun0531', '110590050', '台北市信義區松山路119巷3號', 't110590050@ntut.org.tw', '0966375990', 0, 1),
-('US0002', 'choco', 'choco', '110590036', '台北市中正區八德路一段1號', 't110590036@ntut.org.tw', '0965322840', 0, 1),
-('US0003', 'xzh', '110590033', '110590033', '台北市內湖區舊宗路一段268號', 't110590033@ntut.org.tw', '0961345670', 1, 1),
-('US0004', 'kuan', '110590006', '110590006', '台北市北投區明德路331巷35號1樓', 't110590006@ntut.org.tw', '095327406', 1, 1),
-('US0005', 'xiao', '110590063', '110590063', '台北市大安區忠孝東路三段1號', 't110590063@ntut.org.tw', '123456789', 1, 1),
-('US0006', 'admin', 'admin', 'admin', '台北市大安區忠孝東路三段1號', 'admin@test.com', '111111111', 2, 1);
+INSERT INTO `users_customuser` (`last_login`, `user_id`, `name`, `account`, `password`, `address`, `email`, `phone_number`, `permission`, `status`, `is_staff`, `is_superuser`) VALUES
+('2023-12-25 04:20:52.225814', 'US0001', 'hsiao', 'hsiao', 'pbkdf2_sha256$600000$VTtH5d6mdCxq7RzYXjlNjD$oEVbJbcLQ/bA0WJgc2hFQ7ibBJVbxFcbP4bjW4SdfNE=', 'earth', '110590063@ntut.edu.tw', '12', 2, 0, 1, 1),
+('2023-12-28 14:44:26.356056', 'US0002', 'ben', 'ben111', 'pbkdf2_sha256$600000$aty2elGddibRVnnqoLaXp4$2xElsa4QdQ8kZUsvtmWv6pTla53NrYQ+CQSmY54A09A=', 'earth', 'ben111@gmail.com', '123456789', 1, 0, 0, 0),
+('2023-12-28 15:07:24.295510', 'US0003', 'yuan', 'yuan625', 'pbkdf2_sha256$600000$bP6HW0HdBVTVXmeBLOAZls$CLG3pEAXOExvtXcgyiLulrrlPihNLOtFC7jkK3Fa5y0=', 'moon', 'yuan625@gmail.com', '987654321', 1, 0, 0, 0),
+('2023-12-28 14:21:45.552182', 'US0004', 'choco', 'choco234', 'pbkdf2_sha256$600000$6mObBPHY02tznJw7LzSBPw$mfw1lsOsBy87gXH9QZczErVz/ILJMTYxCLEgt2EGaB4=', 'mars', 'choco234@gmail.com', '13579000', 0, 0, 0, 0),
+('2023-12-28 14:23:06.372805', 'US0005', 'yulun', 'yulun606', 'pbkdf2_sha256$600000$DVFMxP7imHQvum2aKELbuE$jEXOKIMSw/RQwlVClgLexrzVdAwVm+QCxA/eww06Ct4=', 'earth', 'yulun606@gmail.com', '060606060', 0, 0, 0, 0),
+('2023-12-28 14:24:13.619610', 'US0006', 'chen', 'chen033', 'pbkdf2_sha256$600000$3WuXFkv6ekUFs5X479sUu6$sWCs+TS6HPIgG7Goy3CyFcM4rxjOBNjO95HIMvIG5DQ=', 'moon', 'chen033@gmail.com', '111222333', 0, 0, 0, 0),
+('2023-12-28 14:48:07.510214', 'US0007', 'kuan', 'kuan217', 'pbkdf2_sha256$600000$maKKwVRwEXS6bWRMu3QI9o$9ub++LxyE/+5jtk1sGIO+r+hQArqIj2H0QeAiDUGRKQ=', 'mars', 'kuan217@gmail.com', '111555777', 1, 0, 0, 0),
+('2023-12-28 14:27:33.668963', 'US0008', 'lee', 'lee817', 'pbkdf2_sha256$600000$N1zFO1EuMJnfq1f8bLk12d$B52d8zD8CRl0t/S6OVN3myN/kQChY3isVV0ckULygmo=', 'earth', 'lee817@gmail.com', '888999321', 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `users_customuser_groups`
+--
+
+CREATE TABLE `users_customuser_groups` (
+  `id` bigint(20) NOT NULL,
+  `customuser_id` varchar(6) NOT NULL,
+  `group_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `users_customuser_user_permissions`
+--
+
+CREATE TABLE `users_customuser_user_permissions` (
+  `id` bigint(20) NOT NULL,
+  `customuser_id` varchar(6) NOT NULL,
+  `permission_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `users_product`
+--
+
+CREATE TABLE `users_product` (
+  `product_id` varchar(6) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `description_of_product` longtext NOT NULL,
+  `picture_in_browsing` varchar(100) DEFAULT NULL,
+  `picture_in_description` varchar(100) DEFAULT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `quantity_in_stock` int(10) UNSIGNED NOT NULL CHECK (`quantity_in_stock` >= 0),
+  `is_active` tinyint(1) NOT NULL,
+  `seller_id` varchar(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- 傾印資料表的資料 `users_product`
+--
+
+INSERT INTO `users_product` (`product_id`, `product_name`, `description_of_product`, `picture_in_browsing`, `picture_in_description`, `price`, `quantity_in_stock`, `is_active`, `seller_id`) VALUES
+('PR0001', '豪華寵物石套裝', '我們的頂級豪華寵物石套裝附有定制設計的棲息地和一本有關石頭護理的指南。', '', '', 600.00, 50, 1, 'US0003'),
+('PR0002', '貴族', '這是一個精緻的石頭寶貝，擁有高貴血統的石頭寶貝，能夠在眾多石頭寶貝中閃耀。', 'browsing_pictures/OIG.jpg', 'description_pictures/OIG.jpg', 250000.00, 2, 1, 'US0003'),
+('PR0003', '限量版金色石頭', '一塊罕見而獨特的寵物石頭，塗有一層閃亮的金色，奢華至極。', '', '', 1500.00, 3, 1, 'US0002'),
+('PR0004', '自己塗鴉的寵物石頭套裝', '使用這個DIY套裝釋放創造力，包括一塊普通的寵物石頭和一組鮮豔的顏料。', '', '', 450.00, 40, 1, 'US0002'),
+('PR0005', '迷你石頭寶貝', '一塊小巧、可愛的石頭寶貝，適合各種顧客飼養。', '', '', 300.00, 10, 1, 'US0002'),
+('PR0006', '寵物石頭SPA護理套餐', '這是一項專為寵物石頭設計的SPA套餐，包括溫泉浸泡和獨特的能量按摩。', '', '', 100.00, 999, 1, 'US0007'),
+('PR0007', '寵物石頭造型藝術', '讓您的寵物石頭變得獨一無二，體驗專業的石頭造型藝術。', '', '', 80.00, 999, 1, 'US0007'),
+('PR0008', '寵物石頭瑜伽課程', '與您的寵物石頭一同參加瑜伽課程，促進身心靈的和諧。', '', '', 120.00, 999, 1, 'US0007'),
+('PR0009', '寵物石頭按摩放鬆', '提供專業的寵物石頭按摩服務，緩解寵物石頭的壓力。', '', '', 90.00, 999, 1, 'US0007'),
+('PR0010', '寵物石頭能量平衡療法', '通過獨特的能量平衡療法，為您的寵物石頭創造一個和諧的能量場。', '', '', 150.00, 999, 1, 'US0007'),
+('PR0011', '寵物石頭音樂療法', '透過音樂療法，為您的寵物石頭提供一場心靈之旅。', '', '', 250.00, 999, 1, 'US0007');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `users_seller`
+--
+
+CREATE TABLE `users_seller` (
+  `user_id` varchar(6) NOT NULL,
+  `join_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- 傾印資料表的資料 `users_seller`
+--
+
+INSERT INTO `users_seller` (`user_id`, `join_date`) VALUES
+('US0002', '2023-12-28'),
+('US0003', '2023-12-28'),
+('US0007', '2023-12-28');
 
 --
 -- 已傾印資料表的索引
 --
-
---
--- 資料表索引 `administrator`
---
-ALTER TABLE `administrator`
-  ADD PRIMARY KEY (`user_id`);
 
 --
 -- 資料表索引 `auth_group`
@@ -653,55 +413,12 @@ ALTER TABLE `auth_permission`
   ADD UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`);
 
 --
--- 資料表索引 `auth_user`
---
-ALTER TABLE `auth_user`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
-
---
--- 資料表索引 `auth_user_groups`
---
-ALTER TABLE `auth_user_groups`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `auth_user_groups_user_id_group_id_94350c0c_uniq` (`user_id`,`group_id`),
-  ADD KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`);
-
---
--- 資料表索引 `auth_user_user_permissions`
---
-ALTER TABLE `auth_user_user_permissions`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `auth_user_user_permissions_user_id_permission_id_14a6b632_uniq` (`user_id`,`permission_id`),
-  ADD KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`);
-
---
--- 資料表索引 `buyer`
---
-ALTER TABLE `buyer`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- 資料表索引 `contain`
---
-ALTER TABLE `contain`
-  ADD PRIMARY KEY (`product_id`,`order_id`),
-  ADD KEY `order_id` (`order_id`);
-
---
--- 資料表索引 `coupon`
---
-ALTER TABLE `coupon`
-  ADD PRIMARY KEY (`coupon_id`),
-  ADD KEY `seller_id` (`seller_id`);
-
---
 -- 資料表索引 `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
   ADD PRIMARY KEY (`id`),
   ADD KEY `django_admin_log_content_type_id_c4bce8eb_fk_django_co` (`content_type_id`),
-  ADD KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`);
+  ADD KEY `django_admin_log_user_id_c564eba6_fk_users_customuser_user_id` (`user_id`);
 
 --
 -- 資料表索引 `django_content_type`
@@ -724,64 +441,60 @@ ALTER TABLE `django_session`
   ADD KEY `django_session_expire_date_a5c62663` (`expire_date`);
 
 --
--- 資料表索引 `manage`
+-- 資料表索引 `users_buyer`
 --
-ALTER TABLE `manage`
-  ADD PRIMARY KEY (`administrator_id`,`coupon_id`),
-  ADD KEY `coupon_id` (`coupon_id`);
-
---
--- 資料表索引 `order`
---
-ALTER TABLE `order`
-  ADD PRIMARY KEY (`order_id`),
-  ADD KEY `seller_id` (`seller_id`),
-  ADD KEY `coupon_id` (`coupon_id`);
-
---
--- 資料表索引 `product`
---
-ALTER TABLE `product`
-  ADD PRIMARY KEY (`product_id`),
-  ADD KEY `seller_id` (`seller_id`);
-
---
--- 資料表索引 `product_sales`
---
-ALTER TABLE `product_sales`
-  ADD PRIMARY KEY (`product_id`);
-
---
--- 資料表索引 `purchase`
---
-ALTER TABLE `purchase`
-  ADD PRIMARY KEY (`buyer_id`,`product_id`),
-  ADD KEY `product_id` (`product_id`);
-
---
--- 資料表索引 `seller`
---
-ALTER TABLE `seller`
+ALTER TABLE `users_buyer`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- 資料表索引 `shopping_cart`
+-- 資料表索引 `users_cart`
 --
-ALTER TABLE `shopping_cart`
+ALTER TABLE `users_cart`
   ADD PRIMARY KEY (`cart_id`),
-  ADD KEY `buyer_id` (`buyer_id`),
-  ADD KEY `order_id` (`order_id`);
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
--- 資料表索引 `test_table`
+-- 資料表索引 `users_cartitem`
 --
-ALTER TABLE `test_table`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `users_cartitem`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `users_cartitem_cart_id_45de6e61_fk_users_cart_cart_id` (`cart_id`),
+  ADD KEY `users_cartitem_product_id_4edf6161_fk_users_product_product_id` (`product_id`);
 
 --
--- 資料表索引 `user`
+-- 資料表索引 `users_customuser`
 --
-ALTER TABLE `user`
+ALTER TABLE `users_customuser`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `account` (`account`);
+
+--
+-- 資料表索引 `users_customuser_groups`
+--
+ALTER TABLE `users_customuser_groups`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_customuser_groups_customuser_id_group_id_76b619e3_uniq` (`customuser_id`,`group_id`),
+  ADD KEY `users_customuser_groups_group_id_01390b14_fk_auth_group_id` (`group_id`);
+
+--
+-- 資料表索引 `users_customuser_user_permissions`
+--
+ALTER TABLE `users_customuser_user_permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_customuser_user_pe_customuser_id_permission_7a7debf6_uniq` (`customuser_id`,`permission_id`),
+  ADD KEY `users_customuser_use_permission_id_baaa2f74_fk_auth_perm` (`permission_id`);
+
+--
+-- 資料表索引 `users_product`
+--
+ALTER TABLE `users_product`
+  ADD PRIMARY KEY (`product_id`),
+  ADD KEY `users_product_seller_id_94ccedc5_fk_users_seller_user_id` (`seller_id`);
+
+--
+-- 資料表索引 `users_seller`
+--
+ALTER TABLE `users_seller`
   ADD PRIMARY KEY (`user_id`);
 
 --
@@ -804,25 +517,7 @@ ALTER TABLE `auth_group_permissions`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
-
---
--- 使用資料表自動遞增(AUTO_INCREMENT) `auth_user`
---
-ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- 使用資料表自動遞增(AUTO_INCREMENT) `auth_user_groups`
---
-ALTER TABLE `auth_user_groups`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- 使用資料表自動遞增(AUTO_INCREMENT) `auth_user_user_permissions`
---
-ALTER TABLE `auth_user_user_permissions`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `django_admin_log`
@@ -834,29 +529,35 @@ ALTER TABLE `django_admin_log`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `test_table`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `users_cartitem`
 --
-ALTER TABLE `test_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `users_cartitem`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `users_customuser_groups`
+--
+ALTER TABLE `users_customuser_groups`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `users_customuser_user_permissions`
+--
+ALTER TABLE `users_customuser_user_permissions`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- 已傾印資料表的限制式
 --
-
---
--- 資料表的限制式 `administrator`
---
-ALTER TABLE `administrator`
-  ADD CONSTRAINT `administrator_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- 資料表的限制式 `auth_group_permissions`
@@ -872,90 +573,56 @@ ALTER TABLE `auth_permission`
   ADD CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
 
 --
--- 資料表的限制式 `auth_user_groups`
---
-ALTER TABLE `auth_user_groups`
-  ADD CONSTRAINT `auth_user_groups_group_id_97559544_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
-  ADD CONSTRAINT `auth_user_groups_user_id_6a12ed8b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
-
---
--- 資料表的限制式 `auth_user_user_permissions`
---
-ALTER TABLE `auth_user_user_permissions`
-  ADD CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-  ADD CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
-
---
--- 資料表的限制式 `buyer`
---
-ALTER TABLE `buyer`
-  ADD CONSTRAINT `buyer_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- 資料表的限制式 `contain`
---
-ALTER TABLE `contain`
-  ADD CONSTRAINT `contain_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `contain_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- 資料表的限制式 `coupon`
---
-ALTER TABLE `coupon`
-  ADD CONSTRAINT `coupon_ibfk_1` FOREIGN KEY (`seller_id`) REFERENCES `seller` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- 資料表的限制式 `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
   ADD CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
-  ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+  ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_users_customuser_user_id` FOREIGN KEY (`user_id`) REFERENCES `users_customuser` (`user_id`);
 
 --
--- 資料表的限制式 `manage`
+-- 資料表的限制式 `users_buyer`
 --
-ALTER TABLE `manage`
-  ADD CONSTRAINT `manage_ibfk_1` FOREIGN KEY (`administrator_id`) REFERENCES `administrator` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `manage_ibfk_2` FOREIGN KEY (`coupon_id`) REFERENCES `coupon` (`coupon_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `users_buyer`
+  ADD CONSTRAINT `users_buyer_user_id_7cf892a7_fk_users_customuser_user_id` FOREIGN KEY (`user_id`) REFERENCES `users_customuser` (`user_id`);
 
 --
--- 資料表的限制式 `order`
+-- 資料表的限制式 `users_cart`
 --
-ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`seller_id`) REFERENCES `seller` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_ibfk_2` FOREIGN KEY (`coupon_id`) REFERENCES `coupon` (`coupon_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `users_cart`
+  ADD CONSTRAINT `users_cart_user_id_01be2ef5_fk_users_customuser_user_id` FOREIGN KEY (`user_id`) REFERENCES `users_customuser` (`user_id`);
 
 --
--- 資料表的限制式 `product`
+-- 資料表的限制式 `users_cartitem`
 --
-ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`seller_id`) REFERENCES `seller` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `users_cartitem`
+  ADD CONSTRAINT `users_cartitem_cart_id_45de6e61_fk_users_cart_cart_id` FOREIGN KEY (`cart_id`) REFERENCES `users_cart` (`cart_id`),
+  ADD CONSTRAINT `users_cartitem_product_id_4edf6161_fk_users_product_product_id` FOREIGN KEY (`product_id`) REFERENCES `users_product` (`product_id`);
 
 --
--- 資料表的限制式 `product_sales`
+-- 資料表的限制式 `users_customuser_groups`
 --
-ALTER TABLE `product_sales`
-  ADD CONSTRAINT `product_sales_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `users_customuser_groups`
+  ADD CONSTRAINT `users_customuser_gro_customuser_id_958147bf_fk_users_cus` FOREIGN KEY (`customuser_id`) REFERENCES `users_customuser` (`user_id`),
+  ADD CONSTRAINT `users_customuser_groups_group_id_01390b14_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);
 
 --
--- 資料表的限制式 `purchase`
+-- 資料表的限制式 `users_customuser_user_permissions`
 --
-ALTER TABLE `purchase`
-  ADD CONSTRAINT `purchase_ibfk_1` FOREIGN KEY (`buyer_id`) REFERENCES `buyer` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `purchase_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `users_customuser_user_permissions`
+  ADD CONSTRAINT `users_customuser_use_customuser_id_5771478b_fk_users_cus` FOREIGN KEY (`customuser_id`) REFERENCES `users_customuser` (`user_id`),
+  ADD CONSTRAINT `users_customuser_use_permission_id_baaa2f74_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`);
 
 --
--- 資料表的限制式 `seller`
+-- 資料表的限制式 `users_product`
 --
-ALTER TABLE `seller`
-  ADD CONSTRAINT `seller_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `users_product`
+  ADD CONSTRAINT `users_product_seller_id_94ccedc5_fk_users_seller_user_id` FOREIGN KEY (`seller_id`) REFERENCES `users_seller` (`user_id`);
 
 --
--- 資料表的限制式 `shopping_cart`
+-- 資料表的限制式 `users_seller`
 --
-ALTER TABLE `shopping_cart`
-  ADD CONSTRAINT `shopping_cart_ibfk_1` FOREIGN KEY (`buyer_id`) REFERENCES `buyer` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `shopping_cart_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `users_seller`
+  ADD CONSTRAINT `users_seller_user_id_f3433642_fk_users_customuser_user_id` FOREIGN KEY (`user_id`) REFERENCES `users_customuser` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
