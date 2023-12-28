@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1:3306
--- 產生時間： 2023-12-27 22:53:27
+-- 產生時間： 2023-12-28 16:17:04
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.2.12
 
@@ -209,6 +209,7 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('0kb8bz6wdo2aypndpfu4xmqx1wu6yi6a', '.eJxVzLkOwjAQRdF_cY2s8ToOJT0Vora8jEkA2VKcVIh_h0gpoD73vRfzYV1Gv3aa_ZTZkV0vAKDY4RdiSA-qm-Z7qLfGU6vLPEW-JXzXzs8t0_O0t38HY-jjd210SMlmJ4LDwUXSwkUQyqAyRDqXQiCBCkhEUMkgKqsliiGCskLayN4fta44GA:1rIrym:uei1Gut8_rtiNsUpORERsFU-_0q0Kq17Ublp9aKvGj4', '2024-01-11 15:07:24.295510'),
 ('narq4m5kjhpb2dsp274bw1hptms4fzwj', '.eJxVjLEOwiAURf-F2RBKoUVHdyfj3FweD1s1kJR2Mv67NOmg6z3n3LcYsC7jsBaehymIk7hdlVKtOPwCD3py2mh4IN2zpJyWefJyU-ROi7zkwK_z7v4djChjrXtrFLzWzDZYg6anPsauDebIsC6iTmgsiBvPjkzbsQbpWhiGcYD4fAHcIDo9:1rHdR4:k3oTATHyPuZt7IdENF3_sLnLrKvYqO0M976teGygY-U', '2024-01-08 05:23:30.665810');
 
 -- --------------------------------------------------------
@@ -222,6 +223,16 @@ CREATE TABLE `users_buyer` (
   `gender` varchar(10) NOT NULL,
   `birth_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- 傾印資料表的資料 `users_buyer`
+--
+
+INSERT INTO `users_buyer` (`user_id`, `gender`, `birth_date`) VALUES
+('US0004', 'male', '2000-01-01'),
+('US0005', 'male', '2003-06-06'),
+('US0006', 'female', '2006-03-03'),
+('US0008', 'female', '2010-10-10');
 
 -- --------------------------------------------------------
 
@@ -239,8 +250,7 @@ CREATE TABLE `users_cart` (
 --
 
 INSERT INTO `users_cart` (`cart_id`, `user_id`) VALUES
-('CR0002', 'US0003'),
-('CR0001', 'US0004');
+('CR0001', 'US0003');
 
 -- --------------------------------------------------------
 
@@ -260,9 +270,7 @@ CREATE TABLE `users_cartitem` (
 --
 
 INSERT INTO `users_cartitem` (`id`, `quantity`, `cart_id`, `product_id`) VALUES
-(9, 2, 'CR0001', 'PR0001'),
-(10, 1, 'CR0001', 'PR0002'),
-(11, 1, 'CR0002', 'PR0001');
+(13, 1, 'CR0001', 'PR0008');
 
 -- --------------------------------------------------------
 
@@ -290,10 +298,14 @@ CREATE TABLE `users_customuser` (
 --
 
 INSERT INTO `users_customuser` (`last_login`, `user_id`, `name`, `account`, `password`, `address`, `email`, `phone_number`, `permission`, `status`, `is_staff`, `is_superuser`) VALUES
-('2023-12-25 04:20:52.225814', '', 'hsiao', 'hsiao', 'pbkdf2_sha256$600000$VTtH5d6mdCxq7RzYXjlNjD$oEVbJbcLQ/bA0WJgc2hFQ7ibBJVbxFcbP4bjW4SdfNE=', 'earth', '110590063@ntut.edu.tw', '12', 2, 0, 1, 1),
-('2023-12-24 17:54:26.602960', 'US0002', 'zxc', 'zxc', 'pbkdf2_sha256$600000$F5PFWKH9QXbXfGqfKhsuVG$vouHwZw5zTIjMCfTSOB3iJ3YpuGr00IUWKKRQRFinNU=', 'zxc', 'zxc@mail.com', 'zxc', 0, 0, 0, 0),
-('2023-12-27 21:41:57.705380', 'US0003', 'asd', 'asd', 'pbkdf2_sha256$600000$6tGLTJfRtS42jw1xNA5Zz7$j1SwYC76D+J7RPc5qrIGh906zMM8VH+7+WrijoJDP1o=', 'asd', 'asd', 'asd', 1, 0, 0, 0),
-('2023-12-27 20:28:13.232978', 'US0004', 'qwe', 'qwe', 'pbkdf2_sha256$600000$Ud226YTG5bOJyfYqvvlHFd$T0kmpJgeMp0CHR8XScFJCZVdDeWcXvfSKLyjnzWXPRQ=', 'qwe', 'qwe', 'qwe', 0, 0, 0, 0);
+('2023-12-25 04:20:52.225814', 'US0001', 'hsiao', 'hsiao', 'pbkdf2_sha256$600000$VTtH5d6mdCxq7RzYXjlNjD$oEVbJbcLQ/bA0WJgc2hFQ7ibBJVbxFcbP4bjW4SdfNE=', 'earth', '110590063@ntut.edu.tw', '12', 2, 0, 1, 1),
+('2023-12-28 14:44:26.356056', 'US0002', 'ben', 'ben111', 'pbkdf2_sha256$600000$aty2elGddibRVnnqoLaXp4$2xElsa4QdQ8kZUsvtmWv6pTla53NrYQ+CQSmY54A09A=', 'earth', 'ben111@gmail.com', '123456789', 1, 0, 0, 0),
+('2023-12-28 15:07:24.295510', 'US0003', 'yuan', 'yuan625', 'pbkdf2_sha256$600000$bP6HW0HdBVTVXmeBLOAZls$CLG3pEAXOExvtXcgyiLulrrlPihNLOtFC7jkK3Fa5y0=', 'moon', 'yuan625@gmail.com', '987654321', 1, 0, 0, 0),
+('2023-12-28 14:21:45.552182', 'US0004', 'choco', 'choco234', 'pbkdf2_sha256$600000$6mObBPHY02tznJw7LzSBPw$mfw1lsOsBy87gXH9QZczErVz/ILJMTYxCLEgt2EGaB4=', 'mars', 'choco234@gmail.com', '13579000', 0, 0, 0, 0),
+('2023-12-28 14:23:06.372805', 'US0005', 'yulun', 'yulun606', 'pbkdf2_sha256$600000$DVFMxP7imHQvum2aKELbuE$jEXOKIMSw/RQwlVClgLexrzVdAwVm+QCxA/eww06Ct4=', 'earth', 'yulun606@gmail.com', '060606060', 0, 0, 0, 0),
+('2023-12-28 14:24:13.619610', 'US0006', 'chen', 'chen033', 'pbkdf2_sha256$600000$3WuXFkv6ekUFs5X479sUu6$sWCs+TS6HPIgG7Goy3CyFcM4rxjOBNjO95HIMvIG5DQ=', 'moon', 'chen033@gmail.com', '111222333', 0, 0, 0, 0),
+('2023-12-28 14:48:07.510214', 'US0007', 'kuan', 'kuan217', 'pbkdf2_sha256$600000$maKKwVRwEXS6bWRMu3QI9o$9ub++LxyE/+5jtk1sGIO+r+hQArqIj2H0QeAiDUGRKQ=', 'mars', 'kuan217@gmail.com', '111555777', 1, 0, 0, 0),
+('2023-12-28 14:27:33.668963', 'US0008', 'lee', 'lee817', 'pbkdf2_sha256$600000$N1zFO1EuMJnfq1f8bLk12d$B52d8zD8CRl0t/S6OVN3myN/kQChY3isVV0ckULygmo=', 'earth', 'lee817@gmail.com', '888999321', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -342,8 +354,17 @@ CREATE TABLE `users_product` (
 --
 
 INSERT INTO `users_product` (`product_id`, `product_name`, `description_of_product`, `picture_in_browsing`, `picture_in_description`, `price`, `quantity_in_stock`, `is_active`, `seller_id`) VALUES
-('PR0001', '1', '1', 'browsing_pictures/item1_HwOrnF7_qsGAOFQ.jpg', 'description_pictures/item1_ur9j5UA_gVruFu7.jpg', 13.00, 2, 1, 'US0003'),
-('PR0002', '2', '2', 'browsing_pictures/item1_HwOrnF7_qsGAOFQ_fjVLujc.jpg', 'description_pictures/item1_ur9j5UA_gVruFu7_zq8mLYi.jpg', 32.00, 5, 1, 'US0003');
+('PR0001', '豪華寵物石套裝', '我們的頂級豪華寵物石套裝附有定制設計的棲息地和一本有關石頭護理的指南。', '', '', 600.00, 50, 1, 'US0003'),
+('PR0002', '貴族', '這是一個精緻的石頭寶貝，擁有高貴血統的石頭寶貝，能夠在眾多石頭寶貝中閃耀。', 'browsing_pictures/OIG.jpg', 'description_pictures/OIG.jpg', 250000.00, 2, 1, 'US0003'),
+('PR0003', '限量版金色石頭', '一塊罕見而獨特的寵物石頭，塗有一層閃亮的金色，奢華至極。', '', '', 1500.00, 3, 1, 'US0002'),
+('PR0004', '自己塗鴉的寵物石頭套裝', '使用這個DIY套裝釋放創造力，包括一塊普通的寵物石頭和一組鮮豔的顏料。', '', '', 450.00, 40, 1, 'US0002'),
+('PR0005', '迷你石頭寶貝', '一塊小巧、可愛的石頭寶貝，適合各種顧客飼養。', '', '', 300.00, 10, 1, 'US0002'),
+('PR0006', '寵物石頭SPA護理套餐', '這是一項專為寵物石頭設計的SPA套餐，包括溫泉浸泡和獨特的能量按摩。', '', '', 100.00, 999, 1, 'US0007'),
+('PR0007', '寵物石頭造型藝術', '讓您的寵物石頭變得獨一無二，體驗專業的石頭造型藝術。', '', '', 80.00, 999, 1, 'US0007'),
+('PR0008', '寵物石頭瑜伽課程', '與您的寵物石頭一同參加瑜伽課程，促進身心靈的和諧。', '', '', 120.00, 999, 1, 'US0007'),
+('PR0009', '寵物石頭按摩放鬆', '提供專業的寵物石頭按摩服務，緩解寵物石頭的壓力。', '', '', 90.00, 999, 1, 'US0007'),
+('PR0010', '寵物石頭能量平衡療法', '通過獨特的能量平衡療法，為您的寵物石頭創造一個和諧的能量場。', '', '', 150.00, 999, 1, 'US0007'),
+('PR0011', '寵物石頭音樂療法', '透過音樂療法，為您的寵物石頭提供一場心靈之旅。', '', '', 250.00, 999, 1, 'US0007');
 
 -- --------------------------------------------------------
 
@@ -361,7 +382,9 @@ CREATE TABLE `users_seller` (
 --
 
 INSERT INTO `users_seller` (`user_id`, `join_date`) VALUES
-('US0003', '2023-12-24');
+('US0002', '2023-12-28'),
+('US0003', '2023-12-28'),
+('US0007', '2023-12-28');
 
 --
 -- 已傾印資料表的索引
@@ -518,7 +541,7 @@ ALTER TABLE `django_migrations`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users_cartitem`
 --
 ALTER TABLE `users_cartitem`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users_customuser_groups`
