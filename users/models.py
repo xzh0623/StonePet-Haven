@@ -284,7 +284,7 @@ class User(models.Model):
                 account=account,
                 address=address,
                 permission=0 if user_is_buyer else 1,
-                status=1
+                status=0
             )
             # 发送验证电子邮件
             cls.send_verification_email(request, user_instance)
@@ -339,8 +339,8 @@ class User(models.Model):
     def verify_account(cls, request):
         user_id = request.GET.get('user_id')  # 假设你通过 URL 参数传递了 user_id
         user = get_object_or_404(cls, user_id=user_id)
-        if user.status != 2:
-            user.status = 2  # 假设状态码 2 表示已验证      
+        if user.status != 1:
+            user.status = 1  # 假设状态码 1 表示有權限     
             user.save() 
 
     @classmethod

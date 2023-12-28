@@ -31,6 +31,7 @@ def login(request):
             password = form.cleaned_data['password']
             user = User.objects.filter(account=account, password=password).first()
             if user:
+                messages.success(request, '您好！')
                 
                 return redirect('homepage')
             else:
@@ -43,11 +44,12 @@ def login(request):
     return render(request, 'login.html', {'form': form})
 
 def shoppingcart(request):
-    template = loader.get_template('shoppingcart.html')
-    context = {
 
-    }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'shoppingcart.html')
+
+def shoppingcart_unlogin(request):
+
+    return render(request, 'shoppingcart_unlogin.html')
 
 def forgotpassword(request):
     if request.method == 'POST':
@@ -132,6 +134,34 @@ def information(request):
 
 def policy(request):
     template = loader.get_template('0_policy.html')
+    context = {
+
+    }
+    return HttpResponse(template.render(context, request))
+
+def userpolicy(request):
+    template = loader.get_template('0_userpolicy.html')
+    context = {
+
+    }
+    return HttpResponse(template.render(context, request))
+
+def privacy(request):
+    template = loader.get_template('0_privacy.html')
+    context = {
+
+    }
+    return HttpResponse(template.render(context, request))
+
+def itempage(request):
+    template = loader.get_template('item_page.html')
+    context = {
+
+    }
+    return HttpResponse(template.render(context, request))
+
+def coupon(request):
+    template = loader.get_template('coupon.html')
     context = {
 
     }

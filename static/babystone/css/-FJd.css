@@ -922,7 +922,7 @@ body {
 }
 
 .item--yEm .group-1-oPK img {
-  margin: 0rem 2.4rem 0.1rem 0rem;
+  margin: 0rem 2rem 0.1rem 0rem;
   width: 2.4rem;
   height: 2.4rem;
   cursor: pointer;
@@ -960,6 +960,7 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  
 }
 
 .item--vyb .item--Dho {
@@ -967,13 +968,8 @@ body {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  
 }
-
-
-
-
-
-
 .item--vyb .item--Dho .item--L1j {
   margin-bottom: 2rem;
   width: 100%;
@@ -986,6 +982,7 @@ body {
   font-family: Telex, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
+
 }
 .item--vyb .item--Dho .item--E77 {
   margin-bottom: 2rem;
@@ -1010,17 +1007,7 @@ body {
   align-items: center;
   flex-shrink: 0;
 }
-.item--vyb .item--Dho .frame-20-9E5 .item--3aM {
-  margin: 0rem 1.125rem 0.137rem 0rem;
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 1.2050000191;
-  color: #000000;
-  font-family: Telex, 'Source Sans Pro';
-  white-space: nowrap;
-  flex-shrink: 0;
-}
+
 .item--vyb .item--Dho .frame-20-9E5 .chevron-down-8rh {
   margin-top: 0.1367rem;
   width: 1.2rem;
@@ -1196,10 +1183,21 @@ body {
   flex-shrink: 0;
 }
 .item--XfB .line-1-cq3 {
-  z-index: ; /* 可以調整為適當的值 */
+  /* z-index: ; 可以調整為適當的值 */
   margin-left: 3.9rem;
   width: 30.8rem;
   height: 0.1rem;
   background-color: #000000;
+  flex-shrink: 0;
+}
+
+.item--eER{
+  margin: 0rem 1.8rem 0.1rem 0rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
   flex-shrink: 0;
 }

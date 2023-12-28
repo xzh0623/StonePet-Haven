@@ -51,7 +51,7 @@ body {
   line-height: 1;
   color: #000000;
   font-family: Sulphur Point, 'Source Sans Pro';
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 .item--B5w .group-40-b9f .stone-baby-7--ECd {
   max-width: 34.3rem;
@@ -75,7 +75,7 @@ body {
   line-height: 1;
   color: #000000;
   font-family: Sulphur Point, 'Source Sans Pro';
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 .item--B5w .group-47-XBj .item-7--Zu7 {
   max-width: 34.2rem;
