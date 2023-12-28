@@ -16,13 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+<<<<<<< HEAD
 from django.conf import settings
 from django.conf.urls.static import static
 
 
+=======
+from users.views import login
+>>>>>>> origin/Kuan_remote
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("users.urls")),
 ]
+<<<<<<< HEAD
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+=======
+>>>>>>> origin/Kuan_remote

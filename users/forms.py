@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 class LoginForm(forms.Form):
     account = forms.CharField(label='Account', max_length=50)
+<<<<<<< HEAD
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
 
 
@@ -49,3 +50,6 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ['product_name', 'description_of_product', 'picture_in_browsing', 'picture_in_description', 'price', 'quantity_in_stock', 'is_active']
+=======
+    password = forms.CharField(label='Password', widget=forms.PasswordInput)
+>>>>>>> origin/Kuan_remote

@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1:3306
+<<<<<<< HEAD
 -- 產生時間： 2023-12-11 12:22:33
+=======
+-- 產生時間： 2023-12-14 04:54:08
+>>>>>>> origin/Kuan_remote
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.2.12
 
@@ -41,6 +45,7 @@ INSERT INTO `administrator` (`user_id`) VALUES
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- 資料表結構 `auth_group`
 --
 
@@ -210,6 +215,8 @@ CREATE TABLE `auth_user_user_permissions` (
 -- --------------------------------------------------------
 
 --
+=======
+>>>>>>> origin/Kuan_remote
 -- 資料表結構 `buyer`
 --
 
@@ -225,7 +232,12 @@ CREATE TABLE `buyer` (
 
 INSERT INTO `buyer` (`user_id`, `sex`, `age`) VALUES
 ('US0001', 1, 20),
+<<<<<<< HEAD
 ('US0002', 1, 35);
+=======
+('US0002', 1, 35),
+('US0007', 0, 18);
+>>>>>>> origin/Kuan_remote
 
 -- --------------------------------------------------------
 
@@ -278,6 +290,7 @@ INSERT INTO `coupon` (`coupon_id`, `discount_amount`, `minimum_limit`, `start_da
 
 -- --------------------------------------------------------
 
+<<<<<<< HEAD
 --
 -- 資料表結構 `django_admin_log`
 --
@@ -388,6 +401,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('qlypsfc0qwryi5an71hmrbjhjvc8tavr', '.eJxVjEEOwiAQRe_C2pAyhUFcuvcMZAZGqRpISrsy3l2bdKHb_977LxVpXUpcu8xxyuqkjDr8bkzpIXUD-U711nRqdZkn1puid9r1pWV5nnf376BQL9_aBne8imEMMKAZyBnrA4ALBELWMnsE4GTYsogdyWRK4wg-sUP0GNT7A7_vNzQ:1rCbgy:nGQQSxE6r-UBkmbulQHuelbQTj3ziHM1BXBqyhdJ8hE', '2023-12-25 08:31:08.689920');
 
 -- --------------------------------------------------------
+=======
+>>>>>>> origin/Kuan_remote
 
 --
 -- 資料表結構 `manage`
@@ -462,6 +477,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `product_name`, `description_of_product`, `picture_in_browsing`, `picture_in_description`, `price`, `quantity_in_stock`, `seller_id`) VALUES
+<<<<<<< HEAD
 ('PR0001', '呆萌小石頭', '天然獨一無二，為您的生活增添自然的愉悅。', 'item1.jpg', 'item1.jpg', 50, 100, 'US0003'),
 ('PR0002', '石頭明信片組', '發掘獨特的石頭風景，每張都是大自然的微縮奇蹟。', 'item2.jpg', 'item2.jpg', 199, 100, 'US0003'),
 ('PR0003', '溫馨石頭小家', '簡約中帶著溫馨，這是一個由石頭構成的小天地，將自然之美融入家的每一角。', 'item3.jpg', 'item3.jpg', 399, 100, 'US0003'),
@@ -472,6 +488,18 @@ INSERT INTO `product` (`product_id`, `product_name`, `description_of_product`, `
 ('PR0008', '石頭珍珠貝殼', '珍珠般閃耀的石頭，宛如收藏的寶貝一般。', 'item8.jpg', 'item8.jpg', 399, 100, 'US0005'),
 ('PR0009', '爆炒鵝卵石', '火熱炒製的鵝卵石，散發著獨特的風味誘惑。', 'item9.jpg', 'item9.jpg', 100, 100, 'US0005'),
 ('PR0010', '派大星石頭屋', '由派大星親自打造的石頭屋，充滿童趣與奇幻。', 'item10.jpg', 'item10.jpg', 100, 100, 'US0005');
+=======
+('PR0001', '呆萌小石頭', '天然獨一無二，為您的生活增添自然的愉悅。', 'pr0001.png', 'pr0001.png', 50, 100, 'US0003'),
+('PR0002', '石頭明信片組', '發掘獨特的石頭風景，每張都是大自然的微縮奇蹟。', 'pr0002.png', 'pr0002.png', 199, 100, 'US0003'),
+('PR0003', '溫馨石頭小家', '簡約中帶著溫馨，這是一個由石頭構成的小天地，將自然之美融入家的每一角。', 'pr0003.png', 'pr0003.png', 399, 100, 'US0003'),
+('PR0004', '可愛石頭甜點屋', '甜蜜的石頭造型點心，讓您品嚐到獨一無二的甜蜜滋味。', 'pr0004.png', 'pr0004.png', 100, 100, 'US0004'),
+('PR0005', '派大星冠軍石頭', '勇奪冠軍的石頭，展現出無可比擬的堅強與勝利。', 'pr0005.png', 'pr0005.png', 100, 100, 'US0004'),
+('PR0006', '比奇堡現採石頭', '現場採集的石頭，是比奇堡獨特風格的象徵。', 'pr0006.png', 'pr0006.png', 100, 100, 'US0004'),
+('PR0007', '海精靈石頭組', '擁有海洋風情的石頭組合，彷彿能聽見浪花的聲音。', 'pr0007.png', 'pr0007.png', 199, 100, 'US0005'),
+('PR0008', '石頭珍珠貝殼', '珍珠般閃耀的石頭，宛如收藏的寶貝一般。', 'pr0008.png', 'pr0008.png', 399, 100, 'US0005'),
+('PR0009', '爆炒鵝卵石', '火熱炒製的鵝卵石，散發著獨特的風味誘惑。', 'pr0009.png', 'pr0009.png', 100, 100, 'US0005'),
+('PR0010', '派大星石頭屋', '由派大星親自打造的石頭屋，充滿童趣與奇幻。', 'pr0010.png', 'pr0010.png', 100, 100, 'US0005');
+>>>>>>> origin/Kuan_remote
 
 -- --------------------------------------------------------
 
@@ -618,7 +646,12 @@ INSERT INTO `user` (`user_id`, `name`, `account`, `password`, `address`, `email`
 ('US0003', 'xzh', '110590033', '110590033', '台北市內湖區舊宗路一段268號', 't110590033@ntut.org.tw', '0961345670', 1, 1),
 ('US0004', 'kuan', '110590006', '110590006', '台北市北投區明德路331巷35號1樓', 't110590006@ntut.org.tw', '095327406', 1, 1),
 ('US0005', 'xiao', '110590063', '110590063', '台北市大安區忠孝東路三段1號', 't110590063@ntut.org.tw', '123456789', 1, 1),
+<<<<<<< HEAD
 ('US0006', 'admin', 'admin', 'admin', '台北市大安區忠孝東路三段1號', 'admin@test.com', '111111111', 2, 1);
+=======
+('US0006', 'admin', 'admin', 'admin', '台北市大安區忠孝東路三段1號', 'admin@test.com', '111111111', 2, 1),
+('US0007', 'test', 'test', 'test', 'testaddress', 'test@test', '111222333', 1, 1);
+>>>>>>> origin/Kuan_remote
 
 --
 -- 已傾印資料表的索引
@@ -631,6 +664,7 @@ ALTER TABLE `administrator`
   ADD PRIMARY KEY (`user_id`);
 
 --
+<<<<<<< HEAD
 -- 資料表索引 `auth_group`
 --
 ALTER TABLE `auth_group`
@@ -676,6 +710,8 @@ ALTER TABLE `auth_user_user_permissions`
   ADD KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`);
 
 --
+=======
+>>>>>>> origin/Kuan_remote
 -- 資料表索引 `buyer`
 --
 ALTER TABLE `buyer`
@@ -696,6 +732,7 @@ ALTER TABLE `coupon`
   ADD KEY `seller_id` (`seller_id`);
 
 --
+<<<<<<< HEAD
 -- 資料表索引 `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
@@ -724,6 +761,8 @@ ALTER TABLE `django_session`
   ADD KEY `django_session_expire_date_a5c62663` (`expire_date`);
 
 --
+=======
+>>>>>>> origin/Kuan_remote
 -- 資料表索引 `manage`
 --
 ALTER TABLE `manage`
@@ -859,6 +898,7 @@ ALTER TABLE `administrator`
   ADD CONSTRAINT `administrator_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+<<<<<<< HEAD
 -- 資料表的限制式 `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
@@ -886,6 +926,8 @@ ALTER TABLE `auth_user_user_permissions`
   ADD CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
+=======
+>>>>>>> origin/Kuan_remote
 -- 資料表的限制式 `buyer`
 --
 ALTER TABLE `buyer`
@@ -903,6 +945,7 @@ ALTER TABLE `contain`
 --
 ALTER TABLE `coupon`
   ADD CONSTRAINT `coupon_ibfk_1` FOREIGN KEY (`seller_id`) REFERENCES `seller` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+<<<<<<< HEAD
 
 --
 -- 資料表的限制式 `django_admin_log`
@@ -911,6 +954,8 @@ ALTER TABLE `django_admin_log`
   ADD CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
+=======
+>>>>>>> origin/Kuan_remote
 --
 -- 資料表的限制式 `manage`
 --
