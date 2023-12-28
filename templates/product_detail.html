@@ -22,7 +22,7 @@
                 {% else %}
                     <li><a href="{% url 'login' %}">登入</a></li>
                 {% endif %}
-                <li><a href="{% url 'products' %}">購物車</a></li>
+                <li><a href="{% url 'view_cart' %}">購物車</a></li>
                 <li><a href="{% url 'products' %}">商品</a></li>
                 <!-- Add more navigation links as needed -->
             </ul>
@@ -33,7 +33,7 @@
             <p>Description: {{ product.description_of_product }}</p>
             <p>Price: ${{ product.price }}</p>
             <!-- 其他商品詳細信息 -->
-
+            <a href="{% url 'add_to_cart' product_id=product.product_id %}">Add to Cart</a>
             <a href="{% url 'products' %}">Back to Product List</a>
         </main>
         <footer>
