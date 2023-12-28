@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
                 ('order_end', models.DateTimeField()),
                 ('delivary_method', models.IntegerField()),
                 ('delivary_address', models.CharField(max_length=255)),
-                ('delivary_fee', models.IntegerField(blank=True, null=True)),
+                ('delivary_fee', models.IntegerField(blank=True)),
                 ('status', models.IntegerField()),
                 ('order_date', models.DateTimeField()),
                 ('quantity_of_product', models.IntegerField()),

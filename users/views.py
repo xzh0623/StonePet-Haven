@@ -11,6 +11,7 @@ from django.shortcuts import render, redirect
 from . import models
 # from .. backend_operation import TEST_add_data_to_models
 import django
+import sys
 
 # Create your views here.
 def homepage(request):
@@ -144,4 +145,24 @@ def policy(request):
 #         return redirect('login')
 
 #     return render(request, 'register.html')
+
+def testpage(request):
+    template = loader.get_template('testpage.html')
+    # models.TestTable.create(request, 0)
+    # models.TestTable.updateAll(request, 6 , info)
+    # models.TestTable.findShow(request, 6)
+
+    # testpage_value = models.Order.objects.all().values()
+
+    order_thing = models.Order()
+
+    testpage_value = order_thing.findShow(request, 'OR0002')
+
+    p_name = [models.Order.objects.get(pk = 'OR0002').pk, 5]
+
+    context = {
+        'temp': testpage_value,
+        'p_name': p_name,
+    }
+    return HttpResponse(template.render(context, request))
 

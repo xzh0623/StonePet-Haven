@@ -21,6 +21,25 @@ whitenoise          6.6.0
 
 ## WORK DISTRUBUTION (v1220)
 
+### 1221 by kuan
+* **CREATING A BASIC CLASS TO GIVE FUNCTION TO EVERY MODEL**
+* update `.gitignore` so evryone can modify locally and pkay around with current database
+* `f/users/models.py` **CONNOT** implement a simple function to update just one attribute
+    * pass every data to fullfill
+
+### 1220 by kuan
+* `f/users/models.py` & `f/users/migrations/0001_inital.py` set `Order.delivery_fee` to **UN NULL**
+* modify to order of attribute
+    * to leave the arguments blank when calling the functions
+
+> TO DO LIST
+> * auto update .sql every time an operation was performed
+> * consider to seperate all classes so we can write some backend operation function to RWUD the data
+> * 圖片路徑要改
+> * 部分頁面icon邊緣有被切到，到static/babystone/img找替代圖片
+> * css檔名很醜，在切換的時候要改檔名
+> * `f/users/models.py` unable to track FKs
+
 ### xzh
 1. register開頭+forgotpassword
 2. login_title、unlogin_title
