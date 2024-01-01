@@ -1,76 +1,69 @@
-<!-- home.html -->
-
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/homepage.css' %}">
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>Home Page</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sulphur+Point%3A400%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Telex%3A400"/>
+  <link rel="stylesheet" href="../static/babystone/css/homepage.css">
 </head>
 <body>
-    <div class="main-container">
-        <nav>
-            <ul class="navbar">
-                <li><a href="{% url 'homepage' %}" >Stone Baby</a></li>
-                <li><a href="{% url 'homepage' %}"><img src="{% static 'babystone/img/menu.png' %}" alt="Menu" style="max-width: 40px; max-height: 40px; margin-top: -13px;"></a></li>
-                {% if user.is_authenticated %}
-                    <li><a href="{% url 'logout' %}">登出</a></li>
-                    <li><a href="{% url 'view_profile' %}">{{ username }}</li>
-                    <!-- Add authenticated user content here -->
-                {% else %}
-                    <li><a href="{% url 'login' %}">登入</a></li>
-                {% endif %}
-                <li><a href="{% url 'view_cart' %}">購物車</a></li>
-                <li><a href="{% url 'products' %}">商品</a></li>
-                <!-- Add more navigation links as needed -->
-            </ul>
-        </nav>
-        <main>
-            <img src="{% static 'babystone/img/homepage.png' %}" alt="Homepage" style="margin-top: -85px;">
-        </main>
-        <footer>
-            <div class="footer-info">
-                <div class="footer-section">
-                    <div class="footer-section-left">
-                        <p style="font-size: 20px; font-weight: bold;">關於我們</p>
-                    </div>
-                    <div class="footer-section-right">
-                        <ul>
-                            <li><a href="#">優惠資訊 / Coupon</a></li>
-                            <li><a href="#">商店介紹 / Introduction</a></li>
-                            <li><a href="#">與我們合作 / Cooperation</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <div class="footer-section-left">
-                        <p style="font-size: 20px; font-weight: bold;">顧客服務</p>
-                    </div>
-                    <div class="footer-section-right">
-                        <ul>
-                            <li><a href="#">購物須知 / How To Buy</a></li>
-                            <li><a href="#">退換貨政策 / After-sales Service</a></li>
-                            <li><a href="#">隱私權政策 / Privacy</a></li>
-                            <li><a href="#">使用者條款 / Terms</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <div class="footer-section-left">
-                        <p style="font-size: 20px; font-weight: bold;">尋找我們</p>
-                    </div>
-                    <div class="footer-section-right">
-                        <ul>
-                            <li>客服專線 02-85461000</li>
-                            <li>服務時間 上班日 8:00-21:00</li>
-                            <li>信箱 stonebaby@gmail.com</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
+<div class="desktop-1-Mq7">
+  <img class="image-1-iJH" src="../static/babystone/img/image-1.png"/>
+  <div class="group-97-try">
+    <div class="group-96-mZP">
+      <p class="item--te1">關於我們</p>
+      <p class="coupon-iN9">優惠資訊 / Coupon</p>
+      <p class="introduction-RnM">商店介紹 / Introduction</p>
+      <p class="cooperation-jY9">與我們合作 / Cooperation</p>
     </div>
+    <div class="group-95-Ezh">
+      <p class="item--Nr1">顧客服務</p>
+      <p class="how-to-buy-5Ed">購物須知 / How To Buy</p>
+      <p class="after-sales-service-AWy">
+        <span class="after-sales-service-AWy-sub-0">退換貨政策 / </span>
+        <span class="after-sales-service-AWy-sub-1">After-sales Service</span>
+      </p>
+      <p class="privacy-5Qy">隱私權政策 / Privacy</p>
+      <p class="terms-MtH">使用者條款 / Terms</p>
+    </div>
+    <div class="group-94-gvZ">
+      <p class="item--EhB">尋找我們</p>
+      <p class="item-02-85461000-9JM">客服專線：02-85461000</p>
+      <p class="item-8-00-21-00-3Pj">服務時間：上班日 8:00-21:00</p>
+      <p class="stonebabygmailcom-wV7">信箱：stonebaby@gmail.com</p>
+    </div>
+  </div>
+  <a href="{% url 'homepage' %}">
+    <p class="stone-baby-fZX">Stone Baby</p>
+  </a>
+  <div class="group-93-X5w">
+    <a href="{% url 'products' %}">
+      <img class="shopping-bag-yid" src="../static/babystone/img/shopping-bag.png" />
+    </a>
+    <a href="{% url 'view_cart' %}">
+      <img class="shopping-cart-gN9" src="../static/babystone/img/shopping-cart-4LD.png"/>
+    </a>
+    {% if user.is_authenticated %}
+      <a href="{% url 'view_profile' %}">
+        <p class="fontstyle">{{ username }}</p>
+      </a>
+      <a href="{% url 'logout' %}">
+        <p class="fontstyle">登出</p>
+      </a>
+    {% else %}
+    <a href="{% url 'login' %}">
+      <img class="shopping-cart-gN9" src="../static/babystone/img/user.png" />
+    </a>
+    {% endif %}
+    <a href="{% url 'homepage' %}">
+      <img class="shopping-cart-gN9" src="../static/babystone/img/menu.png" />
+    </a>
+  </div>
+</div>
 </body>
-</html>

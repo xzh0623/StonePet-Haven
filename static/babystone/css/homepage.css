@@ -1,136 +1,270 @@
-/* home.css */
 
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333; /* 修改文字颜色 */
-    height:100rem;
-} 
-
-.main-container {
-    position: relative;
+  width: 100%;
+}.desktop-1-Mq7 {
+  width: 100%;
+  height: 129.4rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #c4bbb2;
 }
-
-nav {
-    background-color: #c4bbb2;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    height: 60px;
-    width: 100%;
-    z-index: 2;
+.desktop-1-Mq7 .image-1-iJH {
+  width: 100%;
+  height: 80.9rem;
+  position: absolute;
+  left: 0;
+  top: 8.4rem;
+  object-fit: cover;
+  vertical-align: top;
 }
-
-.navbar {
-    list-style-type: none;
-    margin: 0;
-    padding: 20px 0px;
-    text-align: center;
-    height: 100%; /* 調整高度 */
-    align-items: center; /* 垂直置中 */
-    
+.desktop-1-Mq7 .group-97-try {
+  width: 124.15rem;
+  height: 31.8rem;
+  position: absolute;
+  left: 10rem;
+  top: 92.9rem;
+  display: flex;
+  align-items: flex-start;
 }
-
-.navbar a {
-    display: block;
-    color: #000000;
-    text-align: center;
-    padding: 0 16px; /* 調整 padding */
-    text-decoration: none;
-    font-size: 28px;
-    font-weight: bold;
-    line-height: 16px; /* 調整行高 */
+.desktop-1-Mq7 .group-97-try .group-96-mZP {
+  margin-right: 20.3rem;
+  width: 23.5rem;
+  flex-shrink: 0;
 }
-
-.navbar a:hover {
-    color: black;
+.desktop-1-Mq7 .group-97-try .group-96-mZP .item--te1 {
+  margin-bottom: 2.9rem;
+  width: 100%;
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.37;
+  color: #000000;
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
 }
-
-/* 將主頁靠左，其他項目靠右 */
-.navbar li:first-child {
-    float: left;
+.desktop-1-Mq7 .group-97-try .group-96-mZP .coupon-iN9 {
+  margin-bottom: 4.3rem;
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
 }
-
-.navbar li {
-    float: right;
+.desktop-1-Mq7 .group-97-try .group-96-mZP .introduction-RnM {
+  margin-bottom: 4.3rem;
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
 }
-
-main {
-    background-color: #adadad;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.desktop-1-Mq7 .group-97-try .group-96-mZP .cooperation-jY9 {
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
 }
-
-main img {
-    width: 100%;
-    max-height: 80%;
+.desktop-1-Mq7 .group-97-try .group-95-Ezh {
+  margin-right: 19.85rem;
+  width: 30.6rem;
+  height: 100%;
+  flex-shrink: 0;
 }
-
-footer {
-    background-color: #c4bbb2;
-    color: #000000;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    height: 120px;
-    width: 100%;
-    z-index: 2;
+.desktop-1-Mq7 .group-97-try .group-95-Ezh .item--Nr1 {
+  margin-bottom: 2.9rem;
+  width: 100%;
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.37;
+  color: #000000;
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
 }
-
-.footer-info {
-    display: flex;
-    justify-content: space-around;
-    margin-top: -20px;
+.desktop-1-Mq7 .group-97-try .group-95-Ezh .how-to-buy-5Ed {
+  margin-bottom: 4.3rem;
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
 }
-
-.footer-section {
-    flex: 1;
-    text-align: left;
-    display: flex;
-    align-items: baseline;
-    flex-direction: column;
+.desktop-1-Mq7 .group-97-try .group-95-Ezh .after-sales-service-AWy {
+  margin-bottom: 4.3rem;
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #000000;
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: baseline;
 }
-
-.footer-section-left {
-    text-align: right;
+.desktop-1-Mq7 .group-97-try .group-95-Ezh .after-sales-service-AWy .after-sales-service-AWy-sub-0 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
 }
-
-.footer-section-right {
-    text-align: left;
+.desktop-1-Mq7 .group-97-try .group-95-Ezh .after-sales-service-AWy .after-sales-service-AWy-sub-1 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
 }
-
-.footer-section h3 {
-    color: #333;
+.desktop-1-Mq7 .group-97-try .group-95-Ezh .privacy-5Qy {
+  margin-bottom: 4.3rem;
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
 }
-
-.footer-section ul {
-    list-style-type: none;
-    padding: 0;
-    font-size: 12px;
+.desktop-1-Mq7 .group-97-try .group-95-Ezh .terms-MtH {
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
 }
-
-.footer-section ul li {
-    margin-bottom: 10px;
-    position: relative;
+.desktop-1-Mq7 .group-97-try .group-94-gvZ {
+  width: 29.9rem;
+  flex-shrink: 0;
 }
-
-.footer-section ul li:before {
-    color: #333;
-    position: absolute;
-    left: -15px;
-    top: 50%;
-    transform: translateY(-50%);
+.desktop-1-Mq7 .group-97-try .group-94-gvZ .item--EhB {
+  margin-bottom: 2.9rem;
+  width: 100%;
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.37;
+  color: #000000;
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
 }
-
-.footer-section a {
-    text-decoration: none;
-    color: #000;
+.desktop-1-Mq7 .group-97-try .group-94-gvZ .item-02-85461000-9JM {
+  margin-bottom: 4.3rem;
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
 }
-
-.footer-section a:hover {
-    text-decoration: underline;
+.desktop-1-Mq7 .group-97-try .group-94-gvZ .item-8-00-21-00-3Pj {
+  margin-bottom: 4.3rem;
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.desktop-1-Mq7 .group-97-try .group-94-gvZ .stonebabygmailcom-wV7 {
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.desktop-1-Mq7 .stone-baby-fZX {
+  width: 20.6rem;
+  height: 5.5rem;
+  position: absolute;
+  left: 6.8rem;
+  top: 2.3945rem;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000000;
+  font-family: Sulphur Point, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.desktop-1-Mq7 .group-93-X5w {
+  box-sizing: border-box;
+  padding: 0.16rem 21.776rem 0.16rem 0.507rem;
+  width: 67.3542rem;
+  height: 4.0886rem;
+  position: absolute;
+  left: 73.7rem;
+  top: 2.0114rem;
+  display: flex;
+  align-items: center;
+}
+.desktop-1-Mq7 .group-93-X5w .shopping-bag-yid {
+  margin: 0.09rem 17.721rem 0rem 0rem;
+  width: 3.0407rem;
+  height: 3.3333rem;
+  /* object-fit: contain; */
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.desktop-1-Mq7 .group-93-X5w .shopping-cart-gN9 {
+  margin: 0rem 17.89rem 0.417rem 0rem;
+  width: 3.7164rem;
+  height: 3.3523rem;
+  /* object-fit: contain; */
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.desktop-1-Mq7 .group-93-X5w .user-ztd {
+  margin: 0rem 18.228rem 0.41rem 0rem;
+  width: 2.7028rem;
+  height: 2.8734rem;
+  /* object-fit: contain; */
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.desktop-1-Mq7 .group-93-X5w .fontstyle {
+  margin: 0rem 8rem 0.417rem 0rem;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.205;
+  color: #000000;
+  font-family: Telex, 'Source Sans Pro';
+  direction: ltr;
 }
