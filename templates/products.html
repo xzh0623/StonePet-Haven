@@ -32,7 +32,11 @@
             {% for product in products %}
                 <div class="product">
                     <a href="{% url 'product_detail' product.product_id %}">
-                        <img src="{% if product.picture_in_browsing %}{{ product.picture_in_browsing.url }}{% else %}{% static 'path/to/placeholder_image.jpg' %}{% endif %}" alt="{{ product.product_id }} Image">
+                    {% if product.picture_in_browsing %}
+                        <img src="{{ product.picture_in_browsing.url }}" alt="{{ product.product_id }}">
+                    {% else %}
+                        <img src="{% static 'path/to/placeholder_image.jpg' %}" alt="{{ product.product_id }}">
+                    {% endif %}
                         <h3>{{ product.product_name }}</h3>
                     </a>
                     <span>${{ product.price }}</span>

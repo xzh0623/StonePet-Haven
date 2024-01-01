@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Product, CustomUser, Seller, Buyer, Cart, CartItem
-from .forms import LoginForm, CustomUserRegistrationForm, SellerRegistrationForm, BuyerRegistrationForm, UserProfileForm, ProductForm
+from .models import Product, CustomUser, Seller, Buyer, Cart, CartItem, Order, OrderItem
+from .forms import LoginForm, CustomUserRegistrationForm, SellerRegistrationForm, BuyerRegistrationForm, UserProfileForm, ProductForm, CheckoutForm
 from django.shortcuts import render, redirect
 from .utils import custom_authentication
 from django.utils import timezone
@@ -35,7 +35,6 @@ def products(request):
 def product_detail(request, product_id):
     # 根據商品ID檢索商品
     product = get_object_or_404(Product, product_id=product_id)
-    print(product.product_name)
     context = {
         'product': product
         }
@@ -196,11 +195,6 @@ def edit_profile(request):
     
     return render(request, 'edit_profile.html', context)
 
-@login_required
-def order_history(request):
-    # Add logic to handle displaying user order history
-    return render(request, 'order_history.html')
-
 ########--------ABOUT PRODUCT_MANAGEMENT--------########
 
 @login_required
@@ -270,10 +264,12 @@ def add_to_cart(request, product_id):
 def view_cart(request):
     user = request.user
     cart = Cart.objects.filter(user=user).first()
-    # TODO: 從資料庫中檢索購物車項目
     cart_items = CartItem.objects.filter(cart=cart)
+    cart_total = sum(item.product.price * item.quantity for item in cart_items)
+    
     context = {
         'cart_items': cart_items,
+        'cart_total': cart_total,
     }
     return render(request, 'view_cart.html', context)
 
@@ -295,3 +291,81 @@ def update_cart(request, cart_item_id, quantity):
     return redirect('view_cart')
 
 ########--------ABOUT ORDER--------########
+
+@login_required
+def order_history(request):
+    # 获取当前用户的订单历史
+    user_orders = Order.objects.filter(user=request.user).order_by('-order_id')
+
+    context = {
+        'user_orders': user_orders,
+    }
+
+    return render(request, 'order_history.html', context)
+
+@login_required
+def checkout(request):
+    # 根据需要获取购物车内容
+    user = request.user
+    cart = Cart.objects.filter(user=user).first()
+    cart_items = CartItem.objects.filter(cart=cart)
+    cart_total = sum(item.product.price * item.quantity for item in cart_items)
+
+    for item in cart_items:
+        item.subtotal = item.product.price * item.quantity
+
+    if request.method == 'POST':
+        form = CheckoutForm(request.POST)
+        if form.is_valid():
+            # 处理订单，例如创建一个 Order 实例
+            order_id = Order.objects.generate_order_id()
+            order = Order.objects.create(
+                order_id=order_id,
+                user=user,
+                name=form.cleaned_data['name'],
+                address=form.cleaned_data['address'],
+                payment_method=form.cleaned_data['payment_method'],
+                delivery_method=form.cleaned_data['delivery_method'],
+                credit_card=form.cleaned_data.get('credit_card', ''),
+                expiration_date=form.cleaned_data.get('expiration_date', ''),
+                # 其他相应的订单信息
+            )
+            # 为每个购物车项创建相应的订单项，并在此计算小计
+            for item in cart_items:
+                product = item.product
+                product.quantity_in_stock -= item.quantity
+                product.save()
+
+                order_item = OrderItem.objects.create(
+                    order=order,
+                    product=item.product,
+                    quantity=item.quantity,
+                )
+
+            # 清空购物车
+            CartItem.objects.filter(cart=cart).delete()
+
+            # 显示订单成功的消息
+            messages.success(request, '您的订单已经成功提交！感谢您的购买。')
+
+            # 重定向到订单成功页面
+            return redirect('order_success')
+    else:
+        # 如果是GET请求，返回包含表单的页面
+        form = CheckoutForm()
+
+    context = {
+        'form': form,
+        'cart_items': cart_items,
+        'cart_total': cart_total,
+    }
+    return render(request, 'checkout.html', context)
+
+    
+def order_success(request):
+    # 假設在處理訂單成功時你有一個訂單物件，你可以將相應的信息傳遞到模板中
+    latest_order = Order.objects.latest('order_id')
+    context = {
+        'order': latest_order
+        }
+    return render(request, 'order_success.html', context)

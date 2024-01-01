@@ -29,7 +29,11 @@
         </nav>
         <main>
             <h1>{{ product.product_name }} Detail</h1>
-            <img src="{% static 'babystone/img/' %}{{ product.product_id|lower }}.png" alt="Product_Image">
+            {% if product.picture_in_browsing %}
+                <img src="{{ product.picture_in_browsing.url }}" alt="{{ product.product_id }}">
+            {% else %}
+                <img src="{% static 'path/to/placeholder_image.jpg' %}" alt="{{ product.product_id }}">
+            {% endif %}
             <p>Description: {{ product.description_of_product }}</p>
             <p>Price: ${{ product.price }}</p>
             <!-- 其他商品詳細信息 -->

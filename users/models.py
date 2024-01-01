@@ -120,3 +120,55 @@ class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
+
+class OrderManager(models.Manager):
+    def generate_order_id(self):
+        order_count = self.count() + 1
+        order_id = f"OR{order_count:04d}"
+        return order_id
+    
+    def create_order(self, user, name, address, payment_method, delivery_method, credit_card=None, expiration_date=None):
+        order = self.create(
+            user=user,
+            name=name,
+            address=address,
+            payment_method=payment_method,
+            delivery_method=delivery_method,
+            credit_card=credit_card,
+            expiration_date=expiration_date,
+        )
+        order.order_id = self.generate_order_id()
+        order.save()
+
+        return order
+
+class Order(models.Model):
+    ORDER_STATUS_CHOICES = [
+        ('pending_payment', '等待付款'),
+        ('pending_shipment', '等待出貨'),
+        ('pending_delivery', '等待收貨'),
+        ('order_completed', '訂單已完成'),
+        ('order_failed', '未成立'),
+    ]
+    order_id = models.CharField(primary_key=True, max_length=6)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    address = models.TextField()
+    payment_method = models.CharField(max_length=50)
+    delivery_method = models.CharField(max_length=50)
+    credit_card = models.CharField(max_length=16, blank=True, null=True)
+    expiration_date = models.CharField(max_length=7, blank=True, null=True)
+    order_status = models.CharField(max_length=20, choices=ORDER_STATUS_CHOICES, default='pending_payment')
+    order_date = models.DateTimeField(default=timezone.now, editable=False)
+    order_completed_date = models.DateTimeField(blank=True, null=True)
+    # 其他相应的订单信息，例如订单状态、创建时间等
+
+    objects = OrderManager()
+
+    def __str__(self):
+        return f"Order {self.order_id} - {self.user.username}"
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)

@@ -30,7 +30,20 @@
         <main>
             <div class="order-history-container">
                 <h2>Your Order History</h2>
-                <!-- 显示用户的订单历史，根据需要修改 -->
+                {% if user_orders %}
+                    <ul class="order-list">
+                        {% for order in user_orders %}
+                            <li>
+                                <p>Order ID: {{ order.order_id }}</p>
+                                <p>Order Date: {{ order.created_at }}</p>
+                                <p>Total Amount: ${{ order.total_amount }}</p>
+                                <!-- Add more order details as needed -->
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>You have no order history.</p>
+                {% endif %}
             </div>
         </main>
         <footer>

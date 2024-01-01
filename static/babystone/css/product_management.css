@@ -62,12 +62,10 @@ main {
 }
 
 .product-management-container {
-    width: 80%;
-    height: 60%;
     background-color: #c4bbb2;
     display: flex;
     flex-direction: column;
-    align-items: baseline;
+    align-items: center;
     padding: 20px;
     border: 1px solid #333;
     border-radius: 10px;
@@ -84,16 +82,11 @@ main {
 }
 
 .product-management-container ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     list-style-type: none;
     padding: 0;
 }
 
 .product-management-container li {
-    height: 160px;
-    width: 160px;
     font-size: 24px;
     background-color: #ffffff;
     border: 1px solid #333;

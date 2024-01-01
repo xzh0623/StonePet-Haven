@@ -35,23 +35,23 @@
                         {% for item in cart_items %}
                             <li>
                                 <div class="item-info">
-                                    <p>picture_in_browsing</p>
+                                    <img src="{{ item.product.picture_in_browsing.url }}" alt="{{ item.product.product_id }}">
                                     <p>{{ item.product.product_name }}</p>
                                 </div>
                                 <div class="item-actions">
-                                    <p>Quantity: {{ item.quantity }}</p>
-                                    <p>Price: ${{ item.product.price }}</p>
+                                    <p>數量: {{ item.quantity }}</p>
+                                    <p>價格: ${{ item.product.price }}</p>
                                     <!-- Add more item information as needed -->
                                 </div>
                             </li>
                         {% endfor %}
                     </ul>
                     <div class="cart-total">
-                        <p>Total: ${{ cart_total }}</p>
+                        <p>總計: ${{ cart_total }}</p>
                     </div>
-                    <a href="{% url 'homepage' %}">Proceed to Checkout</a>
+                    <a href="{% url 'checkout' %}">結帳</a>
                 {% else %}
-                    <p>Your cart is empty.</p>
+                    <p>購物車是空的。</p>
                 {% endif %}
             </div>
         </main>
