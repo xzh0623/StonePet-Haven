@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Product, CustomUser, Seller, Buyer
+from .models import Product, CustomUser, Seller, Buyer, Cart, CartItem
 from .forms import LoginForm, CustomUserRegistrationForm, SellerRegistrationForm, BuyerRegistrationForm, UserProfileForm, ProductForm
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -15,27 +15,15 @@ from .utils import custom_authentication
 from django.utils import timezone
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from datetime import date
 from django.http import HttpResponse
+from django.contrib import messages
 import django
 import sys
 # from .. backend_operation import TEST_add_data_to_models
 
 # Create your views here.
 
-def calculate_age(birth_date):
-    today = date.today()
-    age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
-    return age
-
-# Create your views here.
-def homepage(request):
-    template = loader.get_template('homepage.html')
-    context = {
-
-    }
-    return HttpResponse(template.render(context, request))
-
+########--------ABOUT HOMEPAGE--------########
 def homepage(request):
     user_is_authenticated = request.user.is_authenticated
     username = request.user.name if user_is_authenticated else None
@@ -44,6 +32,8 @@ def homepage(request):
         'username': username
         }
     return render(request, 'homepage.html', context)
+
+########--------ABOUT PRODUCT--------########
 
 def products(request):
     products = Product.objects.all()
@@ -61,6 +51,8 @@ def product_detail(request, product_id):
         }
 
     return render(request, 'product_detail.html', context)
+
+########--------ABOUT LOGIN/OUT--------########
 
 def login_view(request):
     if request.method == 'POST':
@@ -85,34 +77,9 @@ def logout_view(request):
     logout(request)
     return redirect('homepage')  # 登出后重定向到首页或其他页面
 
-def shoppingcart(request):
-    template = loader.get_template('shoppingcart.html')
-    context = {
-    }
-    return HttpResponse(template.render(context, request))
+########--------ABOUT REGISTER--------########
 
-def forgotpassword(request):
-    template = loader.get_template('forgotpassword.html')
-    context = {
-
-    }
-    return HttpResponse(template.render(context, request))
-
-def registermember(request):
-    template = loader.get_template('registermember.html')
-    context = {
-
-    }
-    return HttpResponse(template.render(context, request))
-
-def registeroption(request):
-    template = loader.get_template('registeroption.html')
-    context = {
-
-    }
-    return HttpResponse(template.render(context, request))
-
-def registerbuyer(request):
+def register(request):
     if request.method == 'POST':
         form = CustomUserRegistrationForm(request.POST)
         if form.is_valid():
@@ -210,6 +177,8 @@ def buyer_registration(request):
 
     return render(request, 'buyer_registration.html', {'form': form})
 
+########--------ABOUT USER_PROFILE--------########
+
 @login_required
 def view_profile(request):
     user = request.user
@@ -241,6 +210,8 @@ def edit_profile(request):
 def order_history(request):
     # Add logic to handle displaying user order history
     return render(request, 'order_history.html')
+
+########--------ABOUT PRODUCT_MANAGEMENT--------########
 
 @login_required
 def product_management(request):
@@ -277,70 +248,60 @@ def edit_product(request, product_id):
         form = ProductForm(instance=product)
 
     return render(request, 'edit_product.html', {'form': form, 'product': product})
-def introduction(request):
-    template = loader.get_template('0_introduction.html')
+
+########--------ABOUT SHOPPINGCART--------########
+
+@login_required
+def add_to_cart(request, product_id):
+    # 获取要添加到购物车的产品
+    cart_id=Cart.objects.generate_cart_id()
+
+    product = get_object_or_404(Product, product_id=product_id)
+
+    try:
+        cart = Cart.objects.get(user=request.user)
+    except Cart.DoesNotExist:
+        # 如果购物车不存在，则创建一个新的购物车
+        cart = Cart.objects.create(cart_id=cart_id, user=request.user)
+
+    # 创建或更新购物车中的商品条目
+    cart_item, item_created = CartItem.objects.get_or_create(cart=cart, product=product)
+    if not item_created:
+        cart_item.quantity += 1
+        cart_item.save()
+
+    messages.success(request, f'{product.product_name} 已添加到购物车。')
+
+    # 重定向到产品详情页面或其他适当的页面
+    return redirect('product_detail', product_id=product_id)
+
+
+@login_required
+def view_cart(request):
+    user = request.user
+    cart = Cart.objects.filter(user=user).first()
+    # TODO: 從資料庫中檢索購物車項目
+    cart_items = CartItem.objects.filter(cart=cart)
     context = {
-
+        'cart_items': cart_items,
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'view_cart.html', context)
 
-def cooperation(request):
-    template = loader.get_template('0_cooperation.html')
-    context = {
+@login_required
+def remove_from_cart(request, cart_item_id):
+    # TODO: 實現從購物車中刪除項目的邏輯
+    cart_item = get_object_or_404(CartItem, id=cart_item_id, user=request.user)
+    cart_item.delete()
+    messages.success(request, '購物車中的項目已成功刪除。')
+    return redirect('view_cart')
 
-    }
-    return HttpResponse(template.render(context, request))
+@login_required
+def update_cart(request, cart_item_id, quantity):
+    # TODO: 實現更新購物車中項目數量的邏輯
+    cart_item = get_object_or_404(CartItem, id=cart_item_id, user=request.user)
+    cart_item.quantity = int(quantity)
+    cart_item.save()
+    messages.success(request, '購物車已成功更新。')
+    return redirect('view_cart')
 
-def information(request):
-    template = loader.get_template('0_information.html')
-    context = {
-
-    }
-    return HttpResponse(template.render(context, request))
-
-def policy(request):
-    template = loader.get_template('0_policy.html')
-    context = {
-
-    }
-    return HttpResponse(template.render(context, request))
-
-# def register(request):
-#     if request.method == 'POST':
-    
-#         # 創建 User 實例
-#         User.Create(request)
-        
-#         # 創建 Buyer 實例
-#         '''
-#         buyer_instance = Buyer(
-#             user=user_instance,
-#             sex = int(request.POST.get('gender')),
-#             age=age
-#         )
-#         buyer_instance.save()
-#         '''
-#         messages.success(request, '注册成功！请登录。')
-#         return redirect('login')
-
-#     return render(request, 'register.html')
-
-def testpage(request):
-    template = loader.get_template('testpage.html')
-    # models.TestTable.create(request, 0)
-    # models.TestTable.updateAll(request, 6 , info)
-    # models.TestTable.findShow(request, 6)
-
-    # testpage_value = models.Order.objects.all().values()
-
-    order_thing = models.Order()
-
-    testpage_value = order_thing.findShow(request, 'OR0002')
-
-    p_name = [models.Order.objects.get(pk = 'OR0002').pk, 5]
-
-    context = {
-        'temp': testpage_value,
-        'p_name': p_name,
-    }
-    return HttpResponse(template.render(context, request))
+########--------ABOUT ORDER--------########

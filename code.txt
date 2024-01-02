@@ -1,5 +1,0 @@
-myworld\Scripts\activate.bat
-git fetch origin
-git merge origin/hsiao_backend
-python manage.py makemigrations
-python manage.py migrate
