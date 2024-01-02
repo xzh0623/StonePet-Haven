@@ -106,6 +106,71 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (42, 'Can change cart item', 11, 'change_cartitem'),
 (43, 'Can delete cart item', 11, 'delete_cartitem'),
 (44, 'Can view cart item', 11, 'view_cartitem');
+-- 資料表結構 `buyer`
+--
+
+CREATE TABLE `buyer` (
+  `user_id` char(6) NOT NULL,
+  `sex` tinyint(1) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- 傾印資料表的資料 `buyer`
+--
+
+INSERT INTO `buyer` (`user_id`, `sex`, `age`) VALUES
+('US0001', 1, 20),
+('US0002', 1, 35);
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `contain`
+--
+
+CREATE TABLE `contain` (
+  `product_id` char(6) NOT NULL,
+  `order_id` char(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- 傾印資料表的資料 `contain`
+--
+
+INSERT INTO `contain` (`product_id`, `order_id`) VALUES
+('PR0001', 'OR0001'),
+('PR0002', 'OR0002'),
+('PR0003', 'OR0003'),
+('PR0004', 'OR0004'),
+('PR0005', 'OR0005');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `coupon`
+--
+
+CREATE TABLE `coupon` (
+  `coupon_id` char(6) NOT NULL,
+  `discount_amount` int(11) NOT NULL,
+  `minimum_limit` int(11) NOT NULL,
+  `start_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `expired_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `seller_id` char(6) NOT NULL,
+  `type_of_discount_policies` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- 傾印資料表的資料 `coupon`
+--
+
+INSERT INTO `coupon` (`coupon_id`, `discount_amount`, `minimum_limit`, `start_date`, `expired_date`, `seller_id`, `type_of_discount_policies`) VALUES
+('CO0001', 10, 100, '2023-03-31 16:00:00', '2023-12-31 15:59:59', 'US0003', 0),
+('CO0002', 60, 199, '2023-11-10 16:00:00', '2023-11-11 15:59:59', 'US0004', 1),
+('CO0003', 30, 399, '2023-04-01 16:00:00', '2023-04-18 15:59:59', 'US0005', 2),
+('CO0004', 50, 299, '2023-05-29 16:00:00', '2023-06-12 15:59:59', 'US0003', 1),
+('CO0005', 10, 100, '2023-07-17 16:00:00', '2023-08-20 15:59:59', 'US0004', 2);
 
 -- --------------------------------------------------------
 
@@ -212,6 +277,26 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('0kb8bz6wdo2aypndpfu4xmqx1wu6yi6a', '.eJxVzLkOwjAQRdF_cY2s8ToOJT0Vora8jEkA2VKcVIh_h0gpoD73vRfzYV1Gv3aa_ZTZkV0vAKDY4RdiSA-qm-Z7qLfGU6vLPEW-JXzXzs8t0_O0t38HY-jjd210SMlmJ4LDwUXSwkUQyqAyRDqXQiCBCkhEUMkgKqsliiGCskLayN4fta44GA:1rIrym:uei1Gut8_rtiNsUpORERsFU-_0q0Kq17Ublp9aKvGj4', '2024-01-11 15:07:24.295510'),
 ('narq4m5kjhpb2dsp274bw1hptms4fzwj', '.eJxVjLEOwiAURf-F2RBKoUVHdyfj3FweD1s1kJR2Mv67NOmg6z3n3LcYsC7jsBaehymIk7hdlVKtOPwCD3py2mh4IN2zpJyWefJyU-ROi7zkwK_z7v4djChjrXtrFLzWzDZYg6anPsauDebIsC6iTmgsiBvPjkzbsQbpWhiGcYD4fAHcIDo9:1rHdR4:k3oTATHyPuZt7IdENF3_sLnLrKvYqO0M976teGygY-U', '2024-01-08 05:23:30.665810');
 
+--
+-- 資料表結構 `manage`
+--
+
+CREATE TABLE `manage` (
+  `administrator_id` char(6) NOT NULL,
+  `coupon_id` char(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- 傾印資料表的資料 `manage`
+--
+
+INSERT INTO `manage` (`administrator_id`, `coupon_id`) VALUES
+('US0006', 'CO0001'),
+('US0006', 'CO0002'),
+('US0006', 'CO0003'),
+('US0006', 'CO0004'),
+('US0006', 'CO0005');
+
 -- --------------------------------------------------------
 
 --
@@ -249,8 +334,18 @@ CREATE TABLE `users_cart` (
 -- 傾印資料表的資料 `users_cart`
 --
 
-INSERT INTO `users_cart` (`cart_id`, `user_id`) VALUES
-('CR0001', 'US0003');
+
+INSERT INTO `product` (`product_id`, `product_name`, `description_of_product`, `picture_in_browsing`, `picture_in_description`, `price`, `quantity_in_stock`, `seller_id`) VALUES
+('PR0001', '呆萌小石頭', '天然獨一無二，為您的生活增添自然的愉悅。', 'item1.jpg', 'item1.jpg', 50, 100, 'US0003'),
+('PR0002', '石頭明信片組', '發掘獨特的石頭風景，每張都是大自然的微縮奇蹟。', 'item2.jpg', 'item2.jpg', 199, 100, 'US0003'),
+('PR0003', '溫馨石頭小家', '簡約中帶著溫馨，這是一個由石頭構成的小天地，將自然之美融入家的每一角。', 'item3.jpg', 'item3.jpg', 399, 100, 'US0003'),
+('PR0004', '可愛石頭甜點屋', '甜蜜的石頭造型點心，讓您品嚐到獨一無二的甜蜜滋味。', 'item4.jpg', 'item4.jpg', 100, 100, 'US0004'),
+('PR0005', '派大星冠軍石頭', '勇奪冠軍的石頭，展現出無可比擬的堅強與勝利。', 'item5.jpg', 'item5.jpg', 100, 100, 'US0004'),
+('PR0006', '比奇堡現採石頭', '現場採集的石頭，是比奇堡獨特風格的象徵。', 'item6.jpg', 'item6.jpg', 100, 100, 'US0004'),
+('PR0007', '海精靈石頭組', '擁有海洋風情的石頭組合，彷彿能聽見浪花的聲音。', 'item7.jpg', 'item7.jpg', 199, 100, 'US0005'),
+('PR0008', '石頭珍珠貝殼', '珍珠般閃耀的石頭，宛如收藏的寶貝一般。', 'item8.jpg', 'item8.jpg', 399, 100, 'US0005'),
+('PR0009', '爆炒鵝卵石', '火熱炒製的鵝卵石，散發著獨特的風味誘惑。', 'item9.jpg', 'item9.jpg', 100, 100, 'US0005'),
+('PR0010', '派大星石頭屋', '由派大星親自打造的石頭屋，充滿童趣與奇幻。', 'item10.jpg', 'item10.jpg', 100, 100, 'US0005');
 
 -- --------------------------------------------------------
 
@@ -380,7 +475,6 @@ CREATE TABLE `users_seller` (
 --
 -- 傾印資料表的資料 `users_seller`
 --
-
 INSERT INTO `users_seller` (`user_id`, `join_date`) VALUES
 ('US0002', '2023-12-28'),
 ('US0003', '2023-12-28'),
@@ -389,6 +483,12 @@ INSERT INTO `users_seller` (`user_id`, `join_date`) VALUES
 --
 -- 已傾印資料表的索引
 --
+
+--
+-- 資料表索引 `administrator`
+--
+ALTER TABLE `administrator`
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- 資料表索引 `auth_group`
@@ -411,6 +511,49 @@ ALTER TABLE `auth_group_permissions`
 ALTER TABLE `auth_permission`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`);
+
+--
+-- 資料表索引 `auth_user`
+--
+ALTER TABLE `auth_user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- 資料表索引 `auth_user_groups`
+--
+ALTER TABLE `auth_user_groups`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `auth_user_groups_user_id_group_id_94350c0c_uniq` (`user_id`,`group_id`),
+  ADD KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`);
+
+--
+-- 資料表索引 `auth_user_user_permissions`
+--
+ALTER TABLE `auth_user_user_permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `auth_user_user_permissions_user_id_permission_id_14a6b632_uniq` (`user_id`,`permission_id`),
+  ADD KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`);
+
+--
+-- 資料表索引 `buyer`
+--
+ALTER TABLE `buyer`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- 資料表索引 `contain`
+--
+ALTER TABLE `contain`
+  ADD PRIMARY KEY (`product_id`,`order_id`),
+  ADD KEY `order_id` (`order_id`);
+
+--
+-- 資料表索引 `coupon`
+--
+ALTER TABLE `coupon`
+  ADD PRIMARY KEY (`coupon_id`),
+  ADD KEY `seller_id` (`seller_id`);
 
 --
 -- 資料表索引 `django_admin_log`
@@ -573,12 +716,28 @@ ALTER TABLE `auth_permission`
   ADD CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
 
 --
+-- 資料表的限制式 `buyer`
+--
+ALTER TABLE `buyer`
+  ADD CONSTRAINT `buyer_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- 資料表的限制式 `contain`
+--
+ALTER TABLE `contain`
+  ADD CONSTRAINT `contain_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `contain_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- 資料表的限制式 `coupon`
+--
+ALTER TABLE `coupon`
+  ADD CONSTRAINT `coupon_ibfk_1` FOREIGN KEY (`seller_id`) REFERENCES `seller` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 -- 資料表的限制式 `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
   ADD CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_users_customuser_user_id` FOREIGN KEY (`user_id`) REFERENCES `users_customuser` (`user_id`);
-
 --
 -- 資料表的限制式 `users_buyer`
 --

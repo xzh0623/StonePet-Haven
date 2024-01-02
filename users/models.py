@@ -55,9 +55,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     status = models.IntegerField(default=0)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
-
     objects = CustomUserManager()
-
     USERNAME_FIELD = 'account'
 
     # 其他字段...
@@ -73,7 +71,6 @@ class Buyer(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
     gender = models.CharField(max_length=10)
     birth_date = models.DateField()
-
 
 class ProductManager(models.Manager):
     def generate_product_id(self):
