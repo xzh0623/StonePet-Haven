@@ -30,15 +30,18 @@
         <main>
             <h1>{{ product.product_name }} Detail</h1>
             {% if product.picture_in_browsing %}
-                <img src="{{ product.picture_in_browsing.url }}" alt="{{ product.product_id }}">
+                <img src="{{ product.picture_in_browsing.url }}" alt="{{ product.product_id }}" class="Product_Image">
             {% else %}
-                <img src="{% static 'path/to/placeholder_image.jpg' %}" alt="{{ product.product_id }}">
+                <img src="{% static 'path/to/placeholder_image.jpg' %}" alt="{{ product.product_id }}" class="Product_Image">
             {% endif %}
-            <p>Description: {{ product.description_of_product }}</p>
-            <p>Price: ${{ product.price }}</p>
+            <div class="product-container">
+                
+                <p class="product-description">Description: {{ product.description_of_product }}</p>
+                <p class="product-price">Price: ${{ product.price }}</p>
             <!-- 其他商品詳細信息 -->
-            <a href="{% url 'add_to_cart' product_id=product.product_id %}">Add to Cart</a>
-            <a href="{% url 'products' %}">Back to Product List</a>
+            <a href="{% url 'add_to_cart' product_id=product.product_id %}" class="add-to-cart">Add to Cart</a>
+            <a href="{% url 'products' %}" class="back-to-product-list">Back to Product List</a>
+            </div>
         </main>
         <footer>
             <div class="footer-info">
