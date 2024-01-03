@@ -19,7 +19,6 @@ tzdata              2023.3
 whitenoise          6.6.0
 ```
 ## 完成度
-## 完成度
 
 - [x] **首頁**
   - [x] 未登入首頁 
@@ -77,6 +76,10 @@ whitenoise          6.6.0
   - [ ] 銷售數據分析
     - [ ] 查看銷售趨勢
     - [ ] 商品表現
+
+### 0103 by kuan
+* playful evn
+* chechout css not fin
     
 ### 1225 by hsiao
 * User Profile
