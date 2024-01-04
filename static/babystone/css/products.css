@@ -1,4 +1,4 @@
-/* home.css */
+/* products.css */
 
 body {
     font-family: Arial, sans-serif;
@@ -14,7 +14,7 @@ body {
 nav {
     background-color: #c4bbb2;
     overflow: hidden;
-    position: absolute;
+    position: fixed;
     top: 0;
     height: 120px;
     width: 100%;
@@ -55,95 +55,77 @@ nav {
 }
 
 main {
-    background-color: #adadad;
+    margin-top: 120px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-wrap: wrap;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .product {
-    height: 160px;
-    width: 15%;
-    font-size: 24px;
-    background-color: #ffffff;
-    border: 1px solid #333;
-    border-radius: 10px;
+    width: 30%;
     margin: 10px 10px;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
+    text-align: center;
+    border: 1px solid #ddd; /* Add border for the product box */
+    padding: 15px; /* Add padding inside the product box */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    transition: box-shadow 0.3s ease; /* Add a smooth transition for box shadow */
 }
 
+.product:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a box shadow on hover */
+}
 
+.product a {
+    text-decoration: none;
+    color: #333;
+}
 
-footer {
-    background-color: #c4bbb2;
-    color: #000000;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    height: 120px;
+.product img {
     width: 100%;
-    z-index: 2;
+    height: auto;
+}
+
+.product h3 {
+    margin-top: 10px;
+}
+
+.product span {
+    display: block;
+    margin-top: 5px;
+    color: #27ae60;
+    font-weight: bold;
 }
 
 .footer-info {
+    background-color: #c4bbb2;
     display: flex;
-    justify-content: space-around;
-    margin-top: 0px;
+    justify-content: space-between;
 }
 
 .footer-section {
     flex: 1;
-    text-align: left;
-    display: flex;
-    align-items: baseline;
-    flex-direction: row;
-    justify-content: space-evenly;
 }
 
-.footer-section-left {
-    text-align: right;
-}
-
-.footer-section-right {
-    text-align: left;
-}
-
-.footer-section h4 {
+.footer-section h3 {
     color: #333;
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
 .footer-section ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
-    font-size: 12px;
+    margin: 0;
 }
 
-.footer-section ul li {
-    margin-bottom: 10px;
-    position: relative;
-}
-
-.footer-section ul li:before {
-    color: #333;
-    position: absolute;
-    left: -15px;
-    top: 50%;
-    transform: translateY(-50%);
+.footer-section li {
+    margin-bottom: 5px;
 }
 
 .footer-section a {
     text-decoration: none;
-    color: #000;
+    color: #333;
 }
 
-.footer-section a:hover {
-    text-decoration: underline;
-}
+/* Add additional styling as needed */
