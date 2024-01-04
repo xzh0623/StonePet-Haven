@@ -80,6 +80,7 @@ whitenoise          6.6.0
 ### 0103 by kuan
 * playful evn
 * chechout css not fin
+* delete in cart
     
 ### 1225 by hsiao
 * User Profile
@@ -100,8 +101,6 @@ whitenoise          6.6.0
 * to bo done:
     1. User Profile
     2. Product Management
-    
-
 
 ## WORK DISTRUBUTION (v1220)
 

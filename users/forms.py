@@ -7,7 +7,6 @@ class LoginForm(forms.Form):
     account = forms.CharField(label='Account', max_length=50)
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
 
-
 class CustomUserRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
 
@@ -44,6 +43,16 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         fields = ['name', 'email', 'phone_number', 'address']
+
+class UpdatePassword(forms.ModelForm):
+    password = forms.CharField(label='Password', widget=forms.PasswordInput)
+
+    class Meta:
+        model = CustomUser
+        fields = ['password']
+        widgets = {
+            'password': forms.PasswordInput(),
+        }
 
 class ProductForm(forms.ModelForm):
     class Meta:

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Product, CustomUser, Seller, Buyer, Cart, CartItem, Order, OrderItem
-from .forms import LoginForm, CustomUserRegistrationForm, SellerRegistrationForm, BuyerRegistrationForm, UserProfileForm, ProductForm, CheckoutForm
+from .forms import *
 from django.shortcuts import render, redirect
 from .utils import custom_authentication
 from django.utils import timezone
@@ -66,6 +66,25 @@ def logout_view(request):
     return redirect('homepage')  # 登出后重定向到首页或其他页面
 
 ########--------ABOUT REGISTER--------########
+
+def edit_password(request):
+    user = request.user
+
+    if request.method == 'POST':
+        form = UpdatePassword(request.POST, instance=user)
+        if form.is_valid():
+            print(form.cleaned_data['password'])
+            user.set_password(form.cleaned_data['password'])
+            user.save()
+            return redirect('homepage')  # 修改为你的用户个人资料页面的 URL
+    else:
+        form = UpdatePassword(instance=user)
+
+    context = {
+        'form': form
+    }
+    
+    return render(request, 'edit_password.html', context)
 
 def register(request):
     if request.method == 'POST':
