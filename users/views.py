@@ -344,19 +344,28 @@ def order_history(request):
 @login_required
 def checkout(request):
     # 根据需要获取购物车内容
+    cookie_name = request.COOKIES.get('name')
+    cookie_address = request.COOKIES.get('address')
+    cookie_payment_method = request.COOKIES.get('payment_method')
+    cookie_delivery_method = request.COOKIES.get('delivery_method')
+    cookie_credit_card = request.COOKIES.get('credit_card')
+    cookie_expiration_date = request.COOKIES.get('expiration_date','')
+
     user = request.user
     cart = Cart.objects.filter(user=user).first()
     cart_items = CartItem.objects.filter(cart=cart)
     cart_total = sum(item.product.price * item.quantity for item in cart_items)
-
+    coupon_id = request.GET.get('coupon_id')
     for item in cart_items:
         item.subtotal = item.product.price * item.quantity
-
-    if request.method == 'POST':
+    if request  .method == 'POST':
         form = CheckoutForm(request.POST)
         if form.is_valid():
+
             # 处理订单，例如创建一个 Order 实例
             order_id = Order.objects.generate_order_id()
+            print("I innnnnnnnnnnnnnnnnn")
+
             order = Order.objects.create(
                 order_id=order_id,
                 user=user,
@@ -368,6 +377,7 @@ def checkout(request):
                 expiration_date=form.cleaned_data.get('expiration_date', ''),
                 # 其他相应的订单信息
             )
+
             # 为每个购物车项创建相应的订单项，并在此计算小计
             for item in cart_items:
                 product = item.product
@@ -381,7 +391,7 @@ def checkout(request):
                 )
 
             # 清空购物车
-            CartItem.objects.filter(cart=cart).delete()
+            #CartItem.objects.filter(cart=cart).delete()
 
             # 显示订单成功的消息
             messages.success(request, '您的订单已经成功提交！感谢您的购买。')
@@ -391,11 +401,16 @@ def checkout(request):
     else:
         # 如果是GET请求，返回包含表单的页面
         form = CheckoutForm()
+        initial_data = {'name': cookie_name, 'address': cookie_address, 'payment_method': cookie_payment_method, 'delivery_method': cookie_delivery_method, 'credit_card': cookie_credit_card, 'expiration_date': cookie_expiration_date}
+        form = CheckoutForm(initial=initial_data)
 
+
+    coupon_id = request.GET.get('coupon_id')
     context = {
         'form': form,
         'cart_items': cart_items,
         'cart_total': cart_total,
+        'coupon_id': coupon_id
     }
     return render(request, 'checkout.html', context)
 

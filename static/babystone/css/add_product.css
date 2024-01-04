@@ -11,6 +11,7 @@ body {
     position: relative;
 }
 
+
 nav {
     background-color: #c4bbb2;
     overflow: hidden;
@@ -104,20 +105,20 @@ main {
 }
 
 .product-form-container form button {
-    background-color: #4CAF50;
+    background-color: #adadad;
     color: white;
-    padding: 8px 16px;
+    padding: 6px 8px;
     font-size: 16px;
     margin: 20px 0px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
-    width: 80%;
+    width: 50%;
 }
 
 .product-form-container form button:hover {
-    background-color: #45a049;
+    background-color: #adadad;
 }
 
 .product-form-container a {

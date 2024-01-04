@@ -57,5 +57,6 @@ class CheckoutForm(forms.Form):
     delivery_method = forms.ChoiceField(label='選擇取貨方式', choices=[('cash_on_delivery', '貨到付款（現金）'), ('store_pickup_cash', '超商取貨（現金）'), ('store_pickup_credit_card', '超商取貨（信用卡）')], widget=forms.RadioSelect, required=True)
     credit_card = forms.CharField(label='信用卡號', max_length=16, min_length=16, required=False)
     expiration_date = forms.CharField(label='有效期限', max_length=7, min_length=7, widget=forms.TextInput(attrs={'placeholder': 'MM/YYYY'}), required=False)
+    
 class CouponQueryForm(forms.Form):
     coupon_id = forms.CharField(label='Coupon ID', max_length=50, required=False)
