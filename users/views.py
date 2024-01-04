@@ -8,7 +8,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.contrib import messages
-# from .. backend_operation import TEST_add_data_to_models
 
 # Create your views here.
 
@@ -130,7 +129,6 @@ def seller_registration(request):
         form = SellerRegistrationForm()
 
     return render(request, 'seller_registration.html', {'form': form})
-
 
 def buyer_registration(request):
     if request.method == 'POST':
@@ -274,9 +272,13 @@ def view_cart(request):
     return render(request, 'view_cart.html', context)
 
 @login_required
-def remove_from_cart(request, cart_item_id):
+def remove_from_cart(request, delete_product_id):
+    # cart = Cart.objects.get(cart_id=cart_id)
+    # product = Product.objects.get(product_id=delete_product_id)
     # TODO: 實現從購物車中刪除項目的邏輯
-    cart_item = get_object_or_404(CartItem, id=cart_item_id, user=request.user)
+    cart_item = CartItem.objects.filter(id = delete_product_id)
+
+    #cart_item = get_object_or_404(CartItem, cart = cart_id)
     cart_item.delete()
     messages.success(request, '購物車中的項目已成功刪除。')
     return redirect('view_cart')

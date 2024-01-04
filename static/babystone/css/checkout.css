@@ -67,6 +67,10 @@ main img {
     max-height: 80%;
 }
 
+main h2{
+    top: 20%;
+}
+
 .checkout-container {
     width: 80%;
     position: fixed;
@@ -77,12 +81,14 @@ main img {
 .left {
     left: 5%;
     width: 45%;
+    top: 20%;
     background-color: gold;
 }
 
 .right {
     right: 5%;
     width: 45%;
+    top: 35%;
     background-color: red;
 }
 
