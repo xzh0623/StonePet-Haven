@@ -64,6 +64,7 @@ main {
     flex-grow: 1;
     padding: 2em;
     background-color: #adadad;
+    min-height: 700px;
 }
 
 .product-detail {
@@ -129,7 +130,7 @@ main {
 }
 .product-container {
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 70%;
     transform: translate(-50%, -50%);
     width: 700px;

@@ -266,7 +266,8 @@ def view_cart(request):
     cart = Cart.objects.filter(user=user).first()
     cart_items = CartItem.objects.filter(cart=cart)
     cart_total = sum(item.product.price * item.quantity for item in cart_items)
-    
+    for item in cart_items:
+        item.subtotal = item.product.price * item.quantity
     context = {
         'cart_items': cart_items,
         'cart_total': cart_total,
@@ -274,9 +275,13 @@ def view_cart(request):
     return render(request, 'view_cart.html', context)
 
 @login_required
-def remove_from_cart(request, cart_item_id):
+def remove_from_cart(request, delete_product_id):
+    # cart = Cart.objects.get(cart_id=cart_id)
+    # product = Product.objects.get(product_id=delete_product_id)
     # TODO: 實現從購物車中刪除項目的邏輯
-    cart_item = get_object_or_404(CartItem, id=cart_item_id, user=request.user)
+    cart_item = CartItem.objects.filter(id = delete_product_id)
+
+    #cart_item = get_object_or_404(CartItem, cart = cart_id)
     cart_item.delete()
     messages.success(request, '購物車中的項目已成功刪除。')
     return redirect('view_cart')

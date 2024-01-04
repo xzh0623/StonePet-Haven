@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/edit_profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/order_history.css' %}">
 </head>
 <body>
     <div class="main-container">
@@ -29,21 +29,29 @@
         </nav>
         <main>
             <div class="order-history-container">
-                <h2>Your Order History</h2>
-                {% if user_orders %}
-                    <ul class="order-list">
-                        {% for order in user_orders %}
-                            <li>
-                                <p>Order ID: {{ order.order_id }}</p>
-                                <p>Order Date: {{ order.created_at }}</p>
-                                <p>Total Amount: ${{ order.total_amount }}</p>
-                                <!-- Add more order details as needed -->
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% else %}
+            <h2>Your Order History</h2>
+            {% if user_orders %}
+            <div class="user-order-container">
+                {% for user_order in user_orders %}
+                    <div class="user-order-card">
+                        <h1>Order Details</h1>
+                        <p>Order ID: {{ user_order.order_id }}</p>
+                        <p>User: {{ user_order.user.username }}</p>
+                        <p>Name: {{ user_order.name }}</p>
+                        <p>Address: {{ user_order.address }}</p>
+                        <p>Payment Method: {{ user_order.payment_method }}</p>
+                        <p>Delivery Method: {{ user_order.delivery_method }}</p>
+                        <p>Credit Card: {{ user_order.credit_card }}</p>
+                        <p>Expiration Date: {{ user_order.expiration_date }}</p>
+                        <p>Order Status: {{ user_order.get_order_status_display }}</p>
+                        <p>Order Date: {{ user_order.order_date }}</p>
+                        <p>Order Completed Date: {{ user_order.order_completed_date }}</p>
+                    </div>
+                {% endfor %}
+            </div>   
+            {% else %}
                     <p>You have no order history.</p>
-                {% endif %}
+            {% endif %}
             </div>
         </main>
         <footer>
