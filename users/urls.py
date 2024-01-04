@@ -1,21 +1,36 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
-    path('', views.homepage, name='homepage'),                     #
-    path('login/', views.login, name='login'),                              #
-    # path('register/', views.register, name='register'),                     #
-    path('shoppingcart/', views.shoppingcart, name='shoppingcart'),         #
-    path('forgotpassword/', views.forgotpassword, name='forgotpassword'),   #
-    path('registermember/', views.registermember, name='registermember'),   #
-    path('registeroption/', views.registeroption, name='registeroption'),   #
-    path('registerbuyer/', views.registerbuyer, name='registerbuyer'),      #
-    path('registerseller/', views.registerseller, name='registerseller'),   #
-    path('0_introduction/', views.introduction, name='0_introduction'),     #
-    path('0_cooperation/', views.cooperation, name='0_cooperation'),        #
-    path('0_information/', views.information, name='0_information'),        #
-    path('0_policy/', views.policy, name='0_policy'),    
-    path('email_verification/', views.email_verification, name='email_verification'),                   
-    path('coupon/', views.coupon, name='coupon'),        #
-    path('person_info/', views.person_info, name='person_info'),
-] 
+    path('', views.homepage, name='homepage'),
+
+    path('products/', views.products, name='products'),
+    path('products/<str:product_id>/', views.product_detail, name='product_detail'),
+    
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+
+    path('register/', views.register, name='register'),
+    path('registration_choice/', views.registration_choice, name='registration_choice'),
+    path('seller_registration/', views.seller_registration, name='seller_registration'),
+    path('buyer_registration/', views.buyer_registration, name='buyer_registration'),
+    path('success/', views.success_page, name='success_page'),
+    path('coupon/', views.coupon, name='coupon'),
+
+    path('profile/', views.view_profile, name='view_profile'),
+    path('edit_profile/', views.edit_profile, name='edit_profile'),
+    path('order_history/', views.order_history, name='order_history'),
+
+    path('product_management/', views.product_management, name='product_management'),
+    path('add_product/', views.add_product, name='add_product'),
+    path('edit_product/<str:product_id>/', views.edit_product, name='edit_product'),
+
+    path('add_to_cart/<str:product_id>/', views.add_to_cart, name='add_to_cart'),
+    path('view_cart/', views.view_cart, name='view_cart'),
+    path('remove_from_cart/<int:cart_item_id>/', views.remove_from_cart, name='remove_from_cart'),
+    path('update_cart/<int:cart_item_id>/<int:quantity>/', views.update_cart, name='update_cart'),
+
+    path('checkout/', views.checkout, name='checkout'),
+    path('order_success/', views.order_success, name='order_success'),
+]

@@ -60,80 +60,12 @@ main {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin-top: 0px;
 }
 
-.registration-choice-container {
-    background-color: #c4bbb2;
-    border-color: #333;
-    border-style:solid;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.registration-choice-form {
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.registration-choice-form label {
-    margin: 0 10px;
-    font-size: 18px;
-}
-
-.registration-choice-form input {
-    margin: 0 5px;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-/* Add the necessary styling for the registration page */
-.register-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.register-container h2 {
-    text-align: center;
-    color: #333;
-}
-
-.register-form {
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.register-form div {
-    margin-bottom: 15px;
-}
-
-.register-form button {
-    display: block;
+main img {
     width: 100%;
-    padding: 10px;
-    background-color: #c4bbb2;
-    color: #000;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    max-height: 80%;
 }
-
-/* Additional styling as needed for the registration page */
-
 
 footer {
     background-color: #c4bbb2;

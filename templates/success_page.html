@@ -1,0 +1,36 @@
+<!-- templates/success_page.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>註冊成功 - Your Website</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/success_page.css' %}">
+</head>
+<body>
+    <div class="main-container">
+        <h2>註冊成功</h2>
+        <p>感謝您註冊！您現在可以使用您的帳戶登入。</p>
+        <p id="countdown">跳轉回主頁: 5</p>
+    </div>
+
+    <script>
+        var seconds = 5;
+
+        function updateCountdown() {
+            document.getElementById('countdown').innerHTML = '跳轉回主頁: ' + seconds;
+            seconds--;
+
+            if (seconds < 0) {
+                window.location.href = '{% url "homepage" %}';  // 将此 URL 更改为你的主页 URL
+            } else {
+                setTimeout(updateCountdown, 1000);  // 更新计时器，间隔1秒
+            }
+        }
+
+        // 在页面加载时开始倒计时
+        updateCountdown();
+    </script>
+</body>
+</html>

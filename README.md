@@ -1,5 +1,5 @@
 # StonePet-Haven
-111
+
 ## DEPENDENCY REQUIREMENT
 ``` powershell
 ❯ pip list
@@ -18,12 +18,93 @@ sqlparse            0.4.4
 tzdata              2023.3
 whitenoise          6.6.0
 ```
+## 完成度
+## 完成度
+
+- [x] **首頁**
+  - [x] 未登入首頁 
+  - [x] 登入後首頁
+    - [x] 賣家視圖
+      - [x] 管理商品 
+          - [x] 新增商品
+          - [ ] 刪除商品
+          - [x] 修改商品
+      - [ ] 管理訂單（已售商品）
+      - [ ] 數據分析儀表板 (if any)
+    - [x] 買家視圖
+      - [x] 瀏覽商品
+      - [ ] 查看訂單（已購商品）
+      - [x] 購物車
+      - [ ] 優惠券
+- [x] **商品**
+  - [x] 商品列表
+  - [x] 商品詳情
+    - [x] 賣家視圖
+      - [x] 編輯商品
+      - [ ] 刪除商品
+      - [x] 新增商品
+- [x] **購物車**
+  - [x] 查看購物車
+    - [ ] 刪除購物車商品
+  - [x] 結帳
+- [x] **訂單**
+  - [x] 訂單歷史
+    - [ ] 賣家視圖
+      - [ ] 已售商品的訂單
+    - [x] 買家視圖
+      - [x] 已購商品的訂單
+        - [ ] 訂單細節
+- [ ] **優惠券**
+  - [ ] 使用優惠券
+  - [ ] 優惠券歷史
+- [x] **用戶帳戶**
+  - [x] 個人資料
+    - [x] 編輯個人資料
+    - [ ] 修改密碼
+    - [x] 地址簿
+    - [ ] 付款方式
+  - [ ] 設定
+    - [ ] 通知偏好
+    - [ ] 隱私設定
+- [x] **管理員儀表板**
+  - [ ] 優惠券管理
+    - [ ] 創建新優惠券
+    - [ ] 查看/停用優惠券
+  - [x] 用戶管理
+    - [x] 查看用戶詳情
+    - [x] 停用/啟用用戶
+- [ ] **數據分析 (if any)**
+  - [ ] 銷售數據分析
+    - [ ] 查看銷售趨勢
+    - [ ] 商品表現
+    
+### 1225 by hsiao
+* User Profile
+    * updata information
+
+* Product_management
+    * add_product (not done yet)
+    
+### 1224 by hsiao
+* register
+    * including seller and buyer
+    * about administrator i prefer to use django built-in system "localhost:8000/admin/"
+    * the password is hashed and not displayed directly in the database. **資安大加分**
+
+* login_view and logout_view
+    * will change login or name & logout
+
+* to bo done:
+    1. User Profile
+    2. Product Management
+    
+
 
 ## WORK DISTRUBUTION (v1220)
 
 ### xzh
-1. register開頭+forgotpassword
-2. login_title、unlogin_title
+1. register開頭+forgotpassword V
+2. login_title、unlogin_title 
 3. menu1
 4. homepage
 5. 連接頁面
@@ -43,10 +124,6 @@ whitenoise          6.6.0
 3. person_info
 
 ## DIARY (PUT THE LASTEST AT FRONT)
-
-### 1220 by yulun
-* finish coupon serch
-
 
 ### 1220 by xzh
 * update `f/README`

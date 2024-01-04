@@ -1,63 +1,88 @@
+<!-- login.html -->
+
 {% load static %}
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <title>會員登入</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sulphur+Point%3A400%2C700" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700" />
-  <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/-B41.css' %}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/login.css' %}">
 </head>
-
 <body>
-  <script src="../static/babystone/js/script.js"></script>
-  <div class="item--pkd">
-    <div class="auto-group-vsb1-AZb">
-      <a href="{% url 'homepage' %}">
-        <img class="arrow-left-tkV" src="../static/babystone/img/arrow-left.png" onclick="goBack()" />
-      </a>
-      <p class="item--q9w">會員登入</p>
-      <p class="item--9Ad">請輸入帳號、密碼登入會員，享受更多會員專屬功能。</p>
+    <div class="main-container">
+        <nav>
+            <ul class="navbar">
+                <li><a href="{% url 'homepage' %}">BabyStone</a></li>
+                <li><a href="{% url 'homepage' %}"><img src="{% static 'babystone/img/menu.png' %}" alt="Menu"></a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">登出</a></li>
+                    <li><a href="{% url 'view_profile' %}">{{ user.name }}</li>
+                    <!-- Add authenticated user content here -->
+                {% else %}
+                    <li><a href="{% url 'login' %}">登入</a></li>
+                {% endif %}
+                <li><a href="{% url 'view_cart' %}">購物車</a></li>
+                <li><a href="{% url 'products' %}">商品</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+        <main>
+            <div class="login-container">
+                <h2>Login</h2>
+                <form method="post" class="login-form" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Login</button>
+                </form>
+                <p class="register-link">Not a member? <a href="{% url 'registration_choice' %}">Register here</a></p>
+                <p class="forgot-password-link"><a href="{% url 'login' %}">Forgot your password?</a></p>
+                {% if error %}
+                    <p class="error-message">{{ error }}</p>
+                {% endif %}
+            </div>
+        </main>
+        <footer>
+            <div class="footer-info">
+                <div class="footer-section">
+                    <div class="footer-section-left">
+                        <h3>關於我們</h3>
+                    </div>
+                    <div class="footer-section-right">
+                        <ul>
+                            <li><a href="#">優惠資訊 / Coupon</a></li>
+                            <li><a href="#">商店介紹 / Introduction</a></li>
+                            <li><a href="#">與我們合作 / Cooperation</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <div class="footer-section-left">
+                        <h3>顧客服務</h3>
+                    </div>
+                    <div class="footer-section-right">
+                        <ul>
+                            <li><a href="#">購物須知 / How To Buy</a></li>
+                            <li><a href="#">退換貨政策 / After-sales Service</a></li>
+                            <li><a href="#">隱私權政策 / Privacy</a></li>
+                            <li><a href="#">使用者條款 / Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <div class="footer-section-left">
+                        <h3>尋找我們</h3>
+                    </div>
+                    <div class="footer-section-right">
+                        <ul>
+                            <li>客服專線 02-85461000</li>
+                            <li>服務時間 上班日 8:00-21:00</li>
+                            <li>信箱 stonebaby@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
-    <div class="auto-group-sejw-oFB">
-
-      <form method="post">
-        {% csrf_token %}
-        <div class="group-27-KjK">
-          <label for="account" class="item--Jr9">輸入帳號</label>
-          <input type="text" name="account" class="rectangle-9-4gu" required id="account">
-
-        </div>
-
-        <div class="group-27-KjK">
-          <label for="password" class="item--Jr9">輸入密碼</label>
-          <input type="password" name="password" class="rectangle-9-4gu" required id="password">
-        </div>
-
-        <a href="{% url 'forgotpassword' %}" class="no-underline">
-          <p class="item--Nd3">忘記密碼？</p>
-        </a>
-
-        <a href="{% url 'person_info' %}" class="no-underline">
-          <p class="item--Nd3">測試person_info？</p>
-        </a>
-
-        <button type="submit" class="auto-group-ytdh-GiR">開始購物吧！</button>
-      </form>
-
-      <div class="auto-group-eect-ME5">
-        <p class="item--sy7">還沒有會員嗎？</p>
-        <a href="{% url 'registeroption' %}" class="no-underline">
-          <p class="item--z29">會員註冊</p>
-        </a>
-      </div>
-      {% if error %}
-      <p class="error-message">{{ error }}</p>
-      {% endif %}
-    </div>
-  </div>
 </body>
+</html>

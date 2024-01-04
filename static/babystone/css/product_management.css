@@ -1,10 +1,10 @@
-/* home.css */
+/* product_management.css */
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333; /* 修改文字颜色 */
+    color: #333;
 }
 
 .main-container {
@@ -26,26 +26,25 @@ nav {
     margin: 0;
     padding: 20px 0px;
     text-align: center;
-    height: 100%; /* 調整高度 */
-    align-items: center; /* 垂直置中 */
+    height: 100%;
+    align-items: center;
 }
 
 .navbar a {
     display: block;
     color: #000000;
     text-align: center;
-    padding: 0 16px; /* 調整 padding */
+    padding: 0 16px;
     text-decoration: none;
     font-size: 36px;
     font-weight: bold;
-    line-height: 75px; /* 調整行高 */
+    line-height: 75px;
 }
 
 .navbar a:hover {
     color: black;
 }
 
-/* 將主頁靠左，其他項目靠右 */
 .navbar li:first-child {
     float: left;
 }
@@ -60,80 +59,60 @@ main {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin-top: 0px;
 }
 
-.registration-choice-container {
+.product-management-container {
     background-color: #c4bbb2;
-    border-color: #333;
-    border-style:solid;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.registration-choice-form {
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.registration-choice-form label {
-    margin: 0 10px;
-    font-size: 18px;
-}
-
-.registration-choice-form input {
-    margin: 0 5px;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-/* Add the necessary styling for the registration page */
-.register-container {
-    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
+    border: 1px solid #333;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.register-container h2 {
-    text-align: center;
-    color: #333;
+.product-edit-container{
+    display: flex;
 }
 
-.register-form {
-    max-width: 400px;
-    margin: 0 auto;
+.product-management-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-.register-form div {
-    margin-bottom: 15px;
+.product-management-container ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.register-form button {
-    display: block;
-    width: 100%;
+.product-management-container li {
+    font-size: 24px;
+    background-color: #ffffff;
+    border: 1px solid #333;
+    border-radius: 10px;
+    margin: 10px 10px;
     padding: 10px;
-    background-color: #c4bbb2;
-    color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.product-management-container a {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
 }
 
-/* Additional styling as needed for the registration page */
-
+.product-management-container a:hover {
+    background-color: #45a049;
+}
 
 footer {
     background-color: #c4bbb2;

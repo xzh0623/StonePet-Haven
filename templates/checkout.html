@@ -1,0 +1,59 @@
+<!-- checkout.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/checkout.css' %}">
+</head>
+<body>
+    <div class="main-container">
+        <nav>
+            <ul class="navbar">
+                <li><a href="{% url 'homepage' %}">BabyStone</a></li>
+                <li><a href="{% url 'homepage' %}"><img src="{% static 'babystone/img/menu.png' %}" alt="Menu"></a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">登出</a></li>
+                    <li><a href="{% url 'view_profile' %}">{{ user.name }}</li>
+                    <!-- Add authenticated user content here -->
+                {% else %}
+                    <li><a href="{% url 'login' %}">登入</a></li>
+                {% endif %}
+                <li><a href="{% url 'view_cart' %}">購物車</a></li>
+                <li><a href="{% url 'products' %}">商品</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+        <main>
+            <div class="checkout-container">
+                <h2>結帳</h2>
+                <form action="{% url 'checkout' %}" method="post">
+                    {% csrf_token %}
+                    
+                    {{ form.as_p }}
+
+                    <!-- Add summary of the order, displaying items, quantities, and total -->
+                    <div class="order-summary">
+                        <h3>訂單摘要</h3>
+                        <ul>
+                            {% for item in cart_items %}
+                                <li>{{ item.product.product_name }} - 數量: {{ item.quantity }} - 小計: ${{ item.subtotal }}</li>
+                            {% endfor %}
+                        </ul>
+                        <p>總計: ${{ cart_total }}</p>
+                    </div>
+
+                    <!-- Add a submit button to process the order -->
+                    <button type="submit">確認結帳</button>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <!-- Your footer content -->
+        </footer>
+    </div>
+</body>
+</html>

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +28,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
-    'corsheaders',
+
 ]
 
 MIDDLEWARE = [
@@ -66,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -108,6 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -123,29 +125,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_ROOT = BASE_DIR / 'static'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTHENTICATION_BACKENDS = ['web_development.backends.CustomBackend']
-
-# 使用 SMTP 作为邮件后端
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-# Gmail SMTP 服务器的地址和端口 
-EMAIL_HOST = 'smtp.gmail.com' #smtp.163.com
-EMAIL_FAIL_SILENTLY = False
-EMAIL_USE_SSL = True
-EMAIL_PORT = 465
-
-# 提供你的 Gmail 地址和密码
-EMAIL_HOST_USER = 't110590036@ntut.org.tw'
-EMAIL_HOST_PASSWORD = 'dgvv iitu awen opvy'
-
-# 默认发件人的地址
-DEFAULT_FROM_EMAIL = 't110590036@ntut.org.tw'
+AUTH_USER_MODEL = 'users.CustomUser'
