@@ -15,7 +15,6 @@ class CustomUserRegistrationForm(forms.ModelForm):
         fields = ['name', 'account', 'password', 'address', 'email', 'phone_number']
 
 class SellerRegistrationForm(forms.ModelForm):
-
     class Meta:
         model = CustomUser
         fields = ['name', 'account', 'password', 'address', 'email', 'phone_number']

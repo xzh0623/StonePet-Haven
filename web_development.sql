@@ -237,6 +237,26 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('narq4m5kjhpb2dsp274bw1hptms4fzwj', '.eJxVjLEOwiAURf-F2RBKoUVHdyfj3FweD1s1kJR2Mv67NOmg6z3n3LcYsC7jsBaehymIk7hdlVKtOPwCD3py2mh4IN2zpJyWefJyU-ROi7zkwK_z7v4djChjrXtrFLzWzDZYg6anPsauDebIsC6iTmgsiBvPjkzbsQbpWhiGcYD4fAHcIDo9:1rHdR4:k3oTATHyPuZt7IdENF3_sLnLrKvYqO0M976teGygY-U', '2024-01-08 05:23:30.665810'),
 ('t12y2td39rza2xqhuhzbjsrn2b4w7rf7', '.eJxVzLEOwiAUheF3YTbkQilXHN07GWdygYtUTUlKOxnfXZt00Pn7z3kJT-tS_Np49mMSJ3G9AIASh18IFB88bZruNN2qjHVa5jHILZG7NjnUxM_z3v4dFGrlu44GUWuKxDlmgqi1sgjstAN3tNligp6sCowdh2RZqR4MgjUcCLscxPsDyJ85Lg:1rIsLp:dhVDt6k0RMP2nzmSUNh5KVVKXkvNpjCLQ-nIk3MGQ4g', '2024-01-11 15:31:13.747760');
 
+--
+-- 資料表結構 `manage`
+--
+
+CREATE TABLE `manage` (
+  `administrator_id` char(6) NOT NULL,
+  `coupon_id` char(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- 傾印資料表的資料 `manage`
+--
+
+INSERT INTO `manage` (`administrator_id`, `coupon_id`) VALUES
+('US0006', 'CO0001'),
+('US0006', 'CO0002'),
+('US0006', 'CO0003'),
+('US0006', 'CO0004'),
+('US0006', 'CO0005');
+
 -- --------------------------------------------------------
 
 --
@@ -449,7 +469,6 @@ CREATE TABLE `users_seller` (
 --
 -- 傾印資料表的資料 `users_seller`
 --
-
 INSERT INTO `users_seller` (`user_id`, `join_date`) VALUES
 ('US0002', '2023-12-28'),
 ('US0003', '2023-12-28'),
@@ -458,6 +477,12 @@ INSERT INTO `users_seller` (`user_id`, `join_date`) VALUES
 --
 -- 已傾印資料表的索引
 --
+
+--
+-- 資料表索引 `administrator`
+--
+ALTER TABLE `administrator`
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- 資料表索引 `auth_group`
@@ -480,6 +505,49 @@ ALTER TABLE `auth_group_permissions`
 ALTER TABLE `auth_permission`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`);
+
+--
+-- 資料表索引 `auth_user`
+--
+ALTER TABLE `auth_user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- 資料表索引 `auth_user_groups`
+--
+ALTER TABLE `auth_user_groups`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `auth_user_groups_user_id_group_id_94350c0c_uniq` (`user_id`,`group_id`),
+  ADD KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`);
+
+--
+-- 資料表索引 `auth_user_user_permissions`
+--
+ALTER TABLE `auth_user_user_permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `auth_user_user_permissions_user_id_permission_id_14a6b632_uniq` (`user_id`,`permission_id`),
+  ADD KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`);
+
+--
+-- 資料表索引 `buyer`
+--
+ALTER TABLE `buyer`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- 資料表索引 `contain`
+--
+ALTER TABLE `contain`
+  ADD PRIMARY KEY (`product_id`,`order_id`),
+  ADD KEY `order_id` (`order_id`);
+
+--
+-- 資料表索引 `coupon`
+--
+ALTER TABLE `coupon`
+  ADD PRIMARY KEY (`coupon_id`),
+  ADD KEY `seller_id` (`seller_id`);
 
 --
 -- 資料表索引 `django_admin_log`
@@ -663,12 +731,28 @@ ALTER TABLE `auth_permission`
   ADD CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
 
 --
+-- 資料表的限制式 `buyer`
+--
+ALTER TABLE `buyer`
+  ADD CONSTRAINT `buyer_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- 資料表的限制式 `contain`
+--
+ALTER TABLE `contain`
+  ADD CONSTRAINT `contain_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `contain_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- 資料表的限制式 `coupon`
+--
+ALTER TABLE `coupon`
+  ADD CONSTRAINT `coupon_ibfk_1` FOREIGN KEY (`seller_id`) REFERENCES `seller` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 -- 資料表的限制式 `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
   ADD CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_users_customuser_user_id` FOREIGN KEY (`user_id`) REFERENCES `users_customuser` (`user_id`);
-
 --
 -- 資料表的限制式 `users_buyer`
 --

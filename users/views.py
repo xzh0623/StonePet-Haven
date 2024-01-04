@@ -1,18 +1,23 @@
+import sys
+import django
 from django.shortcuts import render, redirect, get_object_or_404
+from django.template import loader
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect, get_object_or_404
+from django.utils import timezone
+from django.http import HttpResponse
 from .models import Product, CustomUser, Seller, Buyer, Cart, CartItem, Order, OrderItem
 from .forms import *
-from django.shortcuts import render, redirect
 from .utils import custom_authentication
-from django.utils import timezone
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
-from django.contrib import messages
+
+# from .. backend_operation import TEST_add_data_to_models
 
 # Create your views here.
 
 ########--------ABOUT HOMEPAGE--------########
-
 def homepage(request):
     user_is_authenticated = request.user.is_authenticated
     username = request.user.name if user_is_authenticated else None

@@ -76,6 +76,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Buyer',
             fields=[
+<<<<<<< HEAD
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
                 ('gender', models.CharField(max_length=10)),
                 ('birth_date', models.DateField()),
@@ -86,6 +87,17 @@ class Migration(migrations.Migration):
             fields=[
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
                 ('join_date', models.DateField(default=django.utils.timezone.now)),
+=======
+                ('order_id', models.CharField(max_length=6, primary_key=True, serialize=False)),
+                ('order_end', models.DateTimeField()),
+                ('delivary_method', models.IntegerField()),
+                ('delivary_address', models.CharField(max_length=255)),
+                ('delivary_fee', models.IntegerField(blank=True)),
+                ('status', models.IntegerField()),
+                ('order_date', models.DateTimeField()),
+                ('quantity_of_product', models.IntegerField()),
+                ('comment', models.CharField(blank=True, max_length=255, null=True)),
+>>>>>>> origin/Kuan_remote
             ],
         ),
         migrations.CreateModel(
