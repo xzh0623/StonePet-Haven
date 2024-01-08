@@ -300,7 +300,8 @@ def update_cart(request, cart_item_id, quantity):
 @login_required
 def order_history(request):
     # 获取当前用户的订单历史
-    user_orders = Order.objects.filter(user=request.user).order_by('-order_id')
+    user = request.user
+    user_orders = Order.objects.filter(user=user).order_by('-order_id')
 
     context = {
         'user_orders': user_orders,

@@ -147,7 +147,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     background-color: #adadad;
-    justify-content: space-around;
+    justify-content: flex-start;
     padding: 20px;
 }
 

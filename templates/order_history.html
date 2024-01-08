@@ -29,19 +29,17 @@
         </nav>
         <main>
             <div class="order-history-container">
-            <h2>Your Order History</h2>
             {% if user_orders %}
             <div class="user-order-container">
                 {% for user_order in user_orders %}
                     <div class="user-order-card">
                         <h1>Order Details</h1>
                         <p>Order ID: {{ user_order.order_id }}</p>
-                        <p>User: {{ user_order.user.username }}</p>
+                        <p>User: {{ user_order.user.user_id }}</p>
                         <p>Name: {{ user_order.name }}</p>
                         <p>Address: {{ user_order.address }}</p>
                         <p>Payment Method: {{ user_order.payment_method }}</p>
                         <p>Delivery Method: {{ user_order.delivery_method }}</p>
-                        <p>Credit Card: {{ user_order.credit_card }}</p>
                         <p>Expiration Date: {{ user_order.expiration_date }}</p>
                         <p>Order Status: {{ user_order.get_order_status_display }}</p>
                         <p>Order Date: {{ user_order.order_date }}</p>
