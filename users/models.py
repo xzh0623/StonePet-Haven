@@ -39,9 +39,6 @@ class CustomUserManager(BaseUserManager):
         user_count = self.count() + 1
         user_id = f"US{user_count:04d}"
         return user_id
-    
-    
-
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     user_id = models.CharField(primary_key=True, max_length=6)

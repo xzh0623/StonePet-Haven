@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Product, CustomUser, Seller, Buyer, Cart, CartItem, Order, OrderItem, Coupon
-from .forms import LoginForm, CustomUserRegistrationForm, SellerRegistrationForm, BuyerRegistrationForm, UserProfileForm, ProductForm, CheckoutForm, CouponQueryForm, UserPasswordForm
+from .models import *
+from .forms import *
 from django.shortcuts import render, redirect
 from .utils import custom_authentication
 from django.utils import timezone
@@ -264,7 +264,6 @@ def add_to_cart(request, product_id):
     # 重定向到产品详情页面或其他适当的页面
     return redirect('product_detail', product_id=product_id)
 
-
 @login_required
 def view_cart(request):
     user = request.user
@@ -356,7 +355,7 @@ def checkout(request):
             monthly_report = MonthlyReport.objects.get_or_create(
                 product_id=form.cleaned_data['product_id'],
                 month=form.cleaned_data['month'],
-                defaults={'total_sales': 0}  # 设置默认值为 0
+                defaults={'total_sales': 0}
             )[0]'''
             #monthly_report.total_sales += calculate_total_sales(cart_items)  # 假设有一个计算总销售额的函数
             #monthly_report.save()
@@ -397,19 +396,31 @@ def checkout(request):
         form = CheckoutForm()
         initial_data = {'name': cookie_name, 'address': cookie_address, 'payment_method': cookie_payment_method, 'delivery_method': cookie_delivery_method, 'credit_card': cookie_credit_card, 'expiration_date': cookie_expiration_date}
         form = CheckoutForm(initial=initial_data)
+        coupon_id = request.GET.get('coupon_id')
+        context = {
+            'form': form,
+            'cart_items': cart_items,
+            'cart_total': cart_total,
+            'coupon_id': coupon_id
+        }
+        return render(request, 'checkout.html', context)
+    
+########--------ABOUT ORDER--------########
 
-
-
-    coupon_id = request.GET.get('coupon_id')
+@login_required
+def view_cart(request):
+    user = request.user
+    cart = Cart.objects.filter(user=user).first()
+    cart_items = CartItem.objects.filter(cart=cart)
+    cart_total = sum(item.product.price * item.quantity for item in cart_items)
+    for item in cart_items:
+        item.subtotal = item.product.price * item.quantity
     context = {
-        'form': form,
         'cart_items': cart_items,
         'cart_total': cart_total,
-        'coupon_id': coupon_id
     }
-    return render(request, 'checkout.html', context)
+    return render(request, 'view_cart.html', context)
 
-    
 def order_success(request):
     # 假設在處理訂單成功時你有一個訂單物件，你可以將相應的信息傳遞到模板中
     latest_order = Order.objects.latest('order_id')

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-01-01 02:18:01
+-- 產生時間： 2024-01-08 05:31:03
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.0.30
 
@@ -145,7 +145,19 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (6, '2024-01-01 00:02:16.752001', 'PR0002', '尊爵不凡', 2, '[{\"changed\": {\"fields\": [\"Quantity in stock\"]}}]', 8, 'US0001'),
 (7, '2024-01-01 00:02:19.583205', 'PR0003', '限量版金色石頭', 2, '[{\"changed\": {\"fields\": [\"Quantity in stock\"]}}]', 8, 'US0001'),
 (8, '2024-01-01 00:02:24.006512', 'PR0004', '自己塗鴉的寵物石頭套裝', 2, '[{\"changed\": {\"fields\": [\"Quantity in stock\"]}}]', 8, 'US0001'),
-(9, '2024-01-01 00:02:28.342826', 'PR0005', '迷你石頭寶貝', 2, '[{\"changed\": {\"fields\": [\"Quantity in stock\"]}}]', 8, 'US0001');
+(9, '2024-01-01 00:02:28.342826', 'PR0005', '迷你石頭寶貝', 2, '[{\"changed\": {\"fields\": [\"Quantity in stock\"]}}]', 8, 'US0001'),
+(10, '2024-01-02 21:37:07.785852', 'PR0001', '豪華石頭套裝', 2, '[{\"changed\": {\"fields\": [\"Price\"]}}]', 9, 'US0001'),
+(11, '2024-01-02 21:53:28.978259', 'PR0004', '自己塗鴉的寵物石頭套裝', 2, '[{\"changed\": {\"fields\": [\"Picture in browsing\", \"Picture in description\"]}}]', 9, 'US0001'),
+(12, '2024-01-02 21:54:32.311437', 'PR0005', '迷你石頭寶貝', 2, '[{\"changed\": {\"fields\": [\"Picture in browsing\", \"Picture in description\"]}}]', 9, 'US0001'),
+(13, '2024-01-02 21:56:39.870835', 'PR0006', '寵物石頭SPA護理套餐', 2, '[{\"changed\": {\"fields\": [\"Picture in browsing\", \"Picture in description\"]}}]', 9, 'US0001'),
+(14, '2024-01-02 21:57:39.231903', 'PR0007', '寵物石頭造型藝術', 2, '[{\"changed\": {\"fields\": [\"Picture in browsing\", \"Picture in description\"]}}]', 9, 'US0001'),
+(15, '2024-01-02 22:00:07.312097', 'PR0008', '寵物石頭瑜伽課程', 2, '[{\"changed\": {\"fields\": [\"Picture in browsing\", \"Picture in description\"]}}]', 9, 'US0001'),
+(16, '2024-01-02 22:01:03.297516', 'PR0009', '寵物石頭按摩放鬆', 2, '[{\"changed\": {\"fields\": [\"Picture in browsing\", \"Picture in description\"]}}]', 9, 'US0001'),
+(17, '2024-01-02 22:02:43.651710', 'PR0010', '寵物石頭能量平衡療法', 2, '[{\"changed\": {\"fields\": [\"Picture in browsing\", \"Picture in description\"]}}]', 9, 'US0001'),
+(18, '2024-01-02 22:05:02.382398', 'PR0006', '寵物石頭SPA護理套餐', 2, '[{\"changed\": {\"fields\": [\"Picture in browsing\", \"Picture in description\"]}}]', 9, 'US0001'),
+(19, '2024-01-02 22:14:00.125706', 'PR0011', '寵物石頭音樂療法', 1, '[{\"added\": {}}]', 9, 'US0001'),
+(20, '2024-01-02 22:19:25.920685', 'PR0011', '寵物石頭音樂療法', 1, '[{\"added\": {}}]', 9, 'US0001'),
+(21, '2024-01-02 22:20:15.306396', 'PR0011', '寵物石頭音樂療法', 1, '[{\"added\": {}}]', 9, 'US0001');
 
 -- --------------------------------------------------------
 
@@ -233,9 +245,13 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('msirbwmjdounmntwbcjnagtynonxl3g6', '.eJxVzLEOwiAUheF3YTbkQilXHN07GWdygYtUTUlKOxnfXZt00Pn7z3kJT-tS_Np49mMSJ3G9AIASh18IFB88bZruNN2qjHVa5jHILZG7NjnUxM_z3v4dFGrlu44GUWuKxDlmgqi1sgjstAN3tNligp6sCowdh2RZqR4MgjUcCLscxPsDyJ85Lg:1rK6vj:oL8HQn5IVjc-xDGIDIXZx5pYKZoLOPm5L5U1djrLzeo', '2024-01-15 01:17:23.592884'),
+-- ('msirbwmjdounmntwbcjnagtynonxl3g6', '.eJxVzLEOwiAUheF3YTbkQilXHN07GWdygYtUTUlKOxnfXZt00Pn7z3kJT-tS_Np49mMSJ3G9AIASh18IFB88bZruNN2qjHVa5jHILZG7NjnUxM_z3v4dFGrlu44GUWuKxDlmgqi1sgjstAN3tNligp6sCowdh2RZqR4MgjUcCLscxPsDyJ85Lg:1rK6vj:oL8HQn5IVjc-xDGIDIXZx5pYKZoLOPm5L5U1djrLzeo', '2024-01-15 01:17:23.592884'),
+-- ('narq4m5kjhpb2dsp274bw1hptms4fzwj', '.eJxVjLEOwiAURf-F2RBKoUVHdyfj3FweD1s1kJR2Mv67NOmg6z3n3LcYsC7jsBaehymIk7hdlVKtOPwCD3py2mh4IN2zpJyWefJyU-ROi7zkwK_z7v4djChjrXtrFLzWzDZYg6anPsauDebIsC6iTmgsiBvPjkzbsQbpWhiGcYD4fAHcIDo9:1rHdR4:k3oTATHyPuZt7IdENF3_sLnLrKvYqO0M976teGygY-U', '2024-01-08 05:23:30.665810'),
+-- ('t12y2td39rza2xqhuhzbjsrn2b4w7rf7', '.eJxVzLEOwiAUheF3YTbkQilXHN07GWdygYtUTUlKOxnfXZt00Pn7z3kJT-tS_Np49mMSJ3G9AIASh18IFB88bZruNN2qjHVa5jHILZG7NjnUxM_z3v4dFGrlu44GUWuKxDlmgqi1sgjstAN3tNligp6sCowdh2RZqR4MgjUcCLscxPsDyJ85Lg:1rIsLp:dhVDt6k0RMP2nzmSUNh5KVVKXkvNpjCLQ-nIk3MGQ4g', '2024-01-11 15:31:13.747760');
 ('narq4m5kjhpb2dsp274bw1hptms4fzwj', '.eJxVjLEOwiAURf-F2RBKoUVHdyfj3FweD1s1kJR2Mv67NOmg6z3n3LcYsC7jsBaehymIk7hdlVKtOPwCD3py2mh4IN2zpJyWefJyU-ROi7zkwK_z7v4djChjrXtrFLzWzDZYg6anPsauDebIsC6iTmgsiBvPjkzbsQbpWhiGcYD4fAHcIDo9:1rHdR4:k3oTATHyPuZt7IdENF3_sLnLrKvYqO0M976teGygY-U', '2024-01-08 05:23:30.665810'),
-('t12y2td39rza2xqhuhzbjsrn2b4w7rf7', '.eJxVzLEOwiAUheF3YTbkQilXHN07GWdygYtUTUlKOxnfXZt00Pn7z3kJT-tS_Np49mMSJ3G9AIASh18IFB88bZruNN2qjHVa5jHILZG7NjnUxM_z3v4dFGrlu44GUWuKxDlmgqi1sgjstAN3tNligp6sCowdh2RZqR4MgjUcCLscxPsDyJ85Lg:1rIsLp:dhVDt6k0RMP2nzmSUNh5KVVKXkvNpjCLQ-nIk3MGQ4g', '2024-01-11 15:31:13.747760');
+('omilmx3gqfr0c8wetq0x4577ossr3yth', '.eJxVzLEOwiAUheF3YTbkQilXHN07GWdygYtUTUlKOxnfXZt00Pn7z3kJT-tS_Np49mMSJ3G9AIASh18IFB88bZruNN2qjHVa5jHILZG7NjnUxM_z3v4dFGrlu44GUWuKxDlmgqi1sgjstAN3tNligp6sCowdh2RZqR4MgjUcCLscxPsDyJ85Lg:1rKn0F:8Mf9H1Bu8pgY7b7rL_IKJ7NgyLlx2BgOX1RegM-uc84', '2024-01-16 22:12:51.156926'),
+('t12y2td39rza2xqhuhzbjsrn2b4w7rf7', '.eJxVzLEOwiAUheF3YTbkQilXHN07GWdygYtUTUlKOxnfXZt00Pn7z3kJT-tS_Np49mMSJ3G9AIASh18IFB88bZruNN2qjHVa5jHILZG7NjnUxM_z3v4dFGrlu44GUWuKxDlmgqi1sgjstAN3tNligp6sCowdh2RZqR4MgjUcCLscxPsDyJ85Lg:1rIsLp:dhVDt6k0RMP2nzmSUNh5KVVKXkvNpjCLQ-nIk3MGQ4g', '2024-01-11 15:31:13.747760'),
+('zboywa07a2b9naj4hb6v5mvilssm76fw', '.eJxVzLEOwiAUheF3YTbkQilXHN07GWdygYtUTUlKOxnfXZt00Pn7z3kJT-tS_Np49mMSJ3G9AIASh18IFB88bZruNN2qjHVa5jHILZG7NjnUxM_z3v4dFGrlu44GUWuKxDlmgqi1sgjstAN3tNligp6sCowdh2RZqR4MgjUcCLscxPsDyJ85Lg:1rMhCe:asKvHtTcioo7gUOH5lhNkNmq-QD0Aq_w8PdWky2RUdM', '2024-01-22 04:25:32.271793');
 
 -- --------------------------------------------------------
 
@@ -277,7 +293,8 @@ CREATE TABLE `users_cart` (
 INSERT INTO `users_cart` (`cart_id`, `user_id`) VALUES
 ('CR0003', 'US0001'),
 ('CR0001', 'US0003'),
-('CR0002', 'US0004');
+('CR0002', 'US0004'),
+('CR0004', 'US0006');
 
 -- --------------------------------------------------------
 
@@ -291,6 +308,18 @@ CREATE TABLE `users_cartitem` (
   `cart_id` varchar(6) NOT NULL,
   `product_id` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- 傾印資料表的資料 `users_cartitem`
+--
+
+INSERT INTO `users_cartitem` (`id`, `quantity`, `cart_id`, `product_id`) VALUES
+(17, 2, 'CR0003', 'PR0006'),
+(18, 1, 'CR0003', 'PR0007'),
+(19, 1, 'CR0003', 'PR0008'),
+(20, 1, 'CR0003', 'PR0009'),
+(21, 1, 'CR0003', 'PR0010'),
+(27, 2, 'CR0003', 'PR0001');
 
 -- --------------------------------------------------------
 
@@ -376,7 +405,12 @@ CREATE TABLE `users_order` (
 --
 
 INSERT INTO `users_order` (`order_id`, `name`, `address`, `payment_method`, `delivery_method`, `credit_card`, `expiration_date`, `order_status`, `order_date`, `order_completed_date`, `user_id`) VALUES
-('OR0001', 'hsiao', 'moon', 'cash', 'cash_on_delivery', '', '', 'pending_payment', '2024-01-01 01:17:47.528165', NULL, 'US0001');
+('OR0001', 'hsiao', 'moon', 'cash', 'cash_on_delivery', '', '', 'pending_payment', '2024-01-01 01:17:47.528165', NULL, 'US0001'),
+('OR0002', 'chen', 'mars', 'credit_card', 'store_pickup_credit_card', '4705155834826655', '12/2029', 'pending_payment', '2024-01-02 22:03:57.601739', NULL, 'US0006'),
+('OR0003', 'choco', 'moon', 'credit_card', 'store_pickup_cash', '', '', 'pending_payment', '2024-01-02 22:07:17.376403', NULL, 'US0004'),
+('OR0004', 'choco', '48544', 'credit_card', 'cash_on_delivery', 'sdsdsadsadasddas', 'sdsdsds', 'pending_payment', '2024-01-04 04:23:29.762979', NULL, 'US0004'),
+('OR0005', 'choco', 'addasd', 'credit_card', 'cash_on_delivery', 'sddsadsadsadsads', 'saddasd', 'pending_payment', '2024-01-04 04:23:58.515585', NULL, 'US0004'),
+('OR0006', 'choco', '45919191985', 'credit_card', 'cash_on_delivery', '4516516516516516', '1616161', 'pending_payment', '2024-01-04 04:25:21.493228', NULL, 'US0004');
 
 -- --------------------------------------------------------
 
@@ -398,7 +432,19 @@ CREATE TABLE `users_orderitem` (
 INSERT INTO `users_orderitem` (`id`, `quantity`, `order_id`, `product_id`) VALUES
 (1, 2, 'OR0001', 'PR0001'),
 (2, 1, 'OR0001', 'PR0002'),
-(3, 1, 'OR0001', 'PR0003');
+(3, 1, 'OR0001', 'PR0003'),
+(4, 1, 'OR0002', 'PR0008'),
+(5, 1, 'OR0002', 'PR0004'),
+(6, 1, 'OR0002', 'PR0006'),
+(7, 1, 'OR0003', 'PR0010'),
+(8, 1, 'OR0003', 'PR0009'),
+(9, 1, 'OR0003', 'PR0005'),
+(10, 1, 'OR0003', 'PR0007'),
+(11, 1, 'OR0004', 'PR0002'),
+(12, 1, 'OR0004', 'PR0001'),
+(13, 1, 'OR0004', 'PR0006'),
+(14, 3, 'OR0005', 'PR0001'),
+(15, 3, 'OR0006', 'PR0001');
 
 -- --------------------------------------------------------
 
@@ -607,7 +653,8 @@ ALTER TABLE `auth_permission`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  -- MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `django_content_type`
@@ -625,7 +672,8 @@ ALTER TABLE `django_migrations`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users_cartitem`
 --
 ALTER TABLE `users_cartitem`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  -- MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users_customuser_groups`
@@ -643,7 +691,8 @@ ALTER TABLE `users_customuser_user_permissions`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users_orderitem`
 --
 ALTER TABLE `users_orderitem`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  -- MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- 已傾印資料表的限制式
