@@ -1,4 +1,4 @@
-<!-- edit_profile.html -->
+<!-- products.html -->
 
 {% load static %}
 <!DOCTYPE html>
@@ -6,10 +6,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profile</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/order_history.css' %}">
+    <title>Products - BabyStone</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/coupon.css' %}">
 </head>
 <body>
+    <script>
+        function applyCoupon(couponId) {
+            // 將coupon_id作為參數添加到checkout的URL中
+            window.location.href = '/checkout/?coupon_id=' + couponId;
+        }
+    </script>
     <div class="main-container">
         <nav>
             <ul class="navbar">
@@ -28,29 +34,59 @@
             </ul>
         </nav>
         <main>
-            <div class="order-history-container">
-            {% if user_orders %}
-            <div class="user-order-container">
-                {% for user_order in user_orders %}
-                    <div class="user-order-card">
-                        <h1>Order Details</h1>
-                        <p>Order ID: {{ user_order.order_id }}</p>
-                        <p>User: {{ user_order.user.user_id }}</p>
-                        <p>Name: {{ user_order.name }}</p>
-                        <p>Address: {{ user_order.address }}</p>
-                        <p>Payment Method: {{ user_order.payment_method }}</p>
-                        <p>Delivery Method: {{ user_order.delivery_method }}</p>
-                        <p>Expiration Date: {{ user_order.expiration_date }}</p>
-                        <p>Order Status: {{ user_order.get_order_status_display }}</p>
-                        <p>Order Date: {{ user_order.order_date }}</p>
-                        <p>Order Completed Date: {{ user_order.order_completed_date }}</p>
-                    </div>
-                {% endfor %}
-            </div>   
-            {% else %}
-                    <p>You have no order history.</p>
-            {% endif %}
+            <!-- Product listing goes here -->
+            <form method="post"  class="search-container">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" id="search-button">
+                    <img src="{% static 'babystone/img/search.png' %}" alt="Search Icon">
+                </button>
+            </form> 
+        {% if coupon %}
+        <div class="coupon-container">
+            <div class="coupon-card">
+                <h3>{{ coupon.coupon_id }}</h3>
+                <p>Discount Amount: {{ coupon.discount_amount }}%</p>
+                <p>Minimum Limit: ${{ coupon.minimum_limit }}</p>
+                <p>Start Date: {{ coupon.start_date }}</p>
+                <p>Expired Date: {{ coupon.expired_date }}</p>
+                {% if coupon.type_of_discount_policies == 0 %}
+                <p >運費折抵</p>
+                {% endif %}
+                {% if coupon.type_of_discount_policies == 1 %}
+                    <p >季節折扣</p>
+                {% endif %}
+                {% if coupon.type_of_discount_policies == 2 %}
+                    <p>特殊活動</p>
+                {% endif %}          
             </div>
+        </div>
+        {% endif %}
+        {% if coupons %}
+        <div class="coupon-container">
+            {% for coupon in coupons %}
+                <div class="coupon-card" onclick="applyCoupon('{{ coupon.coupon_id }}')">
+                    <h3>{{ coupon.coupon_id }}</h3>
+                    <p>折扣金額: {{ coupon.discount_amount }}%</p>
+                    <p>低消: ${{ coupon.minimum_limit }}</p>
+                    <p>開始日期: {{ coupon.start_date }}</p>
+                    <p>結束日期: {{ coupon.expired_date }}</p>
+                    {% if coupon.type_of_discount_policies == 0 %}
+                        <p >運費折抵</p>
+                    {% endif %}
+                    {% if coupon.type_of_discount_policies == 1 %}
+                        <p >季節折扣</p>
+                    {% endif %}
+                    {% if coupon.type_of_discount_policies == 2 %}
+                        <p>特殊活動</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+
+            <!-- Add more product items as needed -->
         </main>
         <footer>
             <div class="footer-info">

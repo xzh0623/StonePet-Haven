@@ -85,7 +85,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PORT': '3307',
         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"},
     }
 }
@@ -138,3 +138,19 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.CustomUser'
+
+# 使用 SMTP 作为邮件后端
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Gmail SMTP 服务器的地址和端口 
+EMAIL_HOST = 'smtp.gmail.com' #smtp.163.com
+EMAIL_FAIL_SILENTLY = False
+EMAIL_USE_SSL = True
+EMAIL_PORT = 465
+
+# 提供你的 Gmail 地址和密码
+EMAIL_HOST_USER = 't110590036@ntut.org.tw'
+EMAIL_HOST_PASSWORD = 'dgvv iitu awen opvy'
+
+# 默认发件人的地址
+DEFAULT_FROM_EMAIL = 't110590036@ntut.org.tw'

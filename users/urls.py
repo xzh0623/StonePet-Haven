@@ -16,6 +16,10 @@ urlpatterns = [
     path('seller_registration/', views.seller_registration, name='seller_registration'),
     path('buyer_registration/', views.buyer_registration, name='buyer_registration'),
     path('success/', views.success_page, name='success_page'),
+    path('coupon/', views.coupon, name='coupon'),
+    path('forgot_password/', views.forgot_password, name='forgot_password'),
+    path('resetpassword_email_template/', views.resetpassword_email_template, name='resetpassword_email_template'),
+
 
     path('profile/', views.view_profile, name='view_profile'),
     path('edit_profile/', views.edit_profile, name='edit_profile'),
