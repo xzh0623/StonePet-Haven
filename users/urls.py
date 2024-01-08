@@ -17,6 +17,9 @@ urlpatterns = [
     path('buyer_registration/', views.buyer_registration, name='buyer_registration'),
     path('success/', views.success_page, name='success_page'),
     path('coupon/', views.coupon, name='coupon'),
+    path('forgot_password/', views.forgot_password, name='forgot_password'),
+    path('resetpassword_email_template/', views.resetpassword_email_template, name='resetpassword_email_template'),
+
 
     path('profile/', views.view_profile, name='view_profile'),
     path('edit_profile/', views.edit_profile, name='edit_profile'),
@@ -28,7 +31,7 @@ urlpatterns = [
 
     path('add_to_cart/<str:product_id>/', views.add_to_cart, name='add_to_cart'),
     path('view_cart/', views.view_cart, name='view_cart'),
-    path('remove_from_cart/<int:cart_item_id>/', views.remove_from_cart, name='remove_from_cart'),
+    path('remove_from_cart/<str:delete_product_id>/', views.remove_from_cart, name='remove_from_cart'),
     path('update_cart/<int:cart_item_id>/<int:quantity>/', views.update_cart, name='update_cart'),
 
     path('checkout/', views.checkout, name='checkout'),

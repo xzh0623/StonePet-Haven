@@ -64,6 +64,7 @@ main {
     flex-grow: 1;
     padding: 2em;
     background-color: #adadad;
+    min-height: 700px;
 }
 
 .product-detail {
@@ -79,17 +80,19 @@ main {
     margin-top: 0;
 }
 .Product_Image {
+    max-width: 40%;
     margin-top: 30px; /* 根據需要調整距離 */
-    margin-left: 150px;
+    margin-left: 30px;
 
 }
 .product-detail p {
     margin-bottom: 1em;
 }
+
 .add-to-cart {
     position: absolute;
     top: 80%;
-    left: 80%;
+    left: 40%;
     transform: translate(-50%, -50%);
     padding: 10px 20px;
     background-color: #7f7f7f; /* Darker color */
@@ -106,9 +109,28 @@ main {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increased shadow effect on hover */
 }
 
+.back-to-product-list {
+    position: absolute;
+    top: 80%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #7f7f7f; /* Darker color */
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow effect */
+}
+
+.back-to-product-list {
+    background-color: #5a5a5a; /* Darker color on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increased shadow effect on hover */
+}
 .product-container {
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 70%;
     transform: translate(-50%, -50%);
     width: 700px;
@@ -180,19 +202,9 @@ main {
     font-size: 16px;
     margin: 0 5px;
 }
-footer {
-    background-color: #c4bbb2;
-    color: #000000;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    height: 120px;
-    width: 100%;
-    z-index: 2;
-}
 
 .footer-info {
+    background-color: #c4bbb2;
     display: flex;
     justify-content: space-around;
     margin-top: 0px;

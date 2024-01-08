@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Product, CustomUser, Seller, Buyer, Cart, CartItem, Order, OrderItem,Coupon
-from .forms import LoginForm, CustomUserRegistrationForm, SellerRegistrationForm, BuyerRegistrationForm, UserProfileForm, ProductForm, CouponQueryForm,CheckoutForm
+from .models import Product, CustomUser, Seller, Buyer, Cart, CartItem, Order, OrderItem, Coupon
+from .forms import LoginForm, CustomUserRegistrationForm, SellerRegistrationForm, BuyerRegistrationForm, UserProfileForm, ProductForm, CheckoutForm, CouponQueryForm, UserPasswordForm
 from django.shortcuts import render, redirect
 from .utils import custom_authentication
 from django.utils import timezone
@@ -8,9 +8,14 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.contrib import messages
+
+from django.contrib.auth.hashers import make_password
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 # from .. backend_operation import TEST_add_data_to_models
 
 # Create your views here.
+from django.http import Http404
 
 ########--------ABOUT HOMEPAGE--------########
 
@@ -85,45 +90,7 @@ def register(request):
 
 def success_page(request):
     return render(request, 'success_page.html')
-def coupon(request):
-    user_is_authenticated = request.user.is_authenticated
-    username = request.user.name if user_is_authenticated else None
-    coupons = Coupon.objects.all()
-    if request.method == 'POST':
-        form = CouponQueryForm(request.POST)
-        if form.is_valid():
-            coupon_id = form.cleaned_data['coupon_id']
-            coupon = Coupon.objects.filter(coupon_id=coupon_id).first()
-            if coupon:
-                # 如果存在對應的優惠券，將其傳到前端
-                context = {
-                    'user_is_authenticated': user_is_authenticated,
-                    'username': username,
-                    'form': form,
-                    'coupon':coupon
-                    }
-                return render(request, 'coupon.html', context)
-            else:
-                context = {
-                    'user_is_authenticated': user_is_authenticated,
-                    'username': username,
-                    'form': form,
-                    'coupons':coupons
-                    }
-                return render(request, 'coupon.html', context)
-    else:
-        # 如果找不到對應的優惠券，回傳全部折價券
-        form = CouponQueryForm()
-        context = {
-            'user_is_authenticated': user_is_authenticated,
-            'username': username,
-            'form': form,
-            'coupons':coupons
-            }
-    return render(request, 'coupon.html', context)
 
-    
-    return render(request, 'coupon.html', context)
 def registration_choice(request):
     if request.method == 'POST':
         user_type = request.POST.get('user_type')
@@ -304,7 +271,8 @@ def view_cart(request):
     cart = Cart.objects.filter(user=user).first()
     cart_items = CartItem.objects.filter(cart=cart)
     cart_total = sum(item.product.price * item.quantity for item in cart_items)
-    
+    for item in cart_items:
+        item.subtotal = item.product.price * item.quantity
     context = {
         'cart_items': cart_items,
         'cart_total': cart_total,
@@ -312,9 +280,13 @@ def view_cart(request):
     return render(request, 'view_cart.html', context)
 
 @login_required
-def remove_from_cart(request, cart_item_id):
+def remove_from_cart(request, delete_product_id):
+    # cart = Cart.objects.get(cart_id=cart_id)
+    # product = Product.objects.get(product_id=delete_product_id)
     # TODO: 實現從購物車中刪除項目的邏輯
-    cart_item = get_object_or_404(CartItem, id=cart_item_id, user=request.user)
+    cart_item = CartItem.objects.filter(id = delete_product_id)
+
+    #cart_item = get_object_or_404(CartItem, cart = cart_id)
     cart_item.delete()
     messages.success(request, '購物車中的項目已成功刪除。')
     return redirect('view_cart')
@@ -354,18 +326,40 @@ def checkout(request):
     user = request.user
     cart = Cart.objects.filter(user=user).first()
     cart_items = CartItem.objects.filter(cart=cart)
-    cart_total = sum(item.product.price * item.quantity for item in cart_items)
-    coupon_id = request.GET.get('coupon_id')
+    
+    # coupon_id = request.GET.get('coupon_id')
+    # coupon_instance = Coupon.objects.get(coupon_id=coupon_id)
+    # # 获取discount_amount
+    # discount_amount = coupon_instance.discount_amount
+    # cart_total = sum(item.product.price * item.quantity* (100-discount_amount)/100 for item in cart_items)
+    try:
+        coupon_id = request.GET.get('coupon_id')
+        coupon_instance = Coupon.objects.get(coupon_id=coupon_id)
+        # 获取discount_amount
+        discount_amount = coupon_instance.discount_amount
+    except Coupon.DoesNotExist:
+        # 处理 Coupon 不存在的情况
+        coupon_instance = None 
+        discount_amount = 0
+    cart_total = sum(item.product.price * item.quantity * (100 - discount_amount) / 100 for item in cart_items)
     for item in cart_items:
-        item.subtotal = item.product.price * item.quantity
+        item.subtotal = item.product.price * item.quantity * (100-discount_amount)/100
     if request  .method == 'POST':
         form = CheckoutForm(request.POST)
         if form.is_valid():
 
             # 处理订单，例如创建一个 Order 实例
             order_id = Order.objects.generate_order_id()
+            
             print("I innnnnnnnnnnnnnnnnn")
-
+            '''
+            monthly_report = MonthlyReport.objects.get_or_create(
+                product_id=form.cleaned_data['product_id'],
+                month=form.cleaned_data['month'],
+                defaults={'total_sales': 0}  # 设置默认值为 0
+            )[0]'''
+            #monthly_report.total_sales += calculate_total_sales(cart_items)  # 假设有一个计算总销售额的函数
+            #monthly_report.save()
             order = Order.objects.create(
                 order_id=order_id,
                 user=user,
@@ -405,6 +399,7 @@ def checkout(request):
         form = CheckoutForm(initial=initial_data)
 
 
+
     coupon_id = request.GET.get('coupon_id')
     context = {
         'form': form,
@@ -422,3 +417,113 @@ def order_success(request):
         'order': latest_order
         }
     return render(request, 'order_success.html', context)
+
+def coupon(request):
+    user_is_authenticated = request.user.is_authenticated
+    username = request.user.name if user_is_authenticated else None
+    coupons = Coupon.objects.all()
+    if request.method == 'POST':
+        form = CouponQueryForm(request.POST)
+        if form.is_valid():
+            coupon_id = form.cleaned_data['coupon_id']
+            coupon = Coupon.objects.filter(coupon_id=coupon_id).first()
+            if coupon:
+                # 如果存在對應的優惠券，將其傳到前端
+                context = {
+                    'user_is_authenticated': user_is_authenticated,
+                    'username': username,
+                    'form': form,
+                    'coupon':coupon
+                    }
+                return render(request, 'coupon.html', context)
+            else:
+                context = {
+                    'user_is_authenticated': user_is_authenticated,
+                    'username': username,
+                    'form': form,
+                    'coupons':coupons
+                    }
+                return render(request, 'coupon.html', context)
+    else:
+        # 如果找不到對應的優惠券，回傳全部折價券
+        form = CouponQueryForm()
+        context = {
+            'user_is_authenticated': user_is_authenticated,
+            'username': username,
+            'form': form,
+            'coupons':coupons
+            }
+    return render(request, 'coupon.html', context)
+
+def forgot_password(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        # 检查邮箱是否存在
+        if CustomUser.objects.filter(email=email).exists():
+            
+            # 获取用户实例
+            user_instance = CustomUser.objects.get(email=email)
+            #生成重置密码链接
+            reset_password_url = "http://127.0.0.1:8000/resetpassword_email_template/?user_id=" + user_instance.user_id
+            #print(user_instance.user_id,"1111",user_instance)
+            # # 发送重置密码邮件x
+            send_resetpassword_email(user_instance, reset_password_url)
+            messages.success(request, '重置密碼郵件已發送。')
+            return redirect('homepage')
+        else:
+            messages.error(request, '電子郵件未註冊。')
+    return render(request, 'forgot_password.html')
+
+def email_verification(request):
+    if request.method == 'POST':
+        CustomUser.verify_account(request)
+        return redirect('homepage')
+    return render(request, 'email_verification.html')
+
+def reset_password(request):
+    if request.method == 'POST':
+        result=CustomUser.reset_password(request)
+        if result=="True":
+            return redirect('login')
+        else:
+           return render(request, 'reset_password.html', {'error': result}) 
+    return render(request, 'reset_password.html')
+
+def send_resetpassword_email(user_instance, reset_password_url):
+    email_template = render_to_string(
+        'email_verification_message.html',
+        {'user_instance': user_instance, 'reset_password_url': reset_password_url}
+    )
+    #郵件內容
+    subject = '重置密碼'
+    message = 'hi' #'請點擊以下連結重置密碼：\n\n' + reset_password_url
+    from_email = 't110590036@ntut.org.tw'
+    to_email = user_instance.email
+    send_mail(subject, message, from_email, [to_email], html_message=email_template)
+
+def resetpassword_email_template(request):
+    uid = request.GET.get('user_id')
+    user = get_object_or_404(CustomUser, user_id=uid)
+    if request.method == 'POST':
+        form = UserPasswordForm(request.POST, instance=user)
+        print("noooooo")
+        print(form)
+        if form.is_valid():
+            password = form.cleaned_data['password']
+            user.set_password(password)
+            user.save()
+            print("savvvvvvvvvvvvvvvvvvvvvvvvvv")
+            #form.save()
+            return redirect('homepage')  # 修改为你的用户个人资料页面的 URL
+        else:
+            # 处理表单验证失败的逻辑
+            error_message = '請確保輸入的信息正確並且確認密碼匹配。'
+            return render(request, 'resetpassword_email_template.html', {'form': form, 'error': error_message})
+    else:
+        form = UserPasswordForm()
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'resetpassword_email_template.html', context)

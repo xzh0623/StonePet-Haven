@@ -57,6 +57,27 @@ class CheckoutForm(forms.Form):
     delivery_method = forms.ChoiceField(label='選擇取貨方式', choices=[('cash_on_delivery', '貨到付款（現金）'), ('store_pickup_cash', '超商取貨（現金）'), ('store_pickup_credit_card', '超商取貨（信用卡）')], widget=forms.RadioSelect, required=True)
     credit_card = forms.CharField(label='信用卡號', max_length=16, min_length=16, required=False)
     expiration_date = forms.CharField(label='有效期限', max_length=7, min_length=7, widget=forms.TextInput(attrs={'placeholder': 'MM/YYYY'}), required=False)
-    
+
 class CouponQueryForm(forms.Form):
     coupon_id = forms.CharField(label='Coupon ID', max_length=50, required=False)
+
+
+class UserPasswordForm(forms.ModelForm):
+    confirm_password = forms.CharField(widget=forms.PasswordInput(), label='確認新密碼')  # 新增確認密碼字段
+
+    class Meta:
+        model = CustomUser
+        fields = ['password']
+        labels = {
+            'password': '新密碼',
+        }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        password = cleaned_data.get('password')
+        confirm_password = cleaned_data.get('confirm_password')
+
+        if password and confirm_password and password != confirm_password:
+            raise forms.ValidationError('確認密碼不匹配')
+
+        return cleaned_data

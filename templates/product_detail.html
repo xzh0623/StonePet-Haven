@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/product_detail.css' %}">
 </head>
 <body>
-   
     <div class="main-container">
         <nav>
             <ul class="navbar">
@@ -18,7 +17,7 @@
                 <li><a href="{% url 'homepage' %}"><img src="{% static 'babystone/img/menu.png' %}" alt="Menu"></a></li>
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'logout' %}">登出</a></li>
-                    <li><a href="{% url 'view_profile' %}">{{ user.name }}</a></li>
+                    <li><a href="{% url 'view_profile' %}">{{ user.name }}</li>
                     <!-- Add authenticated user content here -->
                 {% else %}
                     <li><a href="{% url 'login' %}">登入</a></li>
@@ -30,37 +29,19 @@
         </nav>
         <main>
             <h1>{{ product.product_name }} Detail</h1>
-            <img src="{% static 'babystone/img/' %}{{ product.product_id|lower }}.png" class="Product_Image">
+            {% if product.picture_in_browsing %}
+                <img src="{{ product.picture_in_browsing.url }}" alt="{{ product.product_id }}" class="Product_Image">
+            {% else %}
+                <img src="{% static 'path/to/placeholder_image.jpg' %}" alt="{{ product.product_id }}" class="Product_Image">
+            {% endif %}
             <div class="product-container">
+                
                 <p class="product-description">Description: {{ product.description_of_product }}</p>
                 <p class="product-price">Price: ${{ product.price }}</p>
-                <div class="quantity-container">
-                    <span class="quantity-label">Quantity:</span>
-                    <button class="quantity-btn" onclick="decrementQuantity()">-</button>
-                    <span id="quantity">1</span>
-                    <button class="quantity-btn" onclick="incrementQuantity()">+</button>
-                    <script>
-                        var quantityElement = document.querySelector('#quantity');
-            
-                        function incrementQuantity() {
-                            var currentQuantity = parseInt(quantityElement.innerText);
-                            quantityElement.innerText = currentQuantity + 1;
-                        }
-            
-                        function decrementQuantity() {
-                            var currentQuantity = parseInt(quantityElement.innerText);
-                            if (currentQuantity > 1) {
-                                quantityElement.innerText = currentQuantity - 1;
-                            }
-                        }
-            
-                     </script>
-                </div>
-                <a href="{% url 'add_to_cart' product_id=product.product_id %}" class="add-to-cart">Add to Cart</a>
-
-            </div>
             <!-- 其他商品詳細信息 -->
-            <!-- <a href="{% url 'products' %}">Back to Product List</a>-->
+            <a href="{% url 'add_to_cart' product_id=product.product_id %}" class="add-to-cart">Add to Cart</a>
+            <a href="{% url 'products' %}" class="back-to-product-list">Back to Product List</a>
+            </div>
         </main>
         <footer>
             <div class="footer-info">

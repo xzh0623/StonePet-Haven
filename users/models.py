@@ -172,12 +172,7 @@ class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
-class CouponManager(models.Manager):
-    def generate_product_id(self):
-        product_count = self.count() + 1
-        product_id = f"CP{product_count:04d}"
-        return product_id
-    
+
 class Coupon(models.Model):
     coupon_id = models.CharField(primary_key=True, max_length=6)
     discount_amount = models.IntegerField()
