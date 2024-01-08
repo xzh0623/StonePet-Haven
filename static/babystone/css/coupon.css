@@ -1,0 +1,231 @@
+/* products.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333; /* 修改文字颜色 */
+}
+
+.main-container {
+    position: relative;
+}
+.main{
+    flex-grow: 1;
+    padding: 2em;
+    background-color: #adadad;
+    clear: both; /* 清除浮動 */
+}
+nav {
+    background-color: #c4bbb2;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    height: 120px;
+    width: 100%;
+    z-index: 2;
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 0px;
+    text-align: center;
+    height: 100%; /* 調整高度 */
+    align-items: center; /* 垂直置中 */
+}
+
+.navbar a {
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 0 16px; /* 調整 padding */
+    text-decoration: none;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 75px; /* 調整行高 */
+}
+
+.navbar a:hover {
+    color: black;
+}
+
+/* 將主頁靠左，其他項目靠右 */
+.navbar li:first-child {
+    float: left;
+}
+
+.navbar li {
+    float: right;
+}
+
+.product {
+    width: 30%;
+    margin: 10px 10px;
+    text-align: center;
+    border: 1px solid #ddd; /* Add border for the product box */
+    padding: 15px; /* Add padding inside the product box */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    transition: box-shadow 0.3s ease; /* Add a smooth transition for box shadow */
+}
+
+.product:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a box shadow on hover */
+}
+
+.product a {
+    text-decoration: none;
+    color: #333;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+}
+
+.product h3 {
+    margin-top: 10px;
+}
+
+.product span {
+    display: block;
+    margin-top: 5px;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.footer-info {
+    background-color: #c4bbb2;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1;
+}
+
+.footer-section h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section li {
+    margin-bottom: 5px;
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Add additional styling as needed */
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for the search container */
+/* Container styling */
+.search-container {
+    position: fixed;
+    left:70%;
+    margin-top:10px;
+    display: flex;
+    margin-bottom: 20px; /* Add margin to separate from other elements */
+    width: 400px;
+    height: 50px;
+    border: none; /* 移除邊框 */
+    background-color: #c4bbb2;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4); /* 加強陰影效果 */
+    text-align: center;
+    font-size: 15px; /* 調整字體大小 */
+    font-weight: bold;
+    color: rgba(66, 66, 66, 0.5);; /* 顏色調整 */
+    margin-bottom: 10px;
+}
+
+/* Style for the search input */
+#id_coupon_id {
+    padding: 8px;
+    background-color: rgba(246, 246, 246, 0.5); /* 半透明白灰色 */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-right: 8px; /* Add margin between input and button */
+}
+
+/* Style for the search button */
+#search-button {
+    background-color: #f6f2ec;
+    border: 1px solid #ccc;
+    padding: 8px;
+    cursor: pointer;
+}
+
+/* Hover effect for the search button */
+#search-button:hover {
+    background-color: #e0d8cd;
+}
+
+
+/* Style for the search icon inside the button */
+#search-button img {
+    width: 20px; /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
+}
+
+
+.coupon-container {
+    min-height: 500px; /* 設定最小高度，您可以根據需要進行調整 */
+    margin-top: 120px;  /* 調整此處的數值，以確保與 nav 之間有足夠的空間 */
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #adadad;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.coupon-card {
+    width: 150px; /* 控制寬度，使其橫向排列三張 */
+    height:250px;
+    flex: 0 0 calc(30% - 40px); /* 控制寬度，使其橫向排列三張 */
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 如果需要特定元素的字體樣式，可以單獨針對該元素進行設定 */
+.coupon-card h3 {
+    font-family: 'Georgia', serif; /* 請替換成你想使用的字體 */
+    color: #333;  /* 黑色文字 */
+}
+.coupon-card:hover {
+    transform: scale(1.05);
+}
+
+.coupon-card h3 {
+    color: #333;  /* 黑色文字 */
+}
+
+/* 添加一些不同顏色的隨機漸變效果 */
+.coupon-card:nth-child(odd) {
+    background: linear-gradient(45deg, #5f5f5f, #e4b37a);
+}
+
+.coupon-card:nth-child(even) {
+    background: linear-gradient(45deg, rgb(184, 216, 237), rgb(241, 172, 200));
+}
+

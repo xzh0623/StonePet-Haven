@@ -1,0 +1,124 @@
+/* edit_product.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.main-container {
+    position: relative;
+}
+
+nav {
+    background-color: #c4bbb2;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    height: 120px;
+    width: 100%;
+    z-index: 2;
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 0px;
+    text-align: center;
+    height: 100%;
+    align-items: center;
+}
+
+.navbar a {
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 0 16px;
+    text-decoration: none;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 75px;
+}
+
+.navbar a:hover {
+    color: black;
+}
+
+.navbar li:first-child {
+    float: left;
+}
+
+.navbar li {
+    float: right;
+}
+
+main {
+    background-color: #adadad;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.OrderSuccess{
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #c4bbb2;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+.OrderSuccess p{
+    margin: 16px 0px;
+    height: 30px;
+    
+}
+
+.OrderSuccess form label {
+    width: 80%;
+    margin-bottom: 8px;
+}
+
+.OrderSuccess form input{
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+.OrderSuccess form textarea {
+    height: 50%;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+.OrderSuccess form button {
+    background-color: #adadad;
+    color: white;
+    padding: 2px 4px;
+    font-size: 16px;
+    margin: 2px 2px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.OrderSuccess form button:hover {
+    background-color: #adadad;
+}
+
+
+
+footer {
+    background-color: #c4bbb2;
+    color: #000000;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    height: 120px;
+    width: 100%;
+    z-index: 2;
+}

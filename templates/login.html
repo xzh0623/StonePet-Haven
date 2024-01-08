@@ -36,7 +36,7 @@
                     <button type="submit">Login</button>
                 </form>
                 <p class="register-link">Not a member? <a href="{% url 'registration_choice' %}">Register here</a></p>
-                <p class="forgot-password-link"><a href="{% url 'login' %}">Forgot your password?</a></p>
+                <p class="forgot-password-link"><a href="{% url 'forgot_password' %}">Forgot your password?</a></p>
                 {% if error %}
                     <p class="error-message">{{ error }}</p>
                 {% endif %}

@@ -39,9 +39,6 @@ class CustomUserManager(BaseUserManager):
         user_count = self.count() + 1
         user_id = f"US{user_count:04d}"
         return user_id
-    
-    
-
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     user_id = models.CharField(primary_key=True, max_length=6)
@@ -172,3 +169,15 @@ class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
+
+class Coupon(models.Model):
+    coupon_id = models.CharField(primary_key=True, max_length=6)
+    discount_amount = models.IntegerField()
+    minimum_limit = models.IntegerField()
+    start_date = models.DateTimeField()
+    expired_date = models.DateTimeField()
+    seller = models.ForeignKey('Seller', on_delete=models.DO_NOTHING)
+    type_of_discount_policies = models.IntegerField()
+
+    def __str__(self):
+        return f"Coupon {self.coupon_id} - {self.seller.user.name}"
