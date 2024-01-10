@@ -17,7 +17,9 @@
 - ### 第三步:執行XAMPP(開啟Apache MySQL(有本地sql不用開啟)) ###
 ![image](https://github.com/xzh0623/StonePet-Haven/assets/126553336/5975119d-1832-4553-bcc0-1a8603c8fdc5)
 
-
+## 前置
+- ### 
+- ### 將檔案中的web_development.sql
    
 - [x] **首頁**
   - [x] 未登入首頁 
