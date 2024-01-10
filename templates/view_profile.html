@@ -1,0 +1,99 @@
+<!-- view_profile.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/view_profile.css' %}">
+</head>
+<body>
+    <div class="main-container">
+        <nav>
+            <ul class="navbar">
+                <li><a href="{% url 'homepage' %}">BabyStone</a></li>
+                <li><a href="{% url 'homepage' %}"><img src="{% static 'babystone/img/menu.png' %}" alt="Menu"></a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">登出</a></li>
+                    <li><a href="{% url 'view_profile' %}">{{ user.name }}</li>
+                    <li><a href="{% url 'view_cart' %}">購物車</a></li>
+                    <!-- Add authenticated user content here -->
+                {% else %}
+                    <li><a href="{% url 'login' %}">登入</a></li>
+                {% endif %}
+                <li><a href="{% url 'products' %}">商品</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+        <main>
+            <!-- Add content specific to the profile view -->
+            <div class="profile-container">
+                <div>
+                    <div class="user-info">
+                        <p>名稱: {{ user.name }}</p>
+                        <p>Email: {{ user.email }}</p>
+                        <p>地址: {{ user.address }}</p>
+                        <p>Phone: {{ user.phone_number }}</p>
+                        {% if user.permission == 0 %}
+                            <p>Identity: 買家</p>
+                        {% elif user.permission == 1 %}
+                            <p>Identity: 賣家</p>
+                        {% elif user.permission == 2 %}
+                            <p>Identity: 管理員</p>
+                        {% else %}
+                            <p>Unknown Identity</p>
+                        {% endif %}
+                        <!-- Add more user information as needed -->
+                    </div>
+                    <div class="profile-actions">
+                        <a href="{% url 'edit_profile' %}">編輯</a>
+                    </div>
+                </div>
+                <div class=user-permission-view>
+                    {% if user.permission == 0 %}
+                        <a href="{% url 'order_history' %}">訂單</a>
+                    {% elif user.permission == 1 %}
+                        <a href="{% url 'product_management' %}">商品管理</a>
+                        <a href="{% url 'order_history' %}">折價券管理</a>
+                    {% elif user.permission == 2 %}
+                        <a href="{% url 'admin:index' %}">後台管理</a>
+                    {% else %}
+                        <p>Unknown Identity</p>
+                    {% endif %}
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-info">
+                <div class="footer-section">
+                    <h3>關於我們</h3>
+                    <ul>
+                        <li><a href="#">優惠資訊 / Coupon</a></li>
+                        <li><a href="#">商店介紹 / Introduction</a></li>
+                        <li><a href="#">與我們合作 / Cooperation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>顧客服務</h3>
+                    <ul>
+                        <li><a href="#">購物須知 / How To Buy</a></li>
+                        <li><a href="#">退換貨政策 / After-sales Service</a></li>
+                        <li><a href="#">隱私權政策 / Privacy</a></li>
+                        <li><a href="#">使用者條款 / Terms</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>尋找我們</h3>
+                    <ul>
+                        <li>客服專線 02-85461000</li>
+                        <li>服務時間 上班日 8:00-21:00</li>
+                        <li>信箱 stonebaby@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

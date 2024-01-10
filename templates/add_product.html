@@ -1,0 +1,45 @@
+<!-- add_product.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/add_product.css' %}">
+</head>
+<body>
+    <div class="main-container">
+        <nav>
+            <ul class="navbar">
+                <li><a href="{% url 'homepage' %}">BabyStone</a></li>
+                <li><a href="{% url 'homepage' %}"><img src="{% static 'babystone/img/menu.png' %}" alt="Menu"></a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">登出</a></li>
+                    <li><a href="{% url 'view_profile' %}">{{ user.name }}</li>
+                    <li><a href="{% url 'view_cart' %}">購物車</a></li>
+                    <!-- Add authenticated user content here -->
+                {% else %}
+                    <li><a href="{% url 'login' %}">登入</a></li>
+                {% endif %}
+                <li><a href="{% url 'products' %}">商品</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+        <main>
+            <div class="product-form-container">
+                <a href="{% url 'product_management' %}">Back to Product Management</a>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <!-- 页脚内容，根据需要添加 -->
+        </footer>
+    </div>
+</body>
+</html>

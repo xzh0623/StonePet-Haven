@@ -1,0 +1,186 @@
+/* products.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333; /* 修改文字颜色 */
+    background-color: #adadad;
+}
+
+.main-container {
+    position: relative;
+}
+.main{
+    flex-grow: 1;
+    padding: 2em;
+    background-color: #adadad;
+    clear: both; /* 清除浮動 */
+}
+
+.checkout-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #c4bbb2;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 150px;
+}
+
+
+/* 提交按鈕樣式 */
+button {
+    background-color: #adadad;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+
+}
+
+#id_name, #id_credit_card, #id_expiration_date {
+    padding: 6px;
+    background-color: rgba(246, 246, 246, 0.5); /* 半透明白灰色 */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-right: 8px; /* Add margin between input and button */
+}
+
+#id_address {
+    padding: 8px;
+    background-color: rgba(246, 246, 246, 0.5); /* 半透明白灰色 */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-right: 8px; /* Add margin between input and button */
+}
+
+
+
+nav {
+    background-color: #c4bbb2;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    height: 120px;
+    width: 100%;
+    z-index: 2;
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 0px;
+    text-align: center;
+    height: 100%; /* 調整高度 */
+    align-items: center; /* 垂直置中 */
+}
+
+.navbar a {
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 0 16px; /* 調整 padding */
+    text-decoration: none;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 75px; /* 調整行高 */
+}
+
+.navbar a:hover {
+    color: black;
+}
+
+/* 將主頁靠左，其他項目靠右 */
+.navbar li:first-child {
+    float: left;
+}
+
+.navbar li {
+    float: right;
+}
+
+.footer-info {
+    background-color: #c4bbb2;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1;
+}
+
+.footer-section h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section li {
+    margin-bottom: 5px;
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Add additional styling as needed */
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+
+h2 {
+    color: #333;
+}
+
+form {
+    margin-top: 20px;
+}
+
+/* 訂單摘要樣式 */
+.order-summary {
+    margin-top: 20px;
+}
+
+.order-summary h3 {
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.order-summary ul {
+    list-style: none;
+    padding: 0;
+}
+
+.order-summary li {
+    margin-bottom: 10px;
+}
+
+.order-summary p {
+    margin-top: 10px;
+    font-weight: bold;
+    position: relative;
+}
+
+
+
+button:hover {
+    background-color: #adadad;
+}
+

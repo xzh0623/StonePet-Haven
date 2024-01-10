@@ -1,0 +1,47 @@
+<!-- order_success.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/order_success.css' %}">
+</head>
+<body>
+    <div class="main-container">
+        <nav>
+            <ul class="navbar">
+                <li><a href="{% url 'homepage' %}">BabyStone</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+        <main>
+            <div class="OrderSuccess">
+                <form action="{% url 'homepage' %}" method="post">
+                    {% csrf_token %}
+                    <div class="order-success-container">
+                        <h2>訂單成功</h2>
+                        <p>感謝您的訂購！您的訂單已經成功提交。</p>
+                        <!-- Add more order details if needed -->
+                        <p>訂單編號: {{ order.order_id }}</p>
+                        <p>付款方式: {{ order.payment_method }}</p>
+                        <p>取貨方式: {{ order.delivery_method }}</p>
+                    </div>
+                    <script>
+                        function redirectToHomepage() {
+                            // 使用 window.location.href 進行頁面跳轉
+                            window.location.href = "{% url 'homepage' %}";
+                        }
+                    </script>
+                    <button type="button" onclick="redirectToHomepage()"><p>返回主頁</p></button>
+                </form>
+            </div>
+        </main>
+        <footer>
+            
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!-- view_cart.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Cart</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/view_cart.css' %}">
+</head>
+<body>
+    <div class="main-container">
+        <nav>
+            <ul class="navbar">
+                <li><a href="{% url 'homepage' %}">BabyStone</a></li>
+                <li><a href="{% url 'homepage' %}"><img src="{% static 'babystone/img/menu.png' %}" alt="Menu"></a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">登出</a></li>
+                    <li><a href="{% url 'view_profile' %}">{{ user.name }}</a></li>
+                    <li><a href="{% url 'view_cart' %}">購物車</a></li>
+                    <!-- Add authenticated user content here -->
+                {% else %}
+                    <li><a href="{% url 'login' %}">登入</a></li>
+                {% endif %}
+                <li><a href="{% url 'products' %}">商品</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+        <main>
+            <div class="cart-container">
+                <h2>Your Shopping Cart</h2>
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart_items %}
+                            <tr>
+                                <td>{{ item.product.product_name }}</td>
+                                <td>{{ item.quantity }}</td>
+                                <td>{{ item.subtotal}}</td> <!-- 計算並顯示總價格 -->
+                                    <td>
+                                        <button class="remove-btn">
+                                            <a href="{% url 'remove_from_cart' item.id %}">刪除商品</a>
+                                        </button>
+                                    </td>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="1" style="text-align: left;"><strong>Total Price:</strong></td>
+                            <td colspan="1" style="text-align: right;"><strong> </strong></td>
+                            <td colspan="1">{{ cart_total }}</td> <!-- 顯示總價 -->
+                            <td></td> <!-- 空白列，可根據需求調整 -->
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="{% url 'checkout' %}" class="checkout-btn">Checkout</a>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-info">
+                <div class="footer-section">
+                    <div class="footer-section-left">
+                        <h3>關於我們</h3>
+                    </div>
+                    <div class="footer-section-right">
+                        <ul>
+                            <li><a href="#">優惠資訊 / Coupon</a></li>
+                            <li><a href="#">商店介紹 / Introduction</a></li>
+                            <li><a href="#">與我們合作 / Cooperation</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <div class="footer-section-left">
+                        <h3>顧客服務</h3>
+                    </div>
+                    <div class="footer-section-right">
+                        <ul>
+                            <li><a href="#">購物須知 / How To Buy</a></li>
+                            <li><a href="#">退換貨政策 / After-sales Service</a></li>
+                            <li><a href="#">隱私權政策 / Privacy</a></li>
+                            <li><a href="#">使用者條款 / Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <div class="footer-section-left">
+                        <h3>尋找我們</h3>
+                    </div>
+                    <div class="footer-section-right">
+                        <ul>
+                            <li>客服專線 02-85461000</li>
+                            <li>服務時間 上班日 8:00-21:00</li>
+                            <li>信箱 stonebaby@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
