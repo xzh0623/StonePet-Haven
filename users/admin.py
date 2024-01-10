@@ -4,5 +4,3 @@ from .models import CustomUser, Buyer, Seller, Product, Cart, Order
 # Register your models here.
 admin.site.register(CustomUser)
 admin.site.register(Product)
-admin.site.register(Cart)
-admin.site.register(Order)

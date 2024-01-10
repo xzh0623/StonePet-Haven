@@ -1,26 +1,24 @@
 # StonePet-Haven
 
-## DEPENDENCY REQUIREMENT
-``` powershell
-❯ pip list
-Package             Version
-------------------- -------
-asgiref             3.7.2
-Django              4.2.6
-django-cors-headers 4.3.1
-environ             1.0
-mysqlclient         2.2.0
-Pillow              10.1.0
-pip                 23.3.2
-PyMySQL             1.1.0
-setuptools          65.5.0
-sqlparse            0.4.4
-tzdata              2023.3
-whitenoise          6.6.0
-```
-## 完成度
-## 完成度
+# 操作流程
+## 安裝Django ##
+   [按照網頁流程操作到Install Django](https://www.w3schools.com/django/django_install_django.php)
+- ## django基礎指令列表 ##
+  - python manage(應用程式名稱).py runserver
+  - python manage.py collectstatic(蒐集網頁CSS檔案和圖片等資料)
+  - 備註:使用前需要先把setting裡面的debug=true，然後執行runserver然後打開網頁讓他可以蒐集到圖片等快取資料，然後再把debug改成false，最後重啟網站方可使用
+## 安裝XAMPP ##
 
+- ### 第一步:安裝XAMPP(版本8.0.30) ###
+![image](https://github.com/xzh0623/StonePet-Haven/assets/126553336/c014abd2-5562-452c-8f98-72294d5bdfdc)
+- ### 第二步:執行指令安裝 ###
+![image](https://github.com/xzh0623/StonePet-Haven/assets/126553336/1b4ef6a5-31c3-473f-b359-9e29373a2189)
+![image](https://github.com/xzh0623/StonePet-Haven/assets/126553336/c91b183d-2f21-4e5a-815e-05ec57243095)
+- ### 第三步:執行XAMPP(開啟Apache MySQL(有本地sql不用開啟)) ###
+![image](https://github.com/xzh0623/StonePet-Haven/assets/126553336/5975119d-1832-4553-bcc0-1a8603c8fdc5)
+
+
+   
 - [x] **首頁**
   - [x] 未登入首頁 
   - [x] 登入後首頁
@@ -55,12 +53,12 @@ whitenoise          6.6.0
       - [x] 已購商品的訂單
         - [ ] 訂單細節
 - [ ] **優惠券**
-  - [x] 使用優惠券
+  - [ ] 使用優惠券
   - [ ] 優惠券歷史
 - [x] **用戶帳戶**
   - [x] 個人資料
     - [x] 編輯個人資料
-    - [x] 修改密碼
+    - [ ] 修改密碼
     - [x] 地址簿
     - [ ] 付款方式
   - [ ] 設定

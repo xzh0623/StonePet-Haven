@@ -18,11 +18,11 @@
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'logout' %}">登出</a></li>
                     <li><a href="{% url 'view_profile' %}">{{ user.name }}</li>
+                    <li><a href="{% url 'view_cart' %}">購物車</a></li>
                     <!-- Add authenticated user content here -->
                 {% else %}
                     <li><a href="{% url 'login' %}">登入</a></li>
                 {% endif %}
-                <li><a href="{% url 'view_cart' %}">購物車</a></li>
                 <li><a href="{% url 'products' %}">商品</a></li>
                 <!-- Add more navigation links as needed -->
             </ul>
@@ -30,6 +30,7 @@
         <main>
             <!-- Product listing goes here -->
             {% for product in products %}
+                {% if product.is_active %}
                 <div class="product">
                     <a href="{% url 'product_detail' product.product_id %}">
                     {% if product.picture_in_browsing %}
@@ -41,6 +42,7 @@
                     </a>
                     <span>${{ product.price }}</span>
                 </div>
+                {% endif %}
             {% endfor %}
             <!-- Add more product items as needed -->
         </main>
