@@ -1,0 +1,50 @@
+<!-- seller_registration.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Registration</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'babystone/css/register.css' %}">
+</head>
+<body>
+    <div class="main-container">
+        <nav>
+            <ul class="navbar">
+                <li><a href="{% url 'homepage' %}">BabyStone</a></li>
+                <li><a href="{% url 'homepage' %}"><img src="{% static 'babystone/img/menu.png' %}" alt="Menu"></a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">登出</a></li>
+                    <li><a href="{% url 'view_profile' %}">{{ user.name }}</li>
+                    <li><a href="{% url 'view_cart' %}">購物車</a></li>
+                    <!-- Add authenticated user content here -->
+                {% else %}
+                    <li><a href="{% url 'login' %}">登入</a></li>
+                {% endif %}
+                <li><a href="{% url 'products' %}">商品</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+        <main>
+            <div class="register-container">
+                <h2>Seller Registration</h2>
+                <form method="post" action="{% url 'seller_registration' %}" class="register-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Register</button>
+                </form>
+                {% if error %}
+                    <p class="error-message">{{ error }}</p>
+                {% endif %}
+            </div>
+        </main>
+        <footer>
+            <div class="footer-info">
+                <!-- Footer content goes here -->
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

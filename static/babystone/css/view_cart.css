@@ -1,0 +1,227 @@
+/* view_cart.css */
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    padding-top: 60px; /* 新增 padding-top 來確保 .cart-container 與 .main 元素之間有足夠的空間 */
+    min-height: 700px;
+    background-color: #adadad;
+}
+
+.main-container {
+    position: relative;
+    padding-top: 60px; /* 新增 padding-top 來確保 .cart-container 與 .main 元素之間有足夠的空間 */
+}
+
+
+
+nav {
+    background-color: #c4bbb2;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    height: 120px;
+    width: 100%;
+    z-index: 2;
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 0px;
+    text-align: center;
+    height: 100%;
+    align-items: center;
+}
+
+.navbar a {
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 0 16px;
+    text-decoration: none;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 75px;
+}
+
+.navbar a:hover {
+    color: black;
+}
+
+.navbar li:first-child {
+    float: left;
+}
+
+.navbar li {
+    float: right;
+}
+
+.cart-container {
+    max-width: 1200px;
+    margin-top: 20px; /* 將 margin-top 設置為適當的值，不會影響到 main */
+    margin-left: 270px; /* 將 margin-top 設置為適當的值，不會影響到 main */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #c4bbb2;
+}
+
+.cart-container h2 {
+    color: #333;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-weight: bold;
+}
+/* .cart-table 表格內文字樣式 */
+.cart-table th,
+.cart-table td {
+    font-size: 14px; /* 調整字體大小 */
+    color: #333; /* 字體顏色 */
+    font-weight: bold;
+    font-style: normal; /* 字體樣式（normal, italic, oblique） */
+    text-align: left; /* 文字對齊方式（left, center, right, justify） */
+    line-height: 1.5; /* 行高 */
+}
+
+/* .cart-table 表頭標題文字樣式 */
+.cart-table th {
+    background-color: #878787;
+    color: #fff; /* 表頭文字顏色 */
+    border: 1px solid #ddd;
+}
+
+/* .cart-table 每行奇數行背景色 */
+.cart-table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* .cart-table 表格內連結樣式 */
+.cart-table a {
+    color: #ffffff; /* 鏈接文字顏色 */
+    text-decoration: none;
+}
+
+.cart-table a:hover {
+    color: #45a049; /* 鏈接文字懸停時的顏色 */
+}
+
+.cart-table th, .cart-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 3px;
+    max-width: 300px;
+}
+.cart-table th:not(:last-child),
+.cart-table td:not(:last-child) {
+    min-width: 200px;
+}
+.cart-table th {
+    background-color: #878787;
+    border: 1px solid #ddd;
+}
+
+.remove-btn {
+    background-color: #ff6666;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s, box-shadow 0.3s; /* 添加过渡效果 */
+}
+
+.remove-btn:hover {
+    background-color: #ff4d4d;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* 添加阴影效果 */
+}
+
+.checkout-btn {
+    display: inline-block;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s; /* 添加过渡效果 */
+}
+
+.checkout-btn:hover {
+    background-color: #45a049;
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.5); /* 添加阴影效果 */
+}
+
+/* Add your specific styles for the view_cart page here */
+
+.footer-info {
+    background-color: #c4bbb2;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0px;
+}
+
+.footer-section {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.footer-section-left {
+    text-align: right;
+}
+
+.footer-section-right {
+    text-align: left;
+}
+
+.footer-section h4 {
+    color: #333;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 12px;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.footer-section ul li:before {
+    color: #333;
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: #000;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}

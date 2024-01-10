@@ -1,0 +1,260 @@
+/* home.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333; /* 修改文字颜色 */
+}
+
+.main-container {
+    position: relative;
+}
+.main{
+    flex-grow: 1;
+    padding: 2em;
+    background-color: #adadad;
+    clear: both; /* 清除浮動 */
+}
+nav {
+    background-color: #c4bbb2;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    height: 120px;
+    width: 100%;
+    z-index: 2;
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 0px;
+    text-align: center;
+    height: 100%; /* 調整高度 */
+    align-items: center; /* 垂直置中 */
+    margin-bottom: 20px; /* 根據需要調整距離 */
+}
+
+.navbar a {
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 0 16px; /* 調整 padding */
+    text-decoration: none;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 75px; /* 調整行高 */
+}
+
+.navbar a:hover {
+    color: black;
+}
+
+/* 將主頁靠左，其他項目靠右 */
+.navbar li:first-child {
+    float: left;
+}
+
+.navbar li {
+    float: right;
+}
+
+main {
+    flex-grow: 1;
+    padding: 2em;
+    background-color: #adadad;
+    min-height: 700px;
+}
+
+.product-detail {
+    text-align: center;
+}
+
+.product-detail img {
+    max-width: 30%;
+    height: auto;
+}
+
+.product-detail h1 {
+    margin-top: 0;
+}
+.Product_Image {
+    max-width: 40%;
+    margin-top: 30px; /* 根據需要調整距離 */
+    margin-left: 30px;
+
+}
+.product-detail p {
+    margin-bottom: 1em;
+}
+
+.add-to-cart {
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #7f7f7f; /* Darker color */
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow effect */
+}
+
+.add-to-cart:hover {
+    background-color: #5a5a5a; /* Darker color on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increased shadow effect on hover */
+}
+
+.back-to-product-list {
+    position: absolute;
+    top: 80%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #7f7f7f; /* Darker color */
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow effect */
+}
+
+.back-to-product-list {
+    background-color: #5a5a5a; /* Darker color on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increased shadow effect on hover */
+}
+.product-container {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 350px;
+    border: none; /* 移除邊框 */
+    background-color: #c4bbb2;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4); /* 加強陰影效果 */
+    text-align: center;
+}
+
+.product-description {
+    font-size: 26px; /* 調整字體大小 */
+    font-weight: bold;
+    color: #b78a5d; /* 顏色調整 */
+    margin-bottom: 10px;
+    text-align: left; /* 靠左對齊 */
+
+}
+
+.product-price {
+    font-size: 26px; /* 調整字體大小 */
+    font-weight: bold;
+    color: #b78a5d; /* 顏色調整 */
+    text-align: left; /* 靠左對齊 */
+    margin-bottom: 20px;
+}
+
+.quantity-container {
+    position: absolute;
+    top: 75%;
+    font-weight: bold;
+    color: #b78a5d; /* 顏色調整 */
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.quantity-label {
+    font-size: 26px; /* 調整字體大小 */
+    margin-right: 10px;
+}
+
+#quantity {
+    font-size: 26px;
+    background-color: rgba(127, 127, 127, 0.5); /* 半透明灰色 */
+    color: #fff; /* 字體顏色 */
+    padding: 5px 10px; /* 適當的內邊距 */
+    border-radius: 5px; /* 圓角 */
+    width: 40px; /* 調整寬度，這裡可以根據需要進行調整 */
+}
+
+.quantity-btn {
+    background-color: #7f7f7f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 15px;
+    font-size: 22px;
+    display: flex;
+    justify-content: center; /* 水平置中 */
+    align-items: center; /* 垂直置中 */
+    width: 25px; /* 調整寬度，這裡可以根據需要進行調整 */
+}
+
+#quantity {
+    font-size: 16px;
+    margin: 0 5px;
+}
+
+.footer-info {
+    background-color: #c4bbb2;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0px;
+}
+
+.footer-section {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.footer-section-left {
+    text-align: right;
+}
+
+.footer-section-right {
+    text-align: left;
+}
+
+.footer-section h4 {
+    color: #333;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 12px;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.footer-section ul li:before {
+    color: #333;
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: #000;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
